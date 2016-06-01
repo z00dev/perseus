@@ -96,7 +96,8 @@ var Graph = React.createClass({
                               width={imageData.width}
                               height={imageData.height}
                               scale={scale}
-                              responsive={false} />;
+                              responsive={false}
+                              zoomToFullSize={false} />;
         } else {
             image = null;
         }

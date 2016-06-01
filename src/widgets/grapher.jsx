@@ -145,7 +145,8 @@ var FunctionGrapher = React.createClass({
             image = <SvgImage src={imageDescription.url}
                               width={imageDescription.width}
                               height={imageDescription.height}
-                              scale={scale} />;
+                              scale={scale}
+                              zoomToFullSize={false} />;
         }
 
         return <div
