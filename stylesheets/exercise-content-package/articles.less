@@ -562,9 +562,6 @@
 .zoom-img {
     position: absolute;
     z-index: 9001;
-    -webkit-transition: all 300ms ease;
-    -o-transition: all 300ms ease;
-    transition: all 300ms ease;
 }
 
 img.zoom-img {
@@ -581,6 +578,7 @@ img.zoom-img {
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: scroll;
     -webkit-transition: background 300ms;
     -o-transition:      background 300ms;
     transition:         background 300ms;
