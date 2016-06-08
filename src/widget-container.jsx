@@ -40,6 +40,14 @@ var WidgetContainer = React.createClass({
                             this.props.enabledFeatures);
         }
 
+        // XXX(david): STOPSHIP - this full-widths all images, regardless of
+        // float, so that we can test what happens if we do that, which we're
+        // considering for phone layout reasons. This is to throw up a quick
+        // ZND prototype for designers and other folks to play with.
+        if (type === "image") {
+            alignment = "block";
+        }
+
         className += " widget-" + alignment;
 
         var apiOptions = this.state.widgetProps.apiOptions;
