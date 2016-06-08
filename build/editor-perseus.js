@@ -1,6 +1,6 @@
 /*! Perseus with editors | http://github.com/Khan/perseus */
-// commit 4264358d30d9cebaa2ee541da4288eb77927687a
-// branch master
+// commit b153466e230341d0f49e87632ab9d1051038bc75
+// branch znd-block-images
 // @generated
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -11,7 +11,7 @@
 		exports["Perseus"] = factory(require("react"), require("underscore"), require("react-dom"), require("react-addons-create-fragment"), require("jquery"), require("classnames"), require("aphrodite"), require("react-addons-pure-render-mixin"), require("react-addons-css-transition-group"));
 	else
 		root["Perseus"] = factory(root["react"], root["underscore"], root["react-dom"], root["react-addons-create-fragment"], root["jquery"], root["classnames"], root["aphrodite"], root["react-addons-pure-render-mixin"], root["react-addons-css-transition-group"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_16__, __WEBPACK_EXTERNAL_MODULE_17__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_19__, __WEBPACK_EXTERNAL_MODULE_42__, __WEBPACK_EXTERNAL_MODULE_145__, __WEBPACK_EXTERNAL_MODULE_146__, __WEBPACK_EXTERNAL_MODULE_283__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_16__, __WEBPACK_EXTERNAL_MODULE_17__, __WEBPACK_EXTERNAL_MODULE_25__, __WEBPACK_EXTERNAL_MODULE_26__, __WEBPACK_EXTERNAL_MODULE_42__, __WEBPACK_EXTERNAL_MODULE_145__, __WEBPACK_EXTERNAL_MODULE_146__, __WEBPACK_EXTERNAL_MODULE_283__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -81,19 +81,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var version = __webpack_require__(60);
+	var version = __webpack_require__(62);
 
-	__webpack_require__(20);
+	__webpack_require__(18);
 
 	module.exports = {
 	    apiVersion: version.apiVersion,
 	    itemDataVersion: version.itemDataVersion,
-	    init: __webpack_require__(21),
-	    ArticleRenderer: __webpack_require__(22),
-	    ItemRenderer: __webpack_require__(23),
-	    ServerItemRenderer: __webpack_require__(24),
-	    HintsRenderer: __webpack_require__(25),
-	    Renderer: __webpack_require__(26) };
+	    init: __webpack_require__(19),
+	    ArticleRenderer: __webpack_require__(20),
+	    ItemRenderer: __webpack_require__(21),
+	    ServerItemRenderer: __webpack_require__(22),
+	    HintsRenderer: __webpack_require__(23),
+	    Renderer: __webpack_require__(24) };
 
 /***/ },
 /* 2 */
@@ -103,8 +103,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* eslint-disable no-undef, no-var */
 	/* To fix, remove an entry above, run ka-lint, and fix errors. */
 
-	__webpack_require__(20);
-	var Version = __webpack_require__(60);
+	__webpack_require__(18);
+	var Version = __webpack_require__(62);
 	var Widgets = __webpack_require__(27);
 
 	var ItemVersion = _.clone(Widgets.getVersionVector());
@@ -1390,7 +1390,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var ApiOptions = __webpack_require__(5).Options;
-	var ArticleRenderer = __webpack_require__(22);
+	var ArticleRenderer = __webpack_require__(20);
 	var Editor = __webpack_require__(11);
 	var EnabledFeatures = __webpack_require__(32);
 	var JsonEditor = __webpack_require__(33);
@@ -1723,15 +1723,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var React = __webpack_require__(15);
 	var ReactDOM = __webpack_require__(17);
-	var ReactCreateFragment = __webpack_require__(18);
-	var $ = __webpack_require__(19);
+	var ReactCreateFragment = __webpack_require__(25);
+	var $ = __webpack_require__(26);
 	var _ = __webpack_require__(16);
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var DragTarget = __webpack_require__(43);
 	var EnabledFeatures = __webpack_require__(32);
 	var PerseusMarkdown = __webpack_require__(31);
-	var PropCheckBox = __webpack_require__(34);
+	var PropCheckBox = __webpack_require__(36);
 	var Util = __webpack_require__(6);
 	var Widgets = __webpack_require__(27);
 
@@ -2741,11 +2741,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var ApiClassNames = __webpack_require__(5).ClassNames;
-	var CombinedHintsEditor = __webpack_require__(35);
+	var CombinedHintsEditor = __webpack_require__(34);
 	var EnabledFeatures = __webpack_require__(32);
 	var FixPassageRefs = __webpack_require__(40);
-	var ItemEditor = __webpack_require__(36);
-	var ItemRenderer = __webpack_require__(23);
+	var ItemEditor = __webpack_require__(35);
+	var ItemRenderer = __webpack_require__(21);
 	var JsonEditor = __webpack_require__(33);
 	var ViewportResizer = __webpack_require__(14);
 
@@ -3244,18 +3244,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_18__;
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __WEBPACK_EXTERNAL_MODULE_19__;
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* TODO(csilvers): fix these lint errors (http://eslint.org/docs/rules): */
 	/* eslint-disable no-var */
 	/* To fix, remove an entry above, run ka-lint, and fix errors. */
@@ -3278,7 +3266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Widgets.validateAlignments();
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* TODO(csilvers): fix these lint errors (http://eslint.org/docs/rules): */
@@ -3319,7 +3307,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = init;
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -3335,7 +3323,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var ApiClassNames = __webpack_require__(5).ClassNames;
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 
 	var rendererProps = React.PropTypes.shape({
 	    content: React.PropTypes.string,
@@ -3408,7 +3396,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ArticleRenderer;
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -3423,8 +3411,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var EnabledFeatures = __webpack_require__(32);
-	var HintsRenderer = __webpack_require__(25);
-	var Renderer = __webpack_require__(26);
+	var HintsRenderer = __webpack_require__(23);
+	var Renderer = __webpack_require__(24);
 	var Util = __webpack_require__(6);
 	var getHintsPlacement = __webpack_require__(45);
 
@@ -3799,7 +3787,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ItemRenderer;
 
 /***/ },
-/* 24 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -3817,8 +3805,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var EnabledFeatures = __webpack_require__(32);
-	var HintsRenderer = __webpack_require__(25);
-	var Renderer = __webpack_require__(26);
+	var HintsRenderer = __webpack_require__(23);
+	var Renderer = __webpack_require__(24);
 	var Util = __webpack_require__(6);
 
 	var _require = __webpack_require__(137);
@@ -4097,7 +4085,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ItemRenderer;
 
 /***/ },
-/* 25 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(15);
@@ -4267,7 +4255,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = HintsRenderer;
 
 /***/ },
-/* 26 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -4278,7 +4266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/*eslint-disable no-console */
 	/* globals KA */
-	var $ = __webpack_require__(19);
+	var $ = __webpack_require__(26);
 	var React = __webpack_require__(15);
 	var ReactDOM = __webpack_require__(17);
 	var _ = __webpack_require__(16);
@@ -5796,6 +5784,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Renderer;
 	/* We add extra empty spans around the math to make it not
 	   wrap (I don't know why this works, but it does) */
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_25__;
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_26__;
 
 /***/ },
 /* 27 */
@@ -7508,77 +7508,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	/* TODO(csilvers): fix these lint errors (http://eslint.org/docs/rules): */
-	/* eslint-disable comma-dangle, no-var, react/jsx-closing-bracket-location, react/jsx-indent-props, react/prop-types, react/sort-comp */
-	/* To fix, remove an entry above, run ka-lint, and fix errors. */
-
-	var React = __webpack_require__(15);
-	var _ = __webpack_require__(16);
-
-	/* A checkbox that syncs its value to props using the
-	 * renderer's onChange method, and gets the prop name
-	 * dynamically from its props list
-	 */
-	var PropCheckBox = React.createClass({
-	    displayName: "PropCheckBox",
-
-	    propTypes: {
-	        labelAlignment: React.PropTypes.oneOf(["left", "right"])
-	    },
-
-	    DEFAULT_PROPS: {
-	        label: null,
-	        onChange: null,
-	        labelAlignment: "left"
-	    },
-
-	    getDefaultProps: function () {
-	        return this.DEFAULT_PROPS;
-	    },
-
-	    propName: function () {
-	        var propName = _.find(_.keys(this.props), function (localPropName) {
-	            return !_.has(this.DEFAULT_PROPS, localPropName);
-	        }, this);
-
-	        if (!propName) {
-	            throw new Error("Attempted to create a PropCheckBox with no " + "prop!");
-	        }
-
-	        return propName;
-	    },
-
-	    _labelAlignLeft: function () {
-	        return this.props.labelAlignment === "left";
-	    },
-
-	    render: function () {
-	        var propName = this.propName();
-	        return React.createElement(
-	            "label",
-	            null,
-	            this._labelAlignLeft() && this.props.label,
-	            React.createElement("input", { type: "checkbox",
-	                checked: this.props[propName],
-	                onChange: this.toggle }),
-	            !this._labelAlignLeft() && this.props.label
-	        );
-	    },
-
-	    toggle: function () {
-	        var propName = this.propName();
-	        var changes = {};
-	        changes[propName] = !this.props[propName];
-	        this.props.onChange(changes);
-	    }
-	});
-
-	module.exports = PropCheckBox;
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* TODO(csilvers): fix these lint errors (http://eslint.org/docs/rules): */
 	/* eslint-disable no-var, react/jsx-closing-bracket-location, react/jsx-indent-props, react/prop-types, react/sort-comp */
 	/* To fix, remove an entry above, run ka-lint, and fix errors. */
 
@@ -7591,7 +7520,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Editor = __webpack_require__(11);
 	var HintRenderer = __webpack_require__(46);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 
 	/* Renders a hint editor box
 	 *
@@ -7875,7 +7804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = CombinedHintsEditor;
 
 /***/ },
-/* 36 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -7889,8 +7818,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var Editor = __webpack_require__(11);
-	var ItemExtrasEditor = __webpack_require__(62);
-	var ITEM_DATA_VERSION = __webpack_require__(60).itemDataVersion;
+	var ItemExtrasEditor = __webpack_require__(61);
+	var ITEM_DATA_VERSION = __webpack_require__(62).itemDataVersion;
 
 	var ItemEditor = React.createClass({
 	    displayName: "ItemEditor",
@@ -8016,6 +7945,77 @@ return /******/ (function(modules) { // webpackBootstrap
 	    } });
 
 	module.exports = ItemEditor;
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* TODO(csilvers): fix these lint errors (http://eslint.org/docs/rules): */
+	/* eslint-disable comma-dangle, no-var, react/jsx-closing-bracket-location, react/jsx-indent-props, react/prop-types, react/sort-comp */
+	/* To fix, remove an entry above, run ka-lint, and fix errors. */
+
+	var React = __webpack_require__(15);
+	var _ = __webpack_require__(16);
+
+	/* A checkbox that syncs its value to props using the
+	 * renderer's onChange method, and gets the prop name
+	 * dynamically from its props list
+	 */
+	var PropCheckBox = React.createClass({
+	    displayName: "PropCheckBox",
+
+	    propTypes: {
+	        labelAlignment: React.PropTypes.oneOf(["left", "right"])
+	    },
+
+	    DEFAULT_PROPS: {
+	        label: null,
+	        onChange: null,
+	        labelAlignment: "left"
+	    },
+
+	    getDefaultProps: function () {
+	        return this.DEFAULT_PROPS;
+	    },
+
+	    propName: function () {
+	        var propName = _.find(_.keys(this.props), function (localPropName) {
+	            return !_.has(this.DEFAULT_PROPS, localPropName);
+	        }, this);
+
+	        if (!propName) {
+	            throw new Error("Attempted to create a PropCheckBox with no " + "prop!");
+	        }
+
+	        return propName;
+	    },
+
+	    _labelAlignLeft: function () {
+	        return this.props.labelAlignment === "left";
+	    },
+
+	    render: function () {
+	        var propName = this.propName();
+	        return React.createElement(
+	            "label",
+	            null,
+	            this._labelAlignLeft() && this.props.label,
+	            React.createElement("input", { type: "checkbox",
+	                checked: this.props[propName],
+	                onChange: this.toggle }),
+	            !this._labelAlignLeft() && this.props.label
+	        );
+	    },
+
+	    toggle: function () {
+	        var propName = this.propName();
+	        var changes = {};
+	        changes[propName] = !this.props[propName];
+	        this.props.onChange(changes);
+	    }
+	});
+
+	module.exports = PropCheckBox;
 
 /***/ },
 /* 37 */
@@ -8459,7 +8459,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $=__webpack_require__(19);var _=__webpack_require__(16);var retrieveMathFormula=__webpack_require__(141).retrieveMathFormula;var localeToFixed=__webpack_require__(142);var KhanMath=__webpack_require__(143);var MAXERROR_EPSILON=Math.pow(2, -42);var extractRawCode=function(elem){var $elem=$(elem).clone(true);var code=$elem.find("code");if(code.length){$.each(code, function(i, elem){$(elem).replaceWith("<code><script type=\"math/tex\">" + retrieveMathFormula(elem) + "</script></code>");});}return $elem.html();};function getTextSquish(elem){return $(elem).text().replace(/\s+/g, "");}function checkIfAnswerEmpty(guess){return $.trim(guess) === "" || guess instanceof Array && $.trim(guess.join("").replace(/,/g, "")) === "";}function addExamplesToInput($input, examples){if($input.data("qtip")){$input.qtip("destroy", true);}var $examples=$("<ul class=\"examples\" style=\"display: none\"></ul>");_.each(examples, function(example){$examples.append("<li>" + example + "</li>");});$input.qtip({content:{text:$examples.remove(), prerender:true}, style:{classes:"qtip-light leaf-tooltip"}, position:{my:"top left", at:"bottom left"}, show:{delay:0, effect:{length:0}, event:"focus"}, hide:{delay:0, event:"blur"}, events:{render:function(){$examples.children().runModules();}}});}function numberAnswerType(forms){return {setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.number.setupFunctional(solutionarea, solutionText, $.extend({}, solutionData, {forms:forms}));}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.number.createValidatorFunctional(correct, $.extend({}, options, {forms:forms}));}};}var KhanAnswerTypes={letters:{setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.text.setupFunctional(solutionarea, solutionText, solutionData, "letters");}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.text.createValidatorFunctional(correct, options);}}, lowers:{setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.text.setupFunctional(solutionarea, solutionText, solutionData, "lowers");}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.text.createValidatorFunctional(correct, options);}}, caps:{setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.text.setupFunctional(solutionarea, solutionText, solutionData, "caps");}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.text.createValidatorFunctional(correct, options);}}, text:{setupFunctional:function(solutionarea, solutionText, solutionData, solutionGrammar){solutionGrammar = solutionGrammar || "text";var input=undefined;if(window.Modernizr && Modernizr.touchevents){input = $("<input data-solution-grammar=\"" + solutionGrammar + "\" type=\"text\" autocapitalize=\"off\">");}else {input = $("<input data-solution-grammar=\"" + solutionGrammar + "\" type=\"text\">");}$(solutionarea).append(input);return {validator:KhanAnswerTypes.text.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.val();}, solution:$.trim(solutionText), showGuess:function(guess){input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(correct, options){options = _.extend({correctCase:"required"}, options);correct = $.trim(correct);return function(guess){var fallback=options.fallback != null?"" + options.fallback:"";guess = $.trim(guess) || fallback;var score={empty:false, correct:false, message:null, guess:guess};if(guess.toLowerCase() === correct.toLowerCase()){if(correct === guess || options.correctCase === "optional"){score.correct = true;}else {if(guess === guess.toLowerCase()){score.message = i18n._("Your answer is almost correct, but " + "must be in capital letters.");}else if(guess === guess.toUpperCase()){score.message = i18n._("Your answer is almost correct, but " + "must not be in capital letters.");}else {score.message = i18n._("Your answer is almost correct, but " + "must be in the correct case.");}}}return score;};}}, predicate:{defaultForms:"integer, proper, improper, mixed, decimal", setupFunctional:function(solutionarea, solutionText, solutionData){var options=$.extend({simplify:"required", ratio:false, forms:KhanAnswerTypes.predicate.defaultForms}, solutionData);var acceptableForms=options.forms.split(/\s*,\s*/);if(options.inexact === undefined){options.maxError = 0;}options.maxError = +options.maxError + MAXERROR_EPSILON;var $input=$("<input type=\"text\" autocapitalize=\"off\">");$(solutionarea).append($input);var exampleForms={integer:i18n._("an integer, like <code>6</code>"), proper:(function(){if(options.simplify === "optional"){return i18n._("a <em>proper</em> fraction, like " + "<code>1/2</code> or <code>6/10</code>");}else {return i18n._("a <em>simplified proper</em> " + "fraction, like <code>3/5</code>");}})(), improper:(function(){if(options.simplify === "optional"){return i18n._("an <em>improper</em> fraction, like " + "<code>10/7</code> or <code>14/8</code>");}else {return i18n._("a <em>simplified improper</em> " + "fraction, like <code>7/4</code>");}})(), pi:i18n._("a multiple of pi, like <code>12\\ \\text{pi}" + "</code> or <code>2/3\\ \\text{pi}</code>"), log:i18n._("an expression, like <code>\\log(100)</code>"), percent:i18n._("a percent, like <code>%(NUM)s\\%</code>", {NUM:localeToFixed(12.34, 2)}), mixed:i18n._("a mixed number, like <code>1\\ 3/4</code>"), decimal:(function(){if(options.inexact === undefined){return i18n._("an <em>exact</em> decimal, like " + "<code>%(NUM)s</code>", {NUM:localeToFixed(0.75, 2)});}else {return i18n._("a decimal, like <code>%(NUM)s</code>", {NUM:localeToFixed(0.75, 2)});}})()};var examples=[];$.each(acceptableForms, function(i, form){if(exampleForms[form] != null){examples.push(exampleForms[form]);}});if(options.forms !== KhanAnswerTypes.predicate.defaultForms){addExamplesToInput($input, examples);}return {validator:KhanAnswerTypes.predicate.createValidatorFunctional(solutionText, solutionData), answer:function(){return $input.val();}, solution:$.trim(solutionText), showGuess:function(guess){$input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(predicate, options){options = _.extend({simplify:"required", ratio:false, forms:KhanAnswerTypes.predicate.defaultForms}, options);var acceptableForms=undefined;if(!_.isArray(options.forms)){acceptableForms = options.forms.split(/\s*,\s*/);}else {acceptableForms = options.forms;}if(options.inexact === undefined){options.maxError = 0;}options.maxError = +options.maxError + MAXERROR_EPSILON;if(_.contains(acceptableForms, "percent")){acceptableForms = _.without(acceptableForms, "percent");acceptableForms.push("percent");}predicate = _.isFunction(predicate)?predicate:KhanUtil.tmpl.getVAR(predicate);var fractionTransformer=function(text){text = text.replace(/\u2212/, "-").replace(/([+-])\s+/g, "$1").replace(/(^\s*)|(\s*$)/gi, "");var match=text.match(/^([+-]?\d+)\s*\/\s*([+-]?\d+)$/);var parsedInt=parseInt(text, 10);if(match){var num=parseFloat(match[1]);var denom=parseFloat(match[2]);var simplified=denom > 0 && (options.ratio || match[2] !== "1") && KhanMath.getGCD(num, denom) === 1;return [{value:num / denom, exact:simplified}];}else if(!isNaN(parsedInt) && "" + parsedInt === text){return [{value:parsedInt, exact:true}];}return [];};var forms={integer:function(text){var decimal=forms.decimal(text);var rounded=forms.decimal(text, 1);if(decimal[0].value != null && decimal[0].value === rounded[0].value || decimal[1].value != null && decimal[1].value === rounded[1].value){return decimal;}return [];}, proper:function(text){return $.map(fractionTransformer(text), function(o){if(Math.abs(o.value) < 1){return [o];}else {return [];}});}, improper:function(text){return $.map(fractionTransformer(text), function(o){if(Math.abs(o.value) >= 1){return [o];}else {return [];}});}, pi:function(text){var match=undefined;var possibilities=[];text = text.replace(/\u2212/, "-");if(match = text.match(/^([+-]?)\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){possibilities = [{value:parseFloat(match[1] + "1"), exact:true}];}else if(match = text.match(/^([+-]?\s*\d+\s*(?:\/\s*[+-]?\s*\d+)?)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){possibilities = fractionTransformer(match[1]);}else if(match = text.match(/^([+-]?)\s*(\d+)\s*([+-]?\d+)\s*\/\s*([+-]?\d+)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){var sign=parseFloat(match[1] + "1");var integ=parseFloat(match[2]);var num=parseFloat(match[3]);var denom=parseFloat(match[4]);var simplified=num < denom && KhanMath.getGCD(num, denom) === 1;possibilities = [{value:sign * (integ + num / denom), exact:simplified}];}else if(match = text.match(/^([+-]?\s*\d+)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)\s*(?:\/\s*([+-]?\s*\d+))?$/i)){possibilities = fractionTransformer(match[1] + "/" + match[3]);}else if(match = text.match(/^([+-]?)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)\s*(?:\/\s*([+-]?\d+))?$/i)){possibilities = fractionTransformer(match[1] + "1/" + match[3]);}else if(text === "0"){possibilities = [{value:0, exact:true}];}else if(match = text.match(/^(.+)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){possibilities = forms.decimal(match[1]);}else {possibilities = _.reduce(KhanAnswerTypes.predicate.defaultForms.split(/\s*,\s*/), function(memo, form){return memo.concat(forms[form](text));}, []);var approximatesPi=false;var number=parseFloat(text);if(!isNaN(number) && number !== parseInt(text)){var piMult=Math.PI / 12;var roundedNumber=piMult * Math.round(number / piMult);if(Math.abs(number - roundedNumber) < 0.01){approximatesPi = true;}}else if(text.match(/\/\s*7/)){approximatesPi = true;}if(approximatesPi){_.each(possibilities, function(possibility){possibility.piApprox = true;});}return possibilities;}var multiplier=Math.PI;if(text.match(/\\?tau|t|\u03c4/)){multiplier = Math.PI * 2;}if(text.match(/pau/)){multiplier = Math.PI * 1.5;}$.each(possibilities, function(ix, possibility){possibility.value *= multiplier;});return possibilities;}, coefficient:function(text){var possibilities=[];text = text.replace(/\u2212/, "-");if(text === ""){possibilities = [{value:1, exact:true}];}else if(text === "-"){possibilities = [{value:-1, exact:true}];}return possibilities;}, log:function(text){var match=undefined;var possibilities=[];text = text.replace(/\u2212/, "-");text = text.replace(/[ \(\)]/g, "");if(match = text.match(/^log\s*(\S+)\s*$/i)){possibilities = forms.decimal(match[1]);}else if(text === "0"){possibilities = [{value:0, exact:true}];}return possibilities;}, percent:function(text){text = $.trim(text);var hasPercentSign=false;if(text.indexOf("%") === text.length - 1){text = $.trim(text.substring(0, text.length - 1));hasPercentSign = true;}var transformed=forms.decimal(text);$.each(transformed, function(ix, t){t.exact = hasPercentSign;t.value = t.value / 100;});return transformed;}, mixed:function(text){var match=text.replace(/\u2212/, "-").replace(/([+-])\s+/g, "$1").match(/^([+-]?)(\d+)\s+(\d+)\s*\/\s*(\d+)$/);if(match){var sign=parseFloat(match[1] + "1");var integ=parseFloat(match[2]);var num=parseFloat(match[3]);var denom=parseFloat(match[4]);var simplified=num < denom && KhanMath.getGCD(num, denom) === 1;return [{value:sign * (integ + num / denom), exact:simplified}];}return [];}, decimal:function(text, precision){if(precision == null){precision = 10000000000;}var normal=function(text){text = $.trim(text);var match=text.replace(/\u2212/, "-").replace(/([+-])\s+/g, "$1").match(/^([+-]?(?:\d{1,3}(?:[, ]?\d{3})*\.?|\d{0,3}(?:[, ]?\d{3})*\.(?:\d{3}[, ]?)*\d{1,3}))$/);var badLeadingZero=text.match(/^0[0,]*,/);if(match && !badLeadingZero){var x=parseFloat(match[1].replace(/[, ]/g, ""));if(options.inexact === undefined){x = Math.round(x * precision) / precision;}return x;}};var commas=function(text){text = text.replace(/([\.,])/g, function(_, c){return c === "."?",":".";});return normal(text);};return [{value:normal(text), exact:true}, {value:commas(text), exact:true}];}};return function(guess){var fallback=options.fallback != null?"" + options.fallback:"";guess = $.trim(guess) || fallback;var score={empty:guess === "", correct:false, message:null, guess:guess};$.each(acceptableForms, function(i, form){var transformed=forms[form](guess);for(var j=0, l=transformed.length; j < l; j++) {var val=transformed[j].value;var exact=transformed[j].exact;var piApprox=transformed[j].piApprox;if(predicate(val, options.maxError)){if(exact || options.simplify === "optional"){score.correct = true;score.message = options.message || null;score.empty = false;}else if(form === "percent"){score.empty = true;score.message = i18n._("Your answer is almost correct, " + "but it is missing a " + "<code>\\%</code> at the end.");}else {if(options.simplify !== "enforced"){score.empty = true;}score.message = i18n._("Your answer is almost correct, " + "but it needs to be simplified.");}return false;}else if(piApprox && predicate(val, Math.abs(val * 0.001))){score.empty = true;score.message = i18n._("Your answer is close, but you may " + "have approximated pi. Enter your " + "answer as a multiple of pi, like " + "<code>12\\ \\text{pi}</code> or " + "<code>2/3\\ \\text{pi}</code>");}}});if(score.correct === false){var _ret=(function(){var interpretedGuess=false;_.each(forms, function(form){var anyAreNaN=_.any(form(guess), function(t){return t.value != null && !_.isNaN(t.value);});if(anyAreNaN){interpretedGuess = true;}});if(!interpretedGuess){score.empty = true;score.message = i18n._("We could not understand your " + "answer. Please check your answer for extra " + "text or symbols.");return {v:score};}})();if(typeof _ret === "object")return _ret.v;}return score;};}}, number:{convertToPredicate:function(correct, options){var correctFloat=parseFloat($.trim(correct));return [function(guess, maxError){return Math.abs(guess - correctFloat) < maxError;}, $.extend({}, options, {type:"predicate"})];}, setupFunctional:function(solutionarea, solutionText, solutionData){var args=KhanAnswerTypes.number.convertToPredicate(solutionText, solutionData);return KhanAnswerTypes.predicate.setupFunctional(solutionarea, args[0], args[1]);}, createValidatorFunctional:function(correct, options){var _KhanAnswerTypes$predicate;return (_KhanAnswerTypes$predicate = KhanAnswerTypes.predicate).createValidatorFunctional.apply(_KhanAnswerTypes$predicate, KhanAnswerTypes.number.convertToPredicate(correct, options));}}, decimal:numberAnswerType("decimal"), rational:numberAnswerType("integer, proper, improper, mixed"), improper:numberAnswerType("integer, proper, improper"), mixed:numberAnswerType("integer, proper, mixed"), regex:{setupFunctional:function(solutionarea, solutionText, solutionData){var input=undefined;if(window.Modernizr && Modernizr.touchevents){input = $("<input type=\"text\" autocapitalize=\"off\">");}else {input = $("<input type=\"text\">");}$(solutionarea).append(input);return {validator:KhanAnswerTypes.regex.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.val();}, solution:$.trim(solutionText), showGuess:function(guess){input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(regex, options){var flags="";if(options.caseInsensitive != null){flags += "i";}regex = new RegExp($.trim(regex), flags);return function(guess){var fallback=options.fallback != null?"" + options.fallback:"";guess = $.trim(guess) || fallback;return {empty:false, correct:guess.match(regex) != null, message:null, guess:guess};};}}, radical:{setupFunctional:function(solutionarea, solutionText, solutionData){var options=$.extend({simplify:"required"}, solutionData);var inte=$("<input type=\"text\" autocapitalize=\"off\">");var rad=$("<input type=\"text\" autocapitalize=\"off\">");var examples=options.simplify === "required"?[i18n._("a simplified radical, like <code>\\sqrt{2}</code> " + "or <code>3\\sqrt{5}</code>")]:[i18n._("a radical, like <code>\\sqrt{8}</code> or " + "<code>2\\sqrt{2}</code>")];addExamplesToInput(inte, examples);addExamplesToInput(rad, examples);$("<div class='radical'>").append($("<span>").append(inte)).append("<span class=\"surd\">&radic;</span>").append($("<span>").append(rad).addClass("overline")).appendTo(solutionarea);var ansSquared=parseFloat(solutionText);var ans=KhanMath.splitRadical(ansSquared);return {validator:KhanAnswerTypes.radical.createValidatorFunctional(solutionText, solutionData), answer:function(){return [$.trim(inte.val()), $.trim(rad.val())];}, solution:ans, showGuess:function(guess){inte.val(guess?guess[0]:"");rad.val(guess?guess[1]:"");}};}, createValidatorFunctional:function(ansSquared, options){options = $.extend({simplify:"required"}, options);ansSquared = parseFloat(ansSquared);var ans=KhanMath.splitRadical(ansSquared);return function(guess){if(guess[0].length === 0 && guess[1].length === 0){return {empty:true, correct:false, message:null, guess:guess};}guess[0] = guess[0].length > 0?guess[0]:"1";guess[1] = guess[1].length > 0?guess[1]:"1";var inteGuess=parseFloat(guess[0]);var radGuess=parseFloat(guess[1]);var correct=Math.abs(inteGuess) * inteGuess * radGuess === ansSquared;var simplified=inteGuess === ans[0] && radGuess === ans[1];var score={empty:false, correct:false, message:null, guess:guess};if(correct){if(simplified || options.simplify === "optional"){score.correct = true;}else {score.message = i18n._("Your answer is almost correct, but it needs to " + "be simplified.");}}return score;};}}, cuberoot:{setupFunctional:function(solutionarea, solutionText, solutionData){var options=$.extend({simplify:"required"}, solutionData);var inte=$("<input type=\"text\" autocapitalize=\"off\">");var rad=$("<input type=\"text\" autocapitalize=\"off\">");var examples=options.simplify === "required"?[i18n._("a simplified radical, like <code>\\sqrt[3]{2}</code>" + " or <code>3\\sqrt[3]{5}</code>")]:[i18n._("a radical, like <code>\\sqrt[3]{8}</code> or " + "<code>2\\sqrt[3]{2}</code>")];addExamplesToInput(inte, examples);addExamplesToInput(rad, examples);$("<div class='radical'>").append($("<span>").append(inte)).append("<span class=\"surd\" style=\"vertical-align: 6px;\">" + "<code>\\sqrt[3]{}</code></span>").append($("<span>").append(rad).addClass("overline")).appendTo(solutionarea).tex();var ansCubed=parseFloat(solutionText);var ans=KhanMath.splitCube(ansCubed);return {validator:KhanAnswerTypes.cuberoot.createValidatorFunctional(solutionText, solutionData), answer:function(){return [inte.val(), rad.val()];}, solution:ans, showGuess:function(guess){inte.val(guess?guess[0]:"");rad.val(guess?guess[1]:"");}};}, createValidatorFunctional:function(ansCubed, options){options = $.extend({simplify:"required"}, options);ansCubed = parseFloat(ansCubed);var ans=KhanMath.splitCube(ansCubed);return function(guess){if(guess[0].length === 0 && guess[1].length === 0){return {empty:true, correct:false, message:null, guess:guess};}guess[0] = guess[0].length > 0?guess[0]:"1";guess[1] = guess[1].length > 0?guess[1]:"1";var inteGuess=parseFloat(guess[0]);var radGuess=parseFloat(guess[1]);var correct=Math.abs(inteGuess) * inteGuess * inteGuess * radGuess === ansCubed;var simplified=inteGuess === ans[0] && radGuess === ans[1];var score={empty:false, correct:false, message:null, guess:guess};if(correct){if(simplified || options.simplify === "optional"){score.correct = true;}else {score.message = i18n._("Your answer is almost correct, but it needs to " + "be simplified.");}}return score;};}}, multiple:{setup:function(solutionarea, solution){$(solutionarea).append($(solution).clone(true).texCleanup().contents().runModules());var answerDataArray=[];$(solutionarea).find(".sol").each(function(idx){var type=$(this).data("type");type = type != null?type:"number";var sol=$(solution).find(".sol").eq(idx);var solarea=$(this).empty();var answerData=KhanAnswerTypes[type].setup(solarea, sol);answerDataArray.push(answerData);});return {validator:KhanAnswerTypes.multiple.createValidator(solution), answer:function(){var answer=[];$.each(answerDataArray, function(i, answerData){answer.push(answerData.answer());});return answer;}, solution:(function(){$.map(answerDataArray, function(answerData){return answerData.solution;});})(), showGuess:function(guess){$.each(answerDataArray, function(i, answerData){if(guess !== undefined){answerData.showGuess(guess[i]);}else {answerData.showGuess();}});}, showCustomGuess:function(guess){$.each(answerDataArray, function(i, answerData){if(!_.isFunction(answerData.showCustomGuess)){return;}if(guess !== undefined){answerData.showCustomGuess(guess[i]);}else {answerData.showCustomGuess();}});}};}, createValidator:function(solution){var validators=[];$(solution).find(".sol").each(function(){var sol=$(this);var type=sol.data("type");type = type != null?type:"number";var validator=KhanAnswerTypes[type].createValidator(sol);validators.push(validator);});return function(guess){var score={empty:true, correct:true, message:null, guess:guess};var blockGradingMessage=null;if(checkIfAnswerEmpty(guess)){score.empty = true;score.correct = false;return score;}$.each(guess, function(i, g){var pass=validators[i](g);if(pass.message && pass.empty){blockGradingMessage = pass.message;}else {score.empty = score.empty && pass.empty;score.correct = score.correct && pass.correct;score.message = score.message || pass.message;}});if(score.correct && blockGradingMessage != null){return {empty:true, correct:false, message:blockGradingMessage, guess:guess};}else {score.empty = false;return score;}};}}, set:{setup:function(solutionarea, solution){$(solutionarea).append($(solution).find(".input-format").clone(true).texCleanup().contents().runModules());var inputArray=[];var showGuessArray=[];$(solutionarea).find(".entry").each(function(){var input=$(this);var type=$(this).data("type");type = type != null?type:"number";var sol=input.clone(true);var solarea=input.empty();var validator=KhanAnswerTypes[type].setup(solarea, sol);inputArray.push(validator.answer);showGuessArray.push(validator.showGuess);});var solutionArray=[];$(solution).find(".set-sol").clone(true).each(function(){var type=$(this).data("type");type = type != null?type:"number";var solarea=$("<div>");var validator=KhanAnswerTypes[type].setup(solarea, $(this));solutionArray.push(validator.solution);});return {validator:KhanAnswerTypes.set.createValidator(solution), answer:function(){var answer=[];$.each(inputArray, function(i, getAns){answer.push(getAns());});return answer;}, solution:solution, showGuess:function(guess){$.each(showGuessArray, function(i, showGuess){if(guess === undefined){showGuess();}else {showGuess(guess[i]);}});}};}, createValidator:function(solution){var validatorArray=[];$(solution).find(".set-sol").clone(true).each(function(){var type=$(this).data("type");type = type != null?type:"number";var validator=KhanAnswerTypes[type].createValidator($(this));validatorArray.push(validator);});return function(guess){var score={empty:validatorArray.length === 0?false:true, correct:true, message:null, guess:guess};var blockGradingMessage=null;var unusedValidators=validatorArray.slice(0);$.each(guess, function(i, g){var correct=false;$.each(unusedValidators, function(i, validator){var pass=validator(g);if(pass.empty && pass.message){unusedValidators.splice(i, 1);blockGradingMessage = pass.message;correct = true;return false;}if(pass.correct){correct = pass.correct;unusedValidators.splice(i, 1);return false;}if(!pass.correct && pass.message){correct = pass.message;}});if(!checkIfAnswerEmpty(g) && !checkIfAnswerEmpty(correct)){score.empty = false;}if(!correct && $.trim([g].join("")) !== ""){score.correct = false;return false;}if(typeof correct === "string"){score.message = correct;score.correct = false;}});if(validatorArray.length > guess.length){if(unusedValidators.length > validatorArray.length - guess.length){score.correct = false;}}else if(unusedValidators.length > 0){score.correct = false;}if(score.correct && blockGradingMessage != null){return {empty:true, correct:false, message:blockGradingMessage, guess:guess};}else {return score;}};}}, radio:{setup:function(solutionarea, solution){var $list=$("<ul></ul>");$(solutionarea).append($list);var $choices=$(solution).siblings(".choices");var $choicesClone=$choices.clone(true).texCleanup();var $solutionClone=$(solution).clone(true).texCleanup();var solutionText=$solutionClone.text();var isCategory=!!$choices.data("category");var possibleChoices=undefined;if(isCategory){(function(){var correctText=getTextSquish($solutionClone);possibleChoices = _.map($choicesClone.children().get(), function(elem){if(getTextSquish(elem) === correctText){return $solutionClone[0];}else {return elem;}});})();}else {possibleChoices = $solutionClone.get().concat(KhanMath.shuffle($choicesClone.children().get()));}var numChoices=+$choices.data("show") || possibleChoices.length;var showNone=!!$choices.data("none");var shownChoices=_.uniq(possibleChoices, false, function(elem){return getTextSquish(elem);});var addNoneChoice=showNone && shownChoices.length === numChoices - 1;if(shownChoices.length < numChoices && !addNoneChoice){return false;}else if(shownChoices.length > numChoices){shownChoices = shownChoices.slice(0, numChoices);}if(!isCategory){shownChoices = KhanMath.shuffle(shownChoices);}var correctIndex=undefined;_.each(shownChoices, function(choice, i){if(choice === $solutionClone[0]){correctIndex = i;}});var noneIsCorrect=showNone && correctIndex === numChoices - 1;if(showNone){var $none=$("<span>").html(i18n._("None of the above"));$none.data("noneOfTheAbove", true);if(noneIsCorrect){$list.data("realAnswer", $("<span>").addClass("value").append($solutionClone.clone(true).contents()));}var noneIndex=shownChoices.length - 1;if(addNoneChoice){noneIndex = shownChoices.length;}shownChoices.splice(noneIndex, 1, $("<span>").append($none));}var wrappedChoices=_.map(shownChoices, function(choice, i){return $("<li><label></label></li>").find("label").append([$("<input type=\"radio\" name=\"solution\">").val(i), $("<span class=\"value\"></span>").append($(choice).contents())]).end();});$list.append(wrappedChoices).runModules();return {validator:KhanAnswerTypes.radio.createValidator({solution:solution, index:correctIndex, noneIsCorrect:noneIsCorrect}), answer:function(){var $choice=$list.find("input:checked");if($choice.length === 0){return null;}var $choiceVal=$choice.siblings(".value");var $choiceNoneChild=$choiceVal.children().eq(0);return {isNone:$choiceNoneChild.data("noneOfTheAbove"), value:extractRawCode($choiceVal), index:+$choice.val()};}, solution:solutionText, showGuess:function(guess){if(guess == null){$(solutionarea).find("input:checked").attr("checked", false);}else {$list.children().filter(function(){return guess.index === $(this).find("input").val();}).find("input").attr("checked", true);}}};}, createValidator:function(solution){var correct=extractRawCode(solution.solution || solution);function showReal(){var $list=$("#solutionarea").find("ul");var $choice=$list.children().filter(function(){return $(this).find("span.value > span").data("noneOfTheAbove");}).find("input");$choice.next().fadeOut("fast", function(){var $real=$list.data("realAnswer");$(this).replaceWith($real);$real.tex().fadeIn("fast");});}return function(guess){var score={empty:false, correct:false, message:null, guess:guess};if(guess == null){score.empty = true;return score;}if(guess.index){if(guess.isNone && solution.noneIsCorrect){showReal();score.correct = true;}else {score.correct = guess.index === solution.index;}}else {if(guess.isNone && $("#solutionarea").find("ul").data("real-answer") != null){showReal();score.correct = true;}else if($.trim(guess.value).replace(/\r\n?|\n/g, "") === $.trim(correct.replace(/\r\n?|\n/g, ""))){score.correct = true;}else {score.correct = false;}}return score;};}}, list:{setupFunctional:function(solutionarea, solutionText, solutionData){var input=$("<select></select>");$(solutionarea).append(input);var choices=$.tmpl.getVAR(solutionData.choices);$.each(choices, function(index, value){input.append("<option value=\"" + value + "\">" + value + "</option>");});return {validator:KhanAnswerTypes.list.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.val();}, solution:$.trim(solutionText), showGuess:function(guess){input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(correct, options){correct = $.trim(correct);return function(guess){guess = $.trim(guess);return {empty:false, correct:correct === guess, message:null, guess:guess};};}}, custom:{setup:function(solutionarea, solution){solution.find(".instruction").appendTo(solutionarea).runModules();var guessCode=solution.find(".guess").text();var showCustomGuessCode=solution.find(".show-guess").text();var showGuessCode=solution.find(".show-guess-solutionarea").text();return {validator:KhanAnswerTypes.custom.createValidator(solution), answer:function(){return KhanUtil.tmpl.getVAR(guessCode, KhanUtil.currentGraph);}, solution:$.trim($(solution).text()), showCustomGuess:function(guess){var code="(function() { " + "var guess = " + JSON.stringify(guess) + ";" + showCustomGuessCode + "})()";KhanUtil.tmpl.getVAR(code, KhanUtil.currentGraph);}, showGuess:function(guess){var code="(function() { " + "var guess = " + JSON.stringify(guess) + ";" + showGuessCode + "})()";KhanUtil.tmpl.getVAR(code, KhanUtil.currentGraph);}};}, createValidator:function(solution){var validatorCode=$(solution).find(".validator-function").text();var validator=function(guess){var code="(function() { " + "var guess = " + JSON.stringify(guess) + ";" + validatorCode + "})()";return KhanUtil.tmpl.getVAR(code, KhanUtil.currentGraph);};return function(guess){var pass=validator(guess);if(typeof pass === "object"){return pass;}else {return {empty:pass === "", correct:pass === true, message:typeof pass === "string"?pass:null, guess:guess};}};}}, primeFactorization:{setupFunctional:function(solutionarea, solutionText, solutionData){var $input=undefined;if(window.Modernizr && Modernizr.touchevents){$input = $("<input type=\"text\" autocapitalize=\"off\">");}else {$input = $("<input type=\"text\">");}$input.addClass("prime-factorization");$(solutionarea).append($input);var examples=[i18n._("a product of prime factors, like <code>2 \\times 3" + "</code>"), i18n._("a single prime number, like <code>5</code>")];addExamplesToInput($input, examples);return {validator:KhanAnswerTypes.primeFactorization.createValidatorFunctional(solutionText, solutionData), answer:function(){return $input.val();}, solution:$.trim(solutionText), showGuess:function(guess){$input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(correct, options){correct = $.trim(correct);return function(guess){guess = guess.split(" ").join("").toLowerCase();guess = guess.replace(/{|}/g, "");guess = guess.split(/x|\*|\u00d7|\\times|\\cdot/);var terms=[];for(var i=0; i < guess.length; i++) {var t=guess[i].split("^");if(t.length > 1){for(var j=0; j < t[1]; j++) {terms.push(t[0]);}}else {terms.push(guess[i]);}}guess = KhanMath.sortNumbers(terms).join("x");return {empty:guess === "", correct:guess === correct, message:null, guess:guess};};}}, checkbox:{setupFunctional:function(solutionarea, solutionText, solutionData){var input=$("<input type=\"checkbox\">");$(solutionarea).append(input);return {validator:KhanAnswerTypes.checkbox.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.is(":checked") || "";}, solution:$.trim(solutionText), showGuess:function(guess){input.attr("checked", guess === undefined?false:guess);}};}, createValidatorFunctional:function(correct, options){correct = $.trim(correct) === "true";return function(guess){var score={empty:false, correct:false, message:null, guess:guess};if(!!correct === !!guess){score.correct = true;}else if(!guess){score.empty = true;}else {score.correct = false;}return score;};}}, expression:{setup:function(solutionarea, solution){var options=this._parseOptions($(solution).data());var $tex=$("<span class=\"tex\"/>");var $input=$("<input type=\"text\">");var $error=$("<div class=\"error-div\" style=\"display: none;\"/>");$(solutionarea).append($("<span class=\"expression\"/>").append($("<span class=\"output\"/>").append($tex), $("<span class=\"input\"/>").append($input, $error.append($("<i class=\"icon-exclamation-sign error-icon\"/>")))));var errorTimeout=null;var lastParsedTex="";var update=function(){clearTimeout(errorTimeout);var result=KAS.parse($input.val(), options);if(result.parsed){hideError();$tex.css({opacity:1});var tex=result.expr.asTex(options);if(tex !== lastParsedTex){$tex.empty().append($("<code>").text(tex)).tex();lastParsedTex = tex;}}else {errorTimeout = setTimeout(showError, 2000);$tex.css({opacity:0.5});}};var showError=function(){if(!$error.is(":visible")){$error.show();$input.addClass("error");}};var hideError=function(){if($error.is(":visible")){$error.hide();$input.removeClass("error");}};$input.on("input propertychange", update);$input.on("keydown", function(event){var input=$input[0];var start=input.selectionStart;var end=input.selectionEnd;var supported=start !== undefined;if(supported && event.which === 8){var val=input.value;if(start === end && val.slice(start - 1, start + 1) === "()"){event.preventDefault();input.value = val.slice(0, start - 1) + val.slice(start + 1);input.selectionStart = start - 1;input.selectionEnd = end - 1;update();}}});$input.on("keypress", function(event){var input=$input[0];var start=input.selectionStart;var end=input.selectionEnd;var supported=start !== undefined;if(supported && event.which === 40){(function(){var val=input.value;event.preventDefault();if(start === end){var insertMatched=_.any([" ", ")", ""], function(c){return val.charAt(start) === c;});input.value = val.slice(0, start) + (insertMatched?"()":"(") + val.slice(end);}else {input.value = val.slice(0, start) + "(" + val.slice(start, end) + ")" + val.slice(end);}input.selectionStart = start + 1;input.selectionEnd = end + 1;update();})();}else if(supported && event.which === 41){var val=input.value;if(start === end && val.charAt(start) === ")"){event.preventDefault();input.selectionStart = start + 1;input.selectionEnd = end + 1;update();}}});var explicitMul=i18n._("For <code>2\\cdot2</code>, enter " + "<strong>2*2</strong>");if(options.times){explicitMul = explicitMul.replace(/\\cdot/g, "\\times");}var examples=[explicitMul, i18n._("For <code>3y</code>, enter <strong>3y</strong> or " + "<strong>3*y</strong>"), i18n._("For <code>\\dfrac{1}{x}</code>, enter <strong>1/x" + "</strong>"), i18n._("For <code>x^{y}</code>, enter <strong>x^y</strong>"), i18n._("For <code>\\sqrt{x}</code>, enter <strong>sqrt(x)" + "</strong>"), i18n._("For <code>\\pi</code>, enter <strong>pi</strong>"), i18n._("For <code>\\sin \\theta</code>, enter <strong>" + "sin(theta)</strong>"), i18n._("For <code>\\le</code> or <code>\\ge</code>, enter " + "<strong><=</strong> or <strong>>=</strong>"), i18n._("For <code>\\neq</code>, enter <strong>=/=</strong>")];addExamplesToInput($input, examples);return {validator:KhanAnswerTypes.expression.createValidator(solution), answer:function(){return $input.val();}, solution:solution, showGuess:function(guess){$input.val(guess === undefined?"":guess);}};}, parseSolution:function(solutionString, options){var solution=KAS.parse(solutionString, options);if(!solution.parsed){throw new Error("The provided solution (" + solutionString + ") didn't parse.");}else if(options.simplified && !solution.expr.isSimplified()){throw new Error("The provided solution (" + solutionString + ") isn't fully expanded and simplified.");}else {solution = solution.expr;}return solution;}, _parseOptions:function(solutionData){var form=solutionData.form !== undefined?solutionData.form:solutionData.sameForm;var notFalseOrNil=function(x){return x != null && x !== false;};var options={form:notFalseOrNil(form), simplify:notFalseOrNil(solutionData.simplify), times:notFalseOrNil(solutionData.times)};if(_.isString(solutionData.functions)){options.functions = _.compact(solutionData.functions.split(/[ ,]+/));}else if(_.isArray(solutionData.functions)){options.functions = _.compact(solutionData.functions);}return options;}, createValidator:function(solution){var $solution=$(solution);var validatorArray=[];var createValidatorFunctional=this.createValidatorFunctional;var parseOptions=this._parseOptions;$(solution).find(".set-sol").each(function(){var options=parseOptions($(this).data());validatorArray.push(createValidatorFunctional($(this).text(), options));});if(validatorArray.length === 0){var options=parseOptions($solution.data());validatorArray.push(createValidatorFunctional($solution.text(), options));}return function(guess){var score={empty:false, correct:false, message:null, guess:guess};$.each(validatorArray, function(i, validator){var result=validator(guess);if(result.correct){score.correct = true;score.message = null;return false;}if(result.message){score.message = result.message;}if(result.empty){score.empty = true;}});return score;};}, createValidatorFunctional:function(solution, options){return function(guess){var score={empty:false, correct:false, message:null, guess:guess};if(!guess){score.empty = true;return score;}var answer=KAS.parse(guess, options);if(!answer.parsed){score.empty = true;return score;}if(typeof solution === "string"){solution = KhanAnswerTypes.expression.parseSolution(solution, options);}var result=KAS.compare(answer.expr, solution, options);if(result.equal){score.correct = true;}else if(result.message){score.message = result.message;}else {var answerX=KAS.parse(guess.replace(/[xX]/g, "*"), options);if(answerX.parsed){var resultX=KAS.compare(answerX.expr, solution, options);if(resultX.equal){score.empty = true;score.message = "I'm a computer. I only " + "understand multiplication if you use an " + "asterisk (*) as the multiplication sign.";}else if(resultX.message){score.message = resultX.message + " Also, " + "I'm a computer. I only " + "understand multiplication if you use an " + "asterisk (*) as the multiplication sign.";}}}return score;};}}};module.exports = KhanAnswerTypes;
+	var $=__webpack_require__(26);var _=__webpack_require__(16);var retrieveMathFormula=__webpack_require__(141).retrieveMathFormula;var localeToFixed=__webpack_require__(142);var KhanMath=__webpack_require__(143);var MAXERROR_EPSILON=Math.pow(2, -42);var extractRawCode=function(elem){var $elem=$(elem).clone(true);var code=$elem.find("code");if(code.length){$.each(code, function(i, elem){$(elem).replaceWith("<code><script type=\"math/tex\">" + retrieveMathFormula(elem) + "</script></code>");});}return $elem.html();};function getTextSquish(elem){return $(elem).text().replace(/\s+/g, "");}function checkIfAnswerEmpty(guess){return $.trim(guess) === "" || guess instanceof Array && $.trim(guess.join("").replace(/,/g, "")) === "";}function addExamplesToInput($input, examples){if($input.data("qtip")){$input.qtip("destroy", true);}var $examples=$("<ul class=\"examples\" style=\"display: none\"></ul>");_.each(examples, function(example){$examples.append("<li>" + example + "</li>");});$input.qtip({content:{text:$examples.remove(), prerender:true}, style:{classes:"qtip-light leaf-tooltip"}, position:{my:"top left", at:"bottom left"}, show:{delay:0, effect:{length:0}, event:"focus"}, hide:{delay:0, event:"blur"}, events:{render:function(){$examples.children().runModules();}}});}function numberAnswerType(forms){return {setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.number.setupFunctional(solutionarea, solutionText, $.extend({}, solutionData, {forms:forms}));}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.number.createValidatorFunctional(correct, $.extend({}, options, {forms:forms}));}};}var KhanAnswerTypes={letters:{setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.text.setupFunctional(solutionarea, solutionText, solutionData, "letters");}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.text.createValidatorFunctional(correct, options);}}, lowers:{setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.text.setupFunctional(solutionarea, solutionText, solutionData, "lowers");}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.text.createValidatorFunctional(correct, options);}}, caps:{setupFunctional:function(solutionarea, solutionText, solutionData){return KhanAnswerTypes.text.setupFunctional(solutionarea, solutionText, solutionData, "caps");}, createValidatorFunctional:function(correct, options){return KhanAnswerTypes.text.createValidatorFunctional(correct, options);}}, text:{setupFunctional:function(solutionarea, solutionText, solutionData, solutionGrammar){solutionGrammar = solutionGrammar || "text";var input=undefined;if(window.Modernizr && Modernizr.touchevents){input = $("<input data-solution-grammar=\"" + solutionGrammar + "\" type=\"text\" autocapitalize=\"off\">");}else {input = $("<input data-solution-grammar=\"" + solutionGrammar + "\" type=\"text\">");}$(solutionarea).append(input);return {validator:KhanAnswerTypes.text.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.val();}, solution:$.trim(solutionText), showGuess:function(guess){input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(correct, options){options = _.extend({correctCase:"required"}, options);correct = $.trim(correct);return function(guess){var fallback=options.fallback != null?"" + options.fallback:"";guess = $.trim(guess) || fallback;var score={empty:false, correct:false, message:null, guess:guess};if(guess.toLowerCase() === correct.toLowerCase()){if(correct === guess || options.correctCase === "optional"){score.correct = true;}else {if(guess === guess.toLowerCase()){score.message = i18n._("Your answer is almost correct, but " + "must be in capital letters.");}else if(guess === guess.toUpperCase()){score.message = i18n._("Your answer is almost correct, but " + "must not be in capital letters.");}else {score.message = i18n._("Your answer is almost correct, but " + "must be in the correct case.");}}}return score;};}}, predicate:{defaultForms:"integer, proper, improper, mixed, decimal", setupFunctional:function(solutionarea, solutionText, solutionData){var options=$.extend({simplify:"required", ratio:false, forms:KhanAnswerTypes.predicate.defaultForms}, solutionData);var acceptableForms=options.forms.split(/\s*,\s*/);if(options.inexact === undefined){options.maxError = 0;}options.maxError = +options.maxError + MAXERROR_EPSILON;var $input=$("<input type=\"text\" autocapitalize=\"off\">");$(solutionarea).append($input);var exampleForms={integer:i18n._("an integer, like <code>6</code>"), proper:(function(){if(options.simplify === "optional"){return i18n._("a <em>proper</em> fraction, like " + "<code>1/2</code> or <code>6/10</code>");}else {return i18n._("a <em>simplified proper</em> " + "fraction, like <code>3/5</code>");}})(), improper:(function(){if(options.simplify === "optional"){return i18n._("an <em>improper</em> fraction, like " + "<code>10/7</code> or <code>14/8</code>");}else {return i18n._("a <em>simplified improper</em> " + "fraction, like <code>7/4</code>");}})(), pi:i18n._("a multiple of pi, like <code>12\\ \\text{pi}" + "</code> or <code>2/3\\ \\text{pi}</code>"), log:i18n._("an expression, like <code>\\log(100)</code>"), percent:i18n._("a percent, like <code>%(NUM)s\\%</code>", {NUM:localeToFixed(12.34, 2)}), mixed:i18n._("a mixed number, like <code>1\\ 3/4</code>"), decimal:(function(){if(options.inexact === undefined){return i18n._("an <em>exact</em> decimal, like " + "<code>%(NUM)s</code>", {NUM:localeToFixed(0.75, 2)});}else {return i18n._("a decimal, like <code>%(NUM)s</code>", {NUM:localeToFixed(0.75, 2)});}})()};var examples=[];$.each(acceptableForms, function(i, form){if(exampleForms[form] != null){examples.push(exampleForms[form]);}});if(options.forms !== KhanAnswerTypes.predicate.defaultForms){addExamplesToInput($input, examples);}return {validator:KhanAnswerTypes.predicate.createValidatorFunctional(solutionText, solutionData), answer:function(){return $input.val();}, solution:$.trim(solutionText), showGuess:function(guess){$input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(predicate, options){options = _.extend({simplify:"required", ratio:false, forms:KhanAnswerTypes.predicate.defaultForms}, options);var acceptableForms=undefined;if(!_.isArray(options.forms)){acceptableForms = options.forms.split(/\s*,\s*/);}else {acceptableForms = options.forms;}if(options.inexact === undefined){options.maxError = 0;}options.maxError = +options.maxError + MAXERROR_EPSILON;if(_.contains(acceptableForms, "percent")){acceptableForms = _.without(acceptableForms, "percent");acceptableForms.push("percent");}predicate = _.isFunction(predicate)?predicate:KhanUtil.tmpl.getVAR(predicate);var fractionTransformer=function(text){text = text.replace(/\u2212/, "-").replace(/([+-])\s+/g, "$1").replace(/(^\s*)|(\s*$)/gi, "");var match=text.match(/^([+-]?\d+)\s*\/\s*([+-]?\d+)$/);var parsedInt=parseInt(text, 10);if(match){var num=parseFloat(match[1]);var denom=parseFloat(match[2]);var simplified=denom > 0 && (options.ratio || match[2] !== "1") && KhanMath.getGCD(num, denom) === 1;return [{value:num / denom, exact:simplified}];}else if(!isNaN(parsedInt) && "" + parsedInt === text){return [{value:parsedInt, exact:true}];}return [];};var forms={integer:function(text){var decimal=forms.decimal(text);var rounded=forms.decimal(text, 1);if(decimal[0].value != null && decimal[0].value === rounded[0].value || decimal[1].value != null && decimal[1].value === rounded[1].value){return decimal;}return [];}, proper:function(text){return $.map(fractionTransformer(text), function(o){if(Math.abs(o.value) < 1){return [o];}else {return [];}});}, improper:function(text){return $.map(fractionTransformer(text), function(o){if(Math.abs(o.value) >= 1){return [o];}else {return [];}});}, pi:function(text){var match=undefined;var possibilities=[];text = text.replace(/\u2212/, "-");if(match = text.match(/^([+-]?)\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){possibilities = [{value:parseFloat(match[1] + "1"), exact:true}];}else if(match = text.match(/^([+-]?\s*\d+\s*(?:\/\s*[+-]?\s*\d+)?)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){possibilities = fractionTransformer(match[1]);}else if(match = text.match(/^([+-]?)\s*(\d+)\s*([+-]?\d+)\s*\/\s*([+-]?\d+)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){var sign=parseFloat(match[1] + "1");var integ=parseFloat(match[2]);var num=parseFloat(match[3]);var denom=parseFloat(match[4]);var simplified=num < denom && KhanMath.getGCD(num, denom) === 1;possibilities = [{value:sign * (integ + num / denom), exact:simplified}];}else if(match = text.match(/^([+-]?\s*\d+)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)\s*(?:\/\s*([+-]?\s*\d+))?$/i)){possibilities = fractionTransformer(match[1] + "/" + match[3]);}else if(match = text.match(/^([+-]?)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)\s*(?:\/\s*([+-]?\d+))?$/i)){possibilities = fractionTransformer(match[1] + "1/" + match[3]);}else if(text === "0"){possibilities = [{value:0, exact:true}];}else if(match = text.match(/^(.+)\s*\*?\s*(\\?pi|p|\u03c0|\\?tau|t|\u03c4|pau)$/i)){possibilities = forms.decimal(match[1]);}else {possibilities = _.reduce(KhanAnswerTypes.predicate.defaultForms.split(/\s*,\s*/), function(memo, form){return memo.concat(forms[form](text));}, []);var approximatesPi=false;var number=parseFloat(text);if(!isNaN(number) && number !== parseInt(text)){var piMult=Math.PI / 12;var roundedNumber=piMult * Math.round(number / piMult);if(Math.abs(number - roundedNumber) < 0.01){approximatesPi = true;}}else if(text.match(/\/\s*7/)){approximatesPi = true;}if(approximatesPi){_.each(possibilities, function(possibility){possibility.piApprox = true;});}return possibilities;}var multiplier=Math.PI;if(text.match(/\\?tau|t|\u03c4/)){multiplier = Math.PI * 2;}if(text.match(/pau/)){multiplier = Math.PI * 1.5;}$.each(possibilities, function(ix, possibility){possibility.value *= multiplier;});return possibilities;}, coefficient:function(text){var possibilities=[];text = text.replace(/\u2212/, "-");if(text === ""){possibilities = [{value:1, exact:true}];}else if(text === "-"){possibilities = [{value:-1, exact:true}];}return possibilities;}, log:function(text){var match=undefined;var possibilities=[];text = text.replace(/\u2212/, "-");text = text.replace(/[ \(\)]/g, "");if(match = text.match(/^log\s*(\S+)\s*$/i)){possibilities = forms.decimal(match[1]);}else if(text === "0"){possibilities = [{value:0, exact:true}];}return possibilities;}, percent:function(text){text = $.trim(text);var hasPercentSign=false;if(text.indexOf("%") === text.length - 1){text = $.trim(text.substring(0, text.length - 1));hasPercentSign = true;}var transformed=forms.decimal(text);$.each(transformed, function(ix, t){t.exact = hasPercentSign;t.value = t.value / 100;});return transformed;}, mixed:function(text){var match=text.replace(/\u2212/, "-").replace(/([+-])\s+/g, "$1").match(/^([+-]?)(\d+)\s+(\d+)\s*\/\s*(\d+)$/);if(match){var sign=parseFloat(match[1] + "1");var integ=parseFloat(match[2]);var num=parseFloat(match[3]);var denom=parseFloat(match[4]);var simplified=num < denom && KhanMath.getGCD(num, denom) === 1;return [{value:sign * (integ + num / denom), exact:simplified}];}return [];}, decimal:function(text, precision){if(precision == null){precision = 10000000000;}var normal=function(text){text = $.trim(text);var match=text.replace(/\u2212/, "-").replace(/([+-])\s+/g, "$1").match(/^([+-]?(?:\d{1,3}(?:[, ]?\d{3})*\.?|\d{0,3}(?:[, ]?\d{3})*\.(?:\d{3}[, ]?)*\d{1,3}))$/);var badLeadingZero=text.match(/^0[0,]*,/);if(match && !badLeadingZero){var x=parseFloat(match[1].replace(/[, ]/g, ""));if(options.inexact === undefined){x = Math.round(x * precision) / precision;}return x;}};var commas=function(text){text = text.replace(/([\.,])/g, function(_, c){return c === "."?",":".";});return normal(text);};return [{value:normal(text), exact:true}, {value:commas(text), exact:true}];}};return function(guess){var fallback=options.fallback != null?"" + options.fallback:"";guess = $.trim(guess) || fallback;var score={empty:guess === "", correct:false, message:null, guess:guess};$.each(acceptableForms, function(i, form){var transformed=forms[form](guess);for(var j=0, l=transformed.length; j < l; j++) {var val=transformed[j].value;var exact=transformed[j].exact;var piApprox=transformed[j].piApprox;if(predicate(val, options.maxError)){if(exact || options.simplify === "optional"){score.correct = true;score.message = options.message || null;score.empty = false;}else if(form === "percent"){score.empty = true;score.message = i18n._("Your answer is almost correct, " + "but it is missing a " + "<code>\\%</code> at the end.");}else {if(options.simplify !== "enforced"){score.empty = true;}score.message = i18n._("Your answer is almost correct, " + "but it needs to be simplified.");}return false;}else if(piApprox && predicate(val, Math.abs(val * 0.001))){score.empty = true;score.message = i18n._("Your answer is close, but you may " + "have approximated pi. Enter your " + "answer as a multiple of pi, like " + "<code>12\\ \\text{pi}</code> or " + "<code>2/3\\ \\text{pi}</code>");}}});if(score.correct === false){var _ret=(function(){var interpretedGuess=false;_.each(forms, function(form){var anyAreNaN=_.any(form(guess), function(t){return t.value != null && !_.isNaN(t.value);});if(anyAreNaN){interpretedGuess = true;}});if(!interpretedGuess){score.empty = true;score.message = i18n._("We could not understand your " + "answer. Please check your answer for extra " + "text or symbols.");return {v:score};}})();if(typeof _ret === "object")return _ret.v;}return score;};}}, number:{convertToPredicate:function(correct, options){var correctFloat=parseFloat($.trim(correct));return [function(guess, maxError){return Math.abs(guess - correctFloat) < maxError;}, $.extend({}, options, {type:"predicate"})];}, setupFunctional:function(solutionarea, solutionText, solutionData){var args=KhanAnswerTypes.number.convertToPredicate(solutionText, solutionData);return KhanAnswerTypes.predicate.setupFunctional(solutionarea, args[0], args[1]);}, createValidatorFunctional:function(correct, options){var _KhanAnswerTypes$predicate;return (_KhanAnswerTypes$predicate = KhanAnswerTypes.predicate).createValidatorFunctional.apply(_KhanAnswerTypes$predicate, KhanAnswerTypes.number.convertToPredicate(correct, options));}}, decimal:numberAnswerType("decimal"), rational:numberAnswerType("integer, proper, improper, mixed"), improper:numberAnswerType("integer, proper, improper"), mixed:numberAnswerType("integer, proper, mixed"), regex:{setupFunctional:function(solutionarea, solutionText, solutionData){var input=undefined;if(window.Modernizr && Modernizr.touchevents){input = $("<input type=\"text\" autocapitalize=\"off\">");}else {input = $("<input type=\"text\">");}$(solutionarea).append(input);return {validator:KhanAnswerTypes.regex.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.val();}, solution:$.trim(solutionText), showGuess:function(guess){input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(regex, options){var flags="";if(options.caseInsensitive != null){flags += "i";}regex = new RegExp($.trim(regex), flags);return function(guess){var fallback=options.fallback != null?"" + options.fallback:"";guess = $.trim(guess) || fallback;return {empty:false, correct:guess.match(regex) != null, message:null, guess:guess};};}}, radical:{setupFunctional:function(solutionarea, solutionText, solutionData){var options=$.extend({simplify:"required"}, solutionData);var inte=$("<input type=\"text\" autocapitalize=\"off\">");var rad=$("<input type=\"text\" autocapitalize=\"off\">");var examples=options.simplify === "required"?[i18n._("a simplified radical, like <code>\\sqrt{2}</code> " + "or <code>3\\sqrt{5}</code>")]:[i18n._("a radical, like <code>\\sqrt{8}</code> or " + "<code>2\\sqrt{2}</code>")];addExamplesToInput(inte, examples);addExamplesToInput(rad, examples);$("<div class='radical'>").append($("<span>").append(inte)).append("<span class=\"surd\">&radic;</span>").append($("<span>").append(rad).addClass("overline")).appendTo(solutionarea);var ansSquared=parseFloat(solutionText);var ans=KhanMath.splitRadical(ansSquared);return {validator:KhanAnswerTypes.radical.createValidatorFunctional(solutionText, solutionData), answer:function(){return [$.trim(inte.val()), $.trim(rad.val())];}, solution:ans, showGuess:function(guess){inte.val(guess?guess[0]:"");rad.val(guess?guess[1]:"");}};}, createValidatorFunctional:function(ansSquared, options){options = $.extend({simplify:"required"}, options);ansSquared = parseFloat(ansSquared);var ans=KhanMath.splitRadical(ansSquared);return function(guess){if(guess[0].length === 0 && guess[1].length === 0){return {empty:true, correct:false, message:null, guess:guess};}guess[0] = guess[0].length > 0?guess[0]:"1";guess[1] = guess[1].length > 0?guess[1]:"1";var inteGuess=parseFloat(guess[0]);var radGuess=parseFloat(guess[1]);var correct=Math.abs(inteGuess) * inteGuess * radGuess === ansSquared;var simplified=inteGuess === ans[0] && radGuess === ans[1];var score={empty:false, correct:false, message:null, guess:guess};if(correct){if(simplified || options.simplify === "optional"){score.correct = true;}else {score.message = i18n._("Your answer is almost correct, but it needs to " + "be simplified.");}}return score;};}}, cuberoot:{setupFunctional:function(solutionarea, solutionText, solutionData){var options=$.extend({simplify:"required"}, solutionData);var inte=$("<input type=\"text\" autocapitalize=\"off\">");var rad=$("<input type=\"text\" autocapitalize=\"off\">");var examples=options.simplify === "required"?[i18n._("a simplified radical, like <code>\\sqrt[3]{2}</code>" + " or <code>3\\sqrt[3]{5}</code>")]:[i18n._("a radical, like <code>\\sqrt[3]{8}</code> or " + "<code>2\\sqrt[3]{2}</code>")];addExamplesToInput(inte, examples);addExamplesToInput(rad, examples);$("<div class='radical'>").append($("<span>").append(inte)).append("<span class=\"surd\" style=\"vertical-align: 6px;\">" + "<code>\\sqrt[3]{}</code></span>").append($("<span>").append(rad).addClass("overline")).appendTo(solutionarea).tex();var ansCubed=parseFloat(solutionText);var ans=KhanMath.splitCube(ansCubed);return {validator:KhanAnswerTypes.cuberoot.createValidatorFunctional(solutionText, solutionData), answer:function(){return [inte.val(), rad.val()];}, solution:ans, showGuess:function(guess){inte.val(guess?guess[0]:"");rad.val(guess?guess[1]:"");}};}, createValidatorFunctional:function(ansCubed, options){options = $.extend({simplify:"required"}, options);ansCubed = parseFloat(ansCubed);var ans=KhanMath.splitCube(ansCubed);return function(guess){if(guess[0].length === 0 && guess[1].length === 0){return {empty:true, correct:false, message:null, guess:guess};}guess[0] = guess[0].length > 0?guess[0]:"1";guess[1] = guess[1].length > 0?guess[1]:"1";var inteGuess=parseFloat(guess[0]);var radGuess=parseFloat(guess[1]);var correct=Math.abs(inteGuess) * inteGuess * inteGuess * radGuess === ansCubed;var simplified=inteGuess === ans[0] && radGuess === ans[1];var score={empty:false, correct:false, message:null, guess:guess};if(correct){if(simplified || options.simplify === "optional"){score.correct = true;}else {score.message = i18n._("Your answer is almost correct, but it needs to " + "be simplified.");}}return score;};}}, multiple:{setup:function(solutionarea, solution){$(solutionarea).append($(solution).clone(true).texCleanup().contents().runModules());var answerDataArray=[];$(solutionarea).find(".sol").each(function(idx){var type=$(this).data("type");type = type != null?type:"number";var sol=$(solution).find(".sol").eq(idx);var solarea=$(this).empty();var answerData=KhanAnswerTypes[type].setup(solarea, sol);answerDataArray.push(answerData);});return {validator:KhanAnswerTypes.multiple.createValidator(solution), answer:function(){var answer=[];$.each(answerDataArray, function(i, answerData){answer.push(answerData.answer());});return answer;}, solution:(function(){$.map(answerDataArray, function(answerData){return answerData.solution;});})(), showGuess:function(guess){$.each(answerDataArray, function(i, answerData){if(guess !== undefined){answerData.showGuess(guess[i]);}else {answerData.showGuess();}});}, showCustomGuess:function(guess){$.each(answerDataArray, function(i, answerData){if(!_.isFunction(answerData.showCustomGuess)){return;}if(guess !== undefined){answerData.showCustomGuess(guess[i]);}else {answerData.showCustomGuess();}});}};}, createValidator:function(solution){var validators=[];$(solution).find(".sol").each(function(){var sol=$(this);var type=sol.data("type");type = type != null?type:"number";var validator=KhanAnswerTypes[type].createValidator(sol);validators.push(validator);});return function(guess){var score={empty:true, correct:true, message:null, guess:guess};var blockGradingMessage=null;if(checkIfAnswerEmpty(guess)){score.empty = true;score.correct = false;return score;}$.each(guess, function(i, g){var pass=validators[i](g);if(pass.message && pass.empty){blockGradingMessage = pass.message;}else {score.empty = score.empty && pass.empty;score.correct = score.correct && pass.correct;score.message = score.message || pass.message;}});if(score.correct && blockGradingMessage != null){return {empty:true, correct:false, message:blockGradingMessage, guess:guess};}else {score.empty = false;return score;}};}}, set:{setup:function(solutionarea, solution){$(solutionarea).append($(solution).find(".input-format").clone(true).texCleanup().contents().runModules());var inputArray=[];var showGuessArray=[];$(solutionarea).find(".entry").each(function(){var input=$(this);var type=$(this).data("type");type = type != null?type:"number";var sol=input.clone(true);var solarea=input.empty();var validator=KhanAnswerTypes[type].setup(solarea, sol);inputArray.push(validator.answer);showGuessArray.push(validator.showGuess);});var solutionArray=[];$(solution).find(".set-sol").clone(true).each(function(){var type=$(this).data("type");type = type != null?type:"number";var solarea=$("<div>");var validator=KhanAnswerTypes[type].setup(solarea, $(this));solutionArray.push(validator.solution);});return {validator:KhanAnswerTypes.set.createValidator(solution), answer:function(){var answer=[];$.each(inputArray, function(i, getAns){answer.push(getAns());});return answer;}, solution:solution, showGuess:function(guess){$.each(showGuessArray, function(i, showGuess){if(guess === undefined){showGuess();}else {showGuess(guess[i]);}});}};}, createValidator:function(solution){var validatorArray=[];$(solution).find(".set-sol").clone(true).each(function(){var type=$(this).data("type");type = type != null?type:"number";var validator=KhanAnswerTypes[type].createValidator($(this));validatorArray.push(validator);});return function(guess){var score={empty:validatorArray.length === 0?false:true, correct:true, message:null, guess:guess};var blockGradingMessage=null;var unusedValidators=validatorArray.slice(0);$.each(guess, function(i, g){var correct=false;$.each(unusedValidators, function(i, validator){var pass=validator(g);if(pass.empty && pass.message){unusedValidators.splice(i, 1);blockGradingMessage = pass.message;correct = true;return false;}if(pass.correct){correct = pass.correct;unusedValidators.splice(i, 1);return false;}if(!pass.correct && pass.message){correct = pass.message;}});if(!checkIfAnswerEmpty(g) && !checkIfAnswerEmpty(correct)){score.empty = false;}if(!correct && $.trim([g].join("")) !== ""){score.correct = false;return false;}if(typeof correct === "string"){score.message = correct;score.correct = false;}});if(validatorArray.length > guess.length){if(unusedValidators.length > validatorArray.length - guess.length){score.correct = false;}}else if(unusedValidators.length > 0){score.correct = false;}if(score.correct && blockGradingMessage != null){return {empty:true, correct:false, message:blockGradingMessage, guess:guess};}else {return score;}};}}, radio:{setup:function(solutionarea, solution){var $list=$("<ul></ul>");$(solutionarea).append($list);var $choices=$(solution).siblings(".choices");var $choicesClone=$choices.clone(true).texCleanup();var $solutionClone=$(solution).clone(true).texCleanup();var solutionText=$solutionClone.text();var isCategory=!!$choices.data("category");var possibleChoices=undefined;if(isCategory){(function(){var correctText=getTextSquish($solutionClone);possibleChoices = _.map($choicesClone.children().get(), function(elem){if(getTextSquish(elem) === correctText){return $solutionClone[0];}else {return elem;}});})();}else {possibleChoices = $solutionClone.get().concat(KhanMath.shuffle($choicesClone.children().get()));}var numChoices=+$choices.data("show") || possibleChoices.length;var showNone=!!$choices.data("none");var shownChoices=_.uniq(possibleChoices, false, function(elem){return getTextSquish(elem);});var addNoneChoice=showNone && shownChoices.length === numChoices - 1;if(shownChoices.length < numChoices && !addNoneChoice){return false;}else if(shownChoices.length > numChoices){shownChoices = shownChoices.slice(0, numChoices);}if(!isCategory){shownChoices = KhanMath.shuffle(shownChoices);}var correctIndex=undefined;_.each(shownChoices, function(choice, i){if(choice === $solutionClone[0]){correctIndex = i;}});var noneIsCorrect=showNone && correctIndex === numChoices - 1;if(showNone){var $none=$("<span>").html(i18n._("None of the above"));$none.data("noneOfTheAbove", true);if(noneIsCorrect){$list.data("realAnswer", $("<span>").addClass("value").append($solutionClone.clone(true).contents()));}var noneIndex=shownChoices.length - 1;if(addNoneChoice){noneIndex = shownChoices.length;}shownChoices.splice(noneIndex, 1, $("<span>").append($none));}var wrappedChoices=_.map(shownChoices, function(choice, i){return $("<li><label></label></li>").find("label").append([$("<input type=\"radio\" name=\"solution\">").val(i), $("<span class=\"value\"></span>").append($(choice).contents())]).end();});$list.append(wrappedChoices).runModules();return {validator:KhanAnswerTypes.radio.createValidator({solution:solution, index:correctIndex, noneIsCorrect:noneIsCorrect}), answer:function(){var $choice=$list.find("input:checked");if($choice.length === 0){return null;}var $choiceVal=$choice.siblings(".value");var $choiceNoneChild=$choiceVal.children().eq(0);return {isNone:$choiceNoneChild.data("noneOfTheAbove"), value:extractRawCode($choiceVal), index:+$choice.val()};}, solution:solutionText, showGuess:function(guess){if(guess == null){$(solutionarea).find("input:checked").attr("checked", false);}else {$list.children().filter(function(){return guess.index === $(this).find("input").val();}).find("input").attr("checked", true);}}};}, createValidator:function(solution){var correct=extractRawCode(solution.solution || solution);function showReal(){var $list=$("#solutionarea").find("ul");var $choice=$list.children().filter(function(){return $(this).find("span.value > span").data("noneOfTheAbove");}).find("input");$choice.next().fadeOut("fast", function(){var $real=$list.data("realAnswer");$(this).replaceWith($real);$real.tex().fadeIn("fast");});}return function(guess){var score={empty:false, correct:false, message:null, guess:guess};if(guess == null){score.empty = true;return score;}if(guess.index){if(guess.isNone && solution.noneIsCorrect){showReal();score.correct = true;}else {score.correct = guess.index === solution.index;}}else {if(guess.isNone && $("#solutionarea").find("ul").data("real-answer") != null){showReal();score.correct = true;}else if($.trim(guess.value).replace(/\r\n?|\n/g, "") === $.trim(correct.replace(/\r\n?|\n/g, ""))){score.correct = true;}else {score.correct = false;}}return score;};}}, list:{setupFunctional:function(solutionarea, solutionText, solutionData){var input=$("<select></select>");$(solutionarea).append(input);var choices=$.tmpl.getVAR(solutionData.choices);$.each(choices, function(index, value){input.append("<option value=\"" + value + "\">" + value + "</option>");});return {validator:KhanAnswerTypes.list.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.val();}, solution:$.trim(solutionText), showGuess:function(guess){input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(correct, options){correct = $.trim(correct);return function(guess){guess = $.trim(guess);return {empty:false, correct:correct === guess, message:null, guess:guess};};}}, custom:{setup:function(solutionarea, solution){solution.find(".instruction").appendTo(solutionarea).runModules();var guessCode=solution.find(".guess").text();var showCustomGuessCode=solution.find(".show-guess").text();var showGuessCode=solution.find(".show-guess-solutionarea").text();return {validator:KhanAnswerTypes.custom.createValidator(solution), answer:function(){return KhanUtil.tmpl.getVAR(guessCode, KhanUtil.currentGraph);}, solution:$.trim($(solution).text()), showCustomGuess:function(guess){var code="(function() { " + "var guess = " + JSON.stringify(guess) + ";" + showCustomGuessCode + "})()";KhanUtil.tmpl.getVAR(code, KhanUtil.currentGraph);}, showGuess:function(guess){var code="(function() { " + "var guess = " + JSON.stringify(guess) + ";" + showGuessCode + "})()";KhanUtil.tmpl.getVAR(code, KhanUtil.currentGraph);}};}, createValidator:function(solution){var validatorCode=$(solution).find(".validator-function").text();var validator=function(guess){var code="(function() { " + "var guess = " + JSON.stringify(guess) + ";" + validatorCode + "})()";return KhanUtil.tmpl.getVAR(code, KhanUtil.currentGraph);};return function(guess){var pass=validator(guess);if(typeof pass === "object"){return pass;}else {return {empty:pass === "", correct:pass === true, message:typeof pass === "string"?pass:null, guess:guess};}};}}, primeFactorization:{setupFunctional:function(solutionarea, solutionText, solutionData){var $input=undefined;if(window.Modernizr && Modernizr.touchevents){$input = $("<input type=\"text\" autocapitalize=\"off\">");}else {$input = $("<input type=\"text\">");}$input.addClass("prime-factorization");$(solutionarea).append($input);var examples=[i18n._("a product of prime factors, like <code>2 \\times 3" + "</code>"), i18n._("a single prime number, like <code>5</code>")];addExamplesToInput($input, examples);return {validator:KhanAnswerTypes.primeFactorization.createValidatorFunctional(solutionText, solutionData), answer:function(){return $input.val();}, solution:$.trim(solutionText), showGuess:function(guess){$input.val(guess === undefined?"":guess);}};}, createValidatorFunctional:function(correct, options){correct = $.trim(correct);return function(guess){guess = guess.split(" ").join("").toLowerCase();guess = guess.replace(/{|}/g, "");guess = guess.split(/x|\*|\u00d7|\\times|\\cdot/);var terms=[];for(var i=0; i < guess.length; i++) {var t=guess[i].split("^");if(t.length > 1){for(var j=0; j < t[1]; j++) {terms.push(t[0]);}}else {terms.push(guess[i]);}}guess = KhanMath.sortNumbers(terms).join("x");return {empty:guess === "", correct:guess === correct, message:null, guess:guess};};}}, checkbox:{setupFunctional:function(solutionarea, solutionText, solutionData){var input=$("<input type=\"checkbox\">");$(solutionarea).append(input);return {validator:KhanAnswerTypes.checkbox.createValidatorFunctional(solutionText, solutionData), answer:function(){return input.is(":checked") || "";}, solution:$.trim(solutionText), showGuess:function(guess){input.attr("checked", guess === undefined?false:guess);}};}, createValidatorFunctional:function(correct, options){correct = $.trim(correct) === "true";return function(guess){var score={empty:false, correct:false, message:null, guess:guess};if(!!correct === !!guess){score.correct = true;}else if(!guess){score.empty = true;}else {score.correct = false;}return score;};}}, expression:{setup:function(solutionarea, solution){var options=this._parseOptions($(solution).data());var $tex=$("<span class=\"tex\"/>");var $input=$("<input type=\"text\">");var $error=$("<div class=\"error-div\" style=\"display: none;\"/>");$(solutionarea).append($("<span class=\"expression\"/>").append($("<span class=\"output\"/>").append($tex), $("<span class=\"input\"/>").append($input, $error.append($("<i class=\"icon-exclamation-sign error-icon\"/>")))));var errorTimeout=null;var lastParsedTex="";var update=function(){clearTimeout(errorTimeout);var result=KAS.parse($input.val(), options);if(result.parsed){hideError();$tex.css({opacity:1});var tex=result.expr.asTex(options);if(tex !== lastParsedTex){$tex.empty().append($("<code>").text(tex)).tex();lastParsedTex = tex;}}else {errorTimeout = setTimeout(showError, 2000);$tex.css({opacity:0.5});}};var showError=function(){if(!$error.is(":visible")){$error.show();$input.addClass("error");}};var hideError=function(){if($error.is(":visible")){$error.hide();$input.removeClass("error");}};$input.on("input propertychange", update);$input.on("keydown", function(event){var input=$input[0];var start=input.selectionStart;var end=input.selectionEnd;var supported=start !== undefined;if(supported && event.which === 8){var val=input.value;if(start === end && val.slice(start - 1, start + 1) === "()"){event.preventDefault();input.value = val.slice(0, start - 1) + val.slice(start + 1);input.selectionStart = start - 1;input.selectionEnd = end - 1;update();}}});$input.on("keypress", function(event){var input=$input[0];var start=input.selectionStart;var end=input.selectionEnd;var supported=start !== undefined;if(supported && event.which === 40){(function(){var val=input.value;event.preventDefault();if(start === end){var insertMatched=_.any([" ", ")", ""], function(c){return val.charAt(start) === c;});input.value = val.slice(0, start) + (insertMatched?"()":"(") + val.slice(end);}else {input.value = val.slice(0, start) + "(" + val.slice(start, end) + ")" + val.slice(end);}input.selectionStart = start + 1;input.selectionEnd = end + 1;update();})();}else if(supported && event.which === 41){var val=input.value;if(start === end && val.charAt(start) === ")"){event.preventDefault();input.selectionStart = start + 1;input.selectionEnd = end + 1;update();}}});var explicitMul=i18n._("For <code>2\\cdot2</code>, enter " + "<strong>2*2</strong>");if(options.times){explicitMul = explicitMul.replace(/\\cdot/g, "\\times");}var examples=[explicitMul, i18n._("For <code>3y</code>, enter <strong>3y</strong> or " + "<strong>3*y</strong>"), i18n._("For <code>\\dfrac{1}{x}</code>, enter <strong>1/x" + "</strong>"), i18n._("For <code>x^{y}</code>, enter <strong>x^y</strong>"), i18n._("For <code>\\sqrt{x}</code>, enter <strong>sqrt(x)" + "</strong>"), i18n._("For <code>\\pi</code>, enter <strong>pi</strong>"), i18n._("For <code>\\sin \\theta</code>, enter <strong>" + "sin(theta)</strong>"), i18n._("For <code>\\le</code> or <code>\\ge</code>, enter " + "<strong><=</strong> or <strong>>=</strong>"), i18n._("For <code>\\neq</code>, enter <strong>=/=</strong>")];addExamplesToInput($input, examples);return {validator:KhanAnswerTypes.expression.createValidator(solution), answer:function(){return $input.val();}, solution:solution, showGuess:function(guess){$input.val(guess === undefined?"":guess);}};}, parseSolution:function(solutionString, options){var solution=KAS.parse(solutionString, options);if(!solution.parsed){throw new Error("The provided solution (" + solutionString + ") didn't parse.");}else if(options.simplified && !solution.expr.isSimplified()){throw new Error("The provided solution (" + solutionString + ") isn't fully expanded and simplified.");}else {solution = solution.expr;}return solution;}, _parseOptions:function(solutionData){var form=solutionData.form !== undefined?solutionData.form:solutionData.sameForm;var notFalseOrNil=function(x){return x != null && x !== false;};var options={form:notFalseOrNil(form), simplify:notFalseOrNil(solutionData.simplify), times:notFalseOrNil(solutionData.times)};if(_.isString(solutionData.functions)){options.functions = _.compact(solutionData.functions.split(/[ ,]+/));}else if(_.isArray(solutionData.functions)){options.functions = _.compact(solutionData.functions);}return options;}, createValidator:function(solution){var $solution=$(solution);var validatorArray=[];var createValidatorFunctional=this.createValidatorFunctional;var parseOptions=this._parseOptions;$(solution).find(".set-sol").each(function(){var options=parseOptions($(this).data());validatorArray.push(createValidatorFunctional($(this).text(), options));});if(validatorArray.length === 0){var options=parseOptions($solution.data());validatorArray.push(createValidatorFunctional($solution.text(), options));}return function(guess){var score={empty:false, correct:false, message:null, guess:guess};$.each(validatorArray, function(i, validator){var result=validator(guess);if(result.correct){score.correct = true;score.message = null;return false;}if(result.message){score.message = result.message;}if(result.empty){score.empty = true;}});return score;};}, createValidatorFunctional:function(solution, options){return function(guess){var score={empty:false, correct:false, message:null, guess:guess};if(!guess){score.empty = true;return score;}var answer=KAS.parse(guess, options);if(!answer.parsed){score.empty = true;return score;}if(typeof solution === "string"){solution = KhanAnswerTypes.expression.parseSolution(solution, options);}var result=KAS.compare(answer.expr, solution, options);if(result.equal){score.correct = true;}else if(result.message){score.message = result.message;}else {var answerX=KAS.parse(guess.replace(/[xX]/g, "*"), options);if(answerX.parsed){var resultX=KAS.compare(answerX.expr, solution, options);if(resultX.equal){score.empty = true;score.message = "I'm a computer. I only " + "understand multiplication if you use an " + "asterisk (*) as the multiplication sign.";}else if(resultX.message){score.message = resultX.message + " Also, " + "I'm a computer. I only " + "understand multiplication if you use an " + "asterisk (*) as the multiplication sign.";}}}return score;};}}};module.exports = KhanAnswerTypes;
 
 /***/ },
 /* 40 */
@@ -8813,7 +8813,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* To fix, remove an entry above, run ka-lint, and fix errors. */
 
 	var React = __webpack_require__(15);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var classnames = __webpack_require__(42);
 	var i18n = window.i18n;
 
@@ -9215,6 +9215,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	            alignment = Widgets.getDefaultAlignment(type, this.props.enabledFeatures);
 	        }
 
+	        // XXX(david): STOPSHIP - this full-widths all images, regardless of
+	        // float, so that we can test what happens if we do that, which we're
+	        // considering for phone layout reasons. This is to throw up a quick
+	        // ZND prototype for designers and other folks to play with.
+	        if (type === "image") {
+	            alignment = "block";
+	        }
+
 	        className += " widget-" + alignment;
 
 	        var apiOptions = this.state.widgetProps.apiOptions;
@@ -9321,7 +9329,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * loaded to render a particular TeX string.
 	 */
 
-	var WebFont = __webpack_require__(193);
+	var WebFont = __webpack_require__(194);
 
 	var katexPromise = null;
 	var mathjaxPromise = null;
@@ -9474,6 +9482,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                _this.scaleChildToFit();
 	            }
 	        });
+
+	        this._node.addEventListener("touchstart", function (e) {
+	            if (!_this.state.zoomed) {
+	                e.stopPropagation();
+	            }
+	        }, true);
 	    },
 
 	    // TODO(benkomalo): call this on viewport width changes or when our own
@@ -10715,21 +10729,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = {
-		"apiVersion": {
-			"major": 7,
-			"minor": 1
-		},
-		"itemDataVersion": {
-			"major": 0,
-			"minor": 1
-		}
-	};
-
-/***/ },
-/* 61 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/**
 	 * A wrapper around react-components/info-tip.jsx that can be rendered on the
 	 * server without causing a checksum mismatch on the client.
@@ -10766,7 +10765,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = InfoTip;
 
 /***/ },
-/* 62 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* TODO(csilvers): fix these lint errors (http://eslint.org/docs/rules): */
@@ -10775,7 +10774,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var React = __webpack_require__(15);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 
 	var ItemExtrasEditor = React.createClass({
 	    displayName: "ItemExtrasEditor",
@@ -10927,6 +10926,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = ItemExtrasEditor;
 
 /***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+		"apiVersion": {
+			"major": 7,
+			"minor": 1
+		},
+		"itemDataVersion": {
+			"major": 0,
+			"minor": 1
+		}
+	};
+
+/***/ },
 /* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10941,7 +10955,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var ApiClassNames = __webpack_require__(5).ClassNames;
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var Util = __webpack_require__(6);
 
 	var Categorizer = React.createClass({
@@ -11130,7 +11144,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var EditorJsonify = __webpack_require__(158);
-	var PropCheckBox = __webpack_require__(34);
+	var PropCheckBox = __webpack_require__(36);
 	var TextListEditor = __webpack_require__(55);
 
 	var Categorizer = __webpack_require__(63).widget;
@@ -11405,9 +11419,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 	var EditorJsonify = __webpack_require__(158);
 
-	var BlurInput = __webpack_require__(159);
-	var InfoTip = __webpack_require__(61);
-	var PropCheckBox = __webpack_require__(34);
+	var BlurInput = __webpack_require__(160);
+	var InfoTip = __webpack_require__(60);
+	var PropCheckBox = __webpack_require__(36);
 
 	var DEFAULT_WIDTH = 400;
 	var DEFAULT_HEIGHT = 400;
@@ -11618,7 +11632,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* To fix, remove an entry above, run ka-lint, and fix errors. */
 
 	var classNames = __webpack_require__(42);
-	var FancySelect = __webpack_require__(160);
+	var FancySelect = __webpack_require__(159);
 	var React = __webpack_require__(15);
 	var ReactDOM = __webpack_require__(17);
 	var _ = __webpack_require__(16);
@@ -11784,7 +11798,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var ReactDOM = __webpack_require__(17);
 	var _ = __webpack_require__(16);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var EditorJsonify = __webpack_require__(158);
 
 	var DropdownEditor = React.createClass({
@@ -11966,7 +11980,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Changeable = __webpack_require__(156);
 	var PerseusApi = __webpack_require__(5);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 
 	var defaultExplanationProps = {
 	    showPrompt: "Explain",
@@ -13076,8 +13090,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Changeable = __webpack_require__(156);
 
-	var InfoTip = __webpack_require__(61);
-	var PropCheckBox = __webpack_require__(34);
+	var InfoTip = __webpack_require__(60);
+	var PropCheckBox = __webpack_require__(36);
 	var SortableArea = __webpack_require__(166);
 	var TeX = __webpack_require__(49); // OldExpression only
 	var TexButtons = __webpack_require__(165);
@@ -14000,7 +14014,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 
 	var GraphSettings = __webpack_require__(169);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var MultiButtonGroup = __webpack_require__(170);
 
 	var Grapher = __webpack_require__(73).widget;
@@ -14157,7 +14171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var Changeable = __webpack_require__(156);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 
 	// A Graded Group is more or less a Group widget that displays a check
 	// answer button below the rendered content. When clicked, the widget grades
@@ -14407,7 +14421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var Changeable = __webpack_require__(156);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 
 	var Group = React.createClass({
 	    displayName: "Group",
@@ -14835,8 +14849,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 	var EditorJsonify = __webpack_require__(158);
 
-	var BlurInput = __webpack_require__(159);
-	var PropCheckBox = __webpack_require__(34);
+	var BlurInput = __webpack_require__(160);
+	var PropCheckBox = __webpack_require__(36);
 
 	/**
 	 * This is used for editing a name/value pair.
@@ -15014,7 +15028,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var ApiOptions = __webpack_require__(5).Options;
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 
 	var Changeable = __webpack_require__(156);
 
@@ -15204,9 +15218,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 	var EditorJsonify = __webpack_require__(158);
 
-	var BlurInput = __webpack_require__(159);
+	var BlurInput = __webpack_require__(160);
 	var Editor = __webpack_require__(11);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var RangeInput = __webpack_require__(171);
 
 	var defaultBoxSize = 400;
@@ -15962,8 +15976,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Util = __webpack_require__(6);
 
-	var BlurInput = __webpack_require__(159);
-	var InfoTip = __webpack_require__(61);
+	var BlurInput = __webpack_require__(160);
+	var InfoTip = __webpack_require__(60);
 
 	var answerTypes = {
 	    number: {
@@ -18019,7 +18033,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var Graph = __webpack_require__(175);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var Interactive2 = __webpack_require__(167);
 	var NumberInput = __webpack_require__(174);
 	var Util = __webpack_require__(6);
@@ -20262,7 +20276,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var DeprecationMixin = Util.DeprecationMixin;
 
 	var GraphSettings = __webpack_require__(169);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 
 	var InteractiveGraph = __webpack_require__(87).widget;
 
@@ -20924,8 +20938,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var EditorJsonify = __webpack_require__(158);
 
 	var NumberInput = __webpack_require__(174);
-	var PropCheckBox = __webpack_require__(34);
-	var InfoTip = __webpack_require__(61);
+	var PropCheckBox = __webpack_require__(36);
+	var InfoTip = __webpack_require__(60);
 
 	var MAX_SIZE = 8;
 
@@ -21194,7 +21208,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var NumberInput = __webpack_require__(174);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var TextInput = __webpack_require__(161);
 	var MathOutput = __webpack_require__(176);
 
@@ -21824,7 +21838,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var React = __webpack_require__(15);
 	var _ = __webpack_require__(16);
 
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var Sortable = __webpack_require__(177);
 
 	var ApiOptions = __webpack_require__(5).Options;
@@ -21985,8 +21999,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var React = __webpack_require__(15);
 	var _ = __webpack_require__(16);
 
-	var InfoTip = __webpack_require__(61);
-	var PropCheckBox = __webpack_require__(34);
+	var InfoTip = __webpack_require__(60);
+	var PropCheckBox = __webpack_require__(36);
 	var TextListEditor = __webpack_require__(55);
 
 	var MatcherEditor = React.createClass({
@@ -22322,9 +22336,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 	var EditorJsonify = __webpack_require__(158);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var NumberInput = __webpack_require__(174);
-	var PropCheckBox = __webpack_require__(34);
+	var PropCheckBox = __webpack_require__(36);
 	var RangeInput = __webpack_require__(171);
 
 	var defaultImage = {
@@ -23455,9 +23469,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var EditorJsonify = __webpack_require__(158);
 
 	var ButtonGroup = __webpack_require__(44);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var NumberInput = __webpack_require__(174);
-	var PropCheckBox = __webpack_require__(34);
+	var PropCheckBox = __webpack_require__(36);
 	var RangeInput = __webpack_require__(171);
 
 	var knumber = __webpack_require__(192).number;
@@ -24392,10 +24406,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ButtonGroup = __webpack_require__(44);
 	var Editor = __webpack_require__(11);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var MultiButtonGroup = __webpack_require__(170);
 	var NumberInput = __webpack_require__(174);
-	var PropCheckBox = __webpack_require__(34);
+	var PropCheckBox = __webpack_require__(36);
 	var TextInput = __webpack_require__(161);
 
 	var firstNumericalParse = __webpack_require__(6).firstNumericalParse;
@@ -24904,7 +24918,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var ReactDOM = __webpack_require__(17);
 	var _ = __webpack_require__(16);
 
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var Util = __webpack_require__(6);
 
 	var ApiClassNames = __webpack_require__(5).ClassNames;
@@ -25454,7 +25468,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var React = __webpack_require__(15);
 	var _ = __webpack_require__(16);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var TextListEditor = __webpack_require__(55);
 
 	var NORMAL = "normal",
@@ -25659,7 +25673,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Changeable = __webpack_require__(156);
 
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var PassageMarkdown = __webpack_require__(190);
 
 	var Passage = React.createClass({
@@ -25991,8 +26005,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var EditorJsonify = __webpack_require__(158);
 
 	var Editor = __webpack_require__(11);
-	var InfoTip = __webpack_require__(61);
-	var PropCheckBox = __webpack_require__(34);
+	var InfoTip = __webpack_require__(60);
+	var PropCheckBox = __webpack_require__(36);
 
 	var PassageEditor = React.createClass({
 	    displayName: "PassageEditor",
@@ -26256,7 +26270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 	var EditorJsonify = __webpack_require__(158);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var NumberInput = __webpack_require__(174);
 	var TextInput = __webpack_require__(161);
 
@@ -26350,7 +26364,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Changeable = __webpack_require__(156);
 	var WidgetJsonifyDeprecated = __webpack_require__(157);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 
 	var PassageRefTarget = React.createClass({
 	    displayName: "PassageRefTarget",
@@ -27055,8 +27069,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var ReactDOM = __webpack_require__(17);
 	var _ = __webpack_require__(16);
 
-	var BlurInput = __webpack_require__(159);
-	var InfoTip = __webpack_require__(61);
+	var BlurInput = __webpack_require__(160);
+	var InfoTip = __webpack_require__(60);
 	var NumberInput = __webpack_require__(174);
 	var RangeInput = __webpack_require__(171);
 	var SvgImage = __webpack_require__(29);
@@ -27982,7 +27996,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiOptions = __webpack_require__(5).Options;
 	var Changeable = __webpack_require__(156);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var Util = __webpack_require__(6);
 
 	var Sequence = React.createClass({
@@ -28279,7 +28293,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	/* To fix, remove an entry above, run ka-lint, and fix errors. */
 
 	/* globals $_, i18n */
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var React = __webpack_require__(15);
 	var ReactDOM = __webpack_require__(17);
 	var _ = __webpack_require__(16);
@@ -29044,7 +29058,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 	var EditorJsonify = __webpack_require__(158);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var NumberInput = __webpack_require__(174);
 
 	var maxTrials = 5000;
@@ -29285,8 +29299,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var React = __webpack_require__(15);
 	var _ = __webpack_require__(16);
 
-	var InfoTip = __webpack_require__(61);
-	var PropCheckBox = __webpack_require__(34);
+	var InfoTip = __webpack_require__(60);
+	var PropCheckBox = __webpack_require__(36);
 	var TextListEditor = __webpack_require__(55);
 
 	var HORIZONTAL = "horizontal";
@@ -29416,7 +29430,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var MathOutput = __webpack_require__(176);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var Util = __webpack_require__(6);
 
 	var ApiOptions = __webpack_require__(5).Options;
@@ -29749,7 +29763,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Util = __webpack_require__(6);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var NumberInput = __webpack_require__(174);
 	var Editor = __webpack_require__(11);
 
@@ -32309,8 +32323,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Graph = __webpack_require__(175);
 	var GraphSettings = __webpack_require__(169);
-	var InfoTip = __webpack_require__(61);
-	var PropCheckBox = __webpack_require__(34);
+	var InfoTip = __webpack_require__(60);
+	var PropCheckBox = __webpack_require__(36);
 
 	var Transformer = __webpack_require__(124).widget;
 
@@ -33974,8 +33988,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 	var EditorJsonify = __webpack_require__(158);
 
-	var InfoTip = __webpack_require__(61);
-	var BlurInput = __webpack_require__(159);
+	var InfoTip = __webpack_require__(60);
+	var BlurInput = __webpack_require__(160);
 
 	var KA_VIDEO_URL = /khanacademy\.org\/.*\/v\/(.*)$/;
 
@@ -34662,9 +34676,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Changeable = __webpack_require__(156);
 	var Editor = __webpack_require__(11);
-	var PropCheckBox = __webpack_require__(34);
+	var PropCheckBox = __webpack_require__(36);
 
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var BaseRadio = __webpack_require__(180);
 
 	var ChoiceEditor = React.createClass({
@@ -37095,7 +37109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Keypad: __webpack_require__(204),
 	    KeypadInput: __webpack_require__(206) };
 
-	var _require2 = __webpack_require__(194);
+	var _require2 = __webpack_require__(193);
 
 	var KeypadTypes = _require2.KeypadTypes;
 
@@ -39286,60 +39300,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	/* TODO(emily): fix these lint errors (http://eslint.org/docs/rules): */
-	/* eslint-disable comma-dangle, no-var, react/jsx-closing-bracket-location, react/jsx-sort-prop-types, react/sort-comp */
-	/* To fix, remove an entry above, run ka-lint, and fix errors. */
-
-	var React = __webpack_require__(15);
-
-	/* You know when you want to propagate input to a parent...
-	 * but then that parent does something with the input...
-	 * then changing the props of the input...
-	 * on every keystroke...
-	 * so if some input is invalid or incomplete...
-	 * the input gets reset or otherwise effed...
-	 *
-	 * This is the solution.
-	 *
-	 * Enough melodrama. Its an input that only sends changes
-	 * to its parent on blur.
-	 */
-	var BlurInput = React.createClass({
-	    displayName: "BlurInput",
-
-	    propTypes: {
-	        value: React.PropTypes.string.isRequired,
-	        onChange: React.PropTypes.func.isRequired
-	    },
-	    getInitialState: function () {
-	        return { value: this.props.value };
-	    },
-	    render: function () {
-	        return React.createElement("input", _extends({}, this.props, {
-	            type: "text",
-	            value: this.state.value,
-	            onChange: this.handleChange,
-	            onBlur: this.handleBlur }));
-	    },
-	    componentWillReceiveProps: function (nextProps) {
-	        this.setState({ value: nextProps.value });
-	    },
-	    handleChange: function (e) {
-	        this.setState({ value: e.target.value });
-	    },
-	    handleBlur: function (e) {
-	        this.props.onChange(e.target.value);
-	    }
-	});
-
-	module.exports = BlurInput;
-
-/***/ },
-/* 160 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/* TODO(csilvers): fix these lint errors (http://eslint.org/docs/rules): */
 	/* eslint-disable comma-dangle, indent, no-undef, no-var, react/jsx-closing-bracket-location, react/jsx-indent-props, react/jsx-sort-prop-types, react/prop-types, react/sort-comp */
 	/* To fix, remove an entry above, run ka-lint, and fix errors. */
@@ -39600,6 +39560,60 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = FancySelect;
 	/* position this absolutely so it goes on top
 	   of the optionSizer, not next to it */
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	/* TODO(emily): fix these lint errors (http://eslint.org/docs/rules): */
+	/* eslint-disable comma-dangle, no-var, react/jsx-closing-bracket-location, react/jsx-sort-prop-types, react/sort-comp */
+	/* To fix, remove an entry above, run ka-lint, and fix errors. */
+
+	var React = __webpack_require__(15);
+
+	/* You know when you want to propagate input to a parent...
+	 * but then that parent does something with the input...
+	 * then changing the props of the input...
+	 * on every keystroke...
+	 * so if some input is invalid or incomplete...
+	 * the input gets reset or otherwise effed...
+	 *
+	 * This is the solution.
+	 *
+	 * Enough melodrama. Its an input that only sends changes
+	 * to its parent on blur.
+	 */
+	var BlurInput = React.createClass({
+	    displayName: "BlurInput",
+
+	    propTypes: {
+	        value: React.PropTypes.string.isRequired,
+	        onChange: React.PropTypes.func.isRequired
+	    },
+	    getInitialState: function () {
+	        return { value: this.props.value };
+	    },
+	    render: function () {
+	        return React.createElement("input", _extends({}, this.props, {
+	            type: "text",
+	            value: this.state.value,
+	            onChange: this.handleChange,
+	            onBlur: this.handleBlur }));
+	    },
+	    componentWillReceiveProps: function (nextProps) {
+	        this.setState({ value: nextProps.value });
+	    },
+	    handleChange: function (e) {
+	        this.setState({ value: e.target.value });
+	    },
+	    handleBlur: function (e) {
+	        this.props.onChange(e.target.value);
+	    }
+	});
+
+	module.exports = BlurInput;
 
 /***/ },
 /* 161 */
@@ -40057,7 +40071,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ApiClassNames = __webpack_require__(5).ClassNames;
 	var MathInput = __webpack_require__(164);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var TextInput = __webpack_require__(161);
 	var MathOutput = __webpack_require__(176);
 
@@ -41143,9 +41157,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Changeable = __webpack_require__(156);
 
 	var ButtonGroup = __webpack_require__(44);
-	var InfoTip = __webpack_require__(61);
+	var InfoTip = __webpack_require__(60);
 	var NumberInput = __webpack_require__(174);
-	var PropCheckBox = __webpack_require__(34);
+	var PropCheckBox = __webpack_require__(36);
 	var RangeInput = __webpack_require__(171);
 	var TeX = __webpack_require__(49);
 	var Util = __webpack_require__(6);
@@ -42803,7 +42817,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var Util = __webpack_require__(6);
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 
 	var ApiClassNames = __webpack_require__(5).ClassNames;
 
@@ -43307,7 +43321,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var React = __webpack_require__(15);
 	var _ = __webpack_require__(16);
 
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var PassageRef = __webpack_require__(107);
 	var Util = __webpack_require__(6);
 
@@ -44013,7 +44027,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _ = __webpack_require__(16);
 
 	var ApiClassNames = __webpack_require__(5).ClassNames;
-	var Renderer = __webpack_require__(26);
+	var Renderer = __webpack_require__(24);
 	var sharedStyles = __webpack_require__(207);
 	var styleConstants = __webpack_require__(208);
 	var mediaQueries = __webpack_require__(209);
@@ -46662,30 +46676,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_RESULT__;/* Web Font Loader v1.6.24 - (c) Adobe Systems, Google. License: Apache 2.0 */
-	(function(){function aa(a,b,d){return a.call.apply(a.bind,arguments)}function ba(a,b,d){if(!a)throw Error();if(2<arguments.length){var c=Array.prototype.slice.call(arguments,2);return function(){var d=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(d,c);return a.apply(b,d)}}return function(){return a.apply(b,arguments)}}function p(a,b,d){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.m=b||a;this.c=this.m.document}var da=!!window.FontFace;function t(a,b,d,c){b=a.c.createElement(b);if(d)for(var e in d)d.hasOwnProperty(e)&&("style"==e?b.style.cssText=d[e]:b.setAttribute(e,d[e]));c&&b.appendChild(a.c.createTextNode(c));return b}function u(a,b,d){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(d,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
-	function w(a,b,d){b=b||[];d=d||[];for(var c=a.className.split(/\s+/),e=0;e<b.length;e+=1){for(var f=!1,g=0;g<c.length;g+=1)if(b[e]===c[g]){f=!0;break}f||c.push(b[e])}b=[];for(e=0;e<c.length;e+=1){f=!1;for(g=0;g<d.length;g+=1)if(c[e]===d[g]){f=!0;break}f||b.push(c[e])}a.className=b.join(" ").replace(/\s+/g," ").replace(/^\s+|\s+$/,"")}function y(a,b){for(var d=a.className.split(/\s+/),c=0,e=d.length;c<e;c++)if(d[c]==b)return!0;return!1}
-	function z(a){if("string"===typeof a.f)return a.f;var b=a.m.location.protocol;"about:"==b&&(b=a.a.location.protocol);return"https:"==b?"https:":"http:"}function ea(a){return a.m.location.hostname||a.a.location.hostname}
-	function A(a,b,d){function c(){k&&e&&f&&(k(g),k=null)}b=t(a,"link",{rel:"stylesheet",href:b,media:"all"});var e=!1,f=!0,g=null,k=d||null;da?(b.onload=function(){e=!0;c()},b.onerror=function(){e=!0;g=Error("Stylesheet failed to load");c()}):setTimeout(function(){e=!0;c()},0);u(a,"head",b)}
-	function B(a,b,d,c){var e=a.c.getElementsByTagName("head")[0];if(e){var f=t(a,"script",{src:b}),g=!1;f.onload=f.onreadystatechange=function(){g||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(g=!0,d&&d(null),f.onload=f.onreadystatechange=null,"HEAD"==f.parentNode.tagName&&e.removeChild(f))};e.appendChild(f);setTimeout(function(){g||(g=!0,d&&d(Error("Script load timeout")))},c||5E3);return f}return null};function C(){this.a=0;this.c=null}function D(a){a.a++;return function(){a.a--;E(a)}}function F(a,b){a.c=b;E(a)}function E(a){0==a.a&&a.c&&(a.c(),a.c=null)};function G(a){this.a=a||"-"}G.prototype.c=function(a){for(var b=[],d=0;d<arguments.length;d++)b.push(arguments[d].replace(/[\W_]+/g,"").toLowerCase());return b.join(this.a)};function H(a,b){this.c=a;this.f=4;this.a="n";var d=(b||"n4").match(/^([nio])([1-9])$/i);d&&(this.a=d[1],this.f=parseInt(d[2],10))}function fa(a){return I(a)+" "+(a.f+"00")+" 300px "+J(a.c)}function J(a){var b=[];a=a.split(/,\s*/);for(var d=0;d<a.length;d++){var c=a[d].replace(/['"]/g,"");-1!=c.indexOf(" ")||/^\d/.test(c)?b.push("'"+c+"'"):b.push(c)}return b.join(",")}function K(a){return a.a+a.f}function I(a){var b="normal";"o"===a.a?b="oblique":"i"===a.a&&(b="italic");return b}
-	function ga(a){var b=4,d="n",c=null;a&&((c=a.match(/(normal|oblique|italic)/i))&&c[1]&&(d=c[1].substr(0,1).toLowerCase()),(c=a.match(/([1-9]00|normal|bold)/i))&&c[1]&&(/bold/i.test(c[1])?b=7:/[1-9]00/.test(c[1])&&(b=parseInt(c[1].substr(0,1),10))));return d+b};function ha(a,b){this.c=a;this.f=a.m.document.documentElement;this.h=b;this.a=new G("-");this.j=!1!==b.events;this.g=!1!==b.classes}function ia(a){a.g&&w(a.f,[a.a.c("wf","loading")]);L(a,"loading")}function M(a){if(a.g){var b=y(a.f,a.a.c("wf","active")),d=[],c=[a.a.c("wf","loading")];b||d.push(a.a.c("wf","inactive"));w(a.f,d,c)}L(a,"inactive")}function L(a,b,d){if(a.j&&a.h[b])if(d)a.h[b](d.c,K(d));else a.h[b]()};function ja(){this.c={}}function ka(a,b,d){var c=[],e;for(e in b)if(b.hasOwnProperty(e)){var f=a.c[e];f&&c.push(f(b[e],d))}return c};function N(a,b){this.c=a;this.f=b;this.a=t(this.c,"span",{"aria-hidden":"true"},this.f)}function O(a){u(a.c,"body",a.a)}function P(a){return"display:block;position:absolute;top:-9999px;left:-9999px;font-size:300px;width:auto;height:auto;line-height:normal;margin:0;padding:0;font-variant:normal;white-space:nowrap;font-family:"+J(a.c)+";"+("font-style:"+I(a)+";font-weight:"+(a.f+"00")+";")};function Q(a,b,d,c,e,f){this.g=a;this.j=b;this.a=c;this.c=d;this.f=e||3E3;this.h=f||void 0}Q.prototype.start=function(){var a=this.c.m.document,b=this,d=q(),c=new Promise(function(c,e){function k(){q()-d>=b.f?e():a.fonts.load(fa(b.a),b.h).then(function(a){1<=a.length?c():setTimeout(k,25)},function(){e()})}k()}),e=new Promise(function(a,c){setTimeout(c,b.f)});Promise.race([e,c]).then(function(){b.g(b.a)},function(){b.j(b.a)})};function R(a,b,d,c,e,f,g){this.v=a;this.B=b;this.c=d;this.a=c;this.s=g||"BESbswy";this.f={};this.w=e||3E3;this.u=f||null;this.o=this.j=this.h=this.g=null;this.g=new N(this.c,this.s);this.h=new N(this.c,this.s);this.j=new N(this.c,this.s);this.o=new N(this.c,this.s);a=new H(this.a.c+",serif",K(this.a));a=P(a);this.g.a.style.cssText=a;a=new H(this.a.c+",sans-serif",K(this.a));a=P(a);this.h.a.style.cssText=a;a=new H("serif",K(this.a));a=P(a);this.j.a.style.cssText=a;a=new H("sans-serif",K(this.a));a=
-	P(a);this.o.a.style.cssText=a;O(this.g);O(this.h);O(this.j);O(this.o)}var S={D:"serif",C:"sans-serif"},T=null;function U(){if(null===T){var a=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent);T=!!a&&(536>parseInt(a[1],10)||536===parseInt(a[1],10)&&11>=parseInt(a[2],10))}return T}R.prototype.start=function(){this.f.serif=this.j.a.offsetWidth;this.f["sans-serif"]=this.o.a.offsetWidth;this.A=q();la(this)};
-	function ma(a,b,d){for(var c in S)if(S.hasOwnProperty(c)&&b===a.f[S[c]]&&d===a.f[S[c]])return!0;return!1}function la(a){var b=a.g.a.offsetWidth,d=a.h.a.offsetWidth,c;(c=b===a.f.serif&&d===a.f["sans-serif"])||(c=U()&&ma(a,b,d));c?q()-a.A>=a.w?U()&&ma(a,b,d)&&(null===a.u||a.u.hasOwnProperty(a.a.c))?V(a,a.v):V(a,a.B):na(a):V(a,a.v)}function na(a){setTimeout(p(function(){la(this)},a),50)}function V(a,b){setTimeout(p(function(){v(this.g.a);v(this.h.a);v(this.j.a);v(this.o.a);b(this.a)},a),0)};function W(a,b,d){this.c=a;this.a=b;this.f=0;this.o=this.j=!1;this.s=d}var X=null;W.prototype.g=function(a){var b=this.a;b.g&&w(b.f,[b.a.c("wf",a.c,K(a).toString(),"active")],[b.a.c("wf",a.c,K(a).toString(),"loading"),b.a.c("wf",a.c,K(a).toString(),"inactive")]);L(b,"fontactive",a);this.o=!0;oa(this)};
-	W.prototype.h=function(a){var b=this.a;if(b.g){var d=y(b.f,b.a.c("wf",a.c,K(a).toString(),"active")),c=[],e=[b.a.c("wf",a.c,K(a).toString(),"loading")];d||c.push(b.a.c("wf",a.c,K(a).toString(),"inactive"));w(b.f,c,e)}L(b,"fontinactive",a);oa(this)};function oa(a){0==--a.f&&a.j&&(a.o?(a=a.a,a.g&&w(a.f,[a.a.c("wf","active")],[a.a.c("wf","loading"),a.a.c("wf","inactive")]),L(a,"active")):M(a.a))};function pa(a){this.j=a;this.a=new ja;this.h=0;this.f=this.g=!0}pa.prototype.load=function(a){this.c=new ca(this.j,a.context||this.j);this.g=!1!==a.events;this.f=!1!==a.classes;qa(this,new ha(this.c,a),a)};
-	function ra(a,b,d,c,e){var f=0==--a.h;(a.f||a.g)&&setTimeout(function(){var a=e||null,k=c||null||{};if(0===d.length&&f)M(b.a);else{b.f+=d.length;f&&(b.j=f);var h,m=[];for(h=0;h<d.length;h++){var l=d[h],n=k[l.c],r=b.a,x=l;r.g&&w(r.f,[r.a.c("wf",x.c,K(x).toString(),"loading")]);L(r,"fontloading",x);r=null;null===X&&(X=window.FontFace?(x=/Gecko.*Firefox\/(\d+)/.exec(window.navigator.userAgent))?42<parseInt(x[1],10):!0:!1);X?r=new Q(p(b.g,b),p(b.h,b),b.c,l,b.s,n):r=new R(p(b.g,b),p(b.h,b),b.c,l,b.s,a,
-	n);m.push(r)}for(h=0;h<m.length;h++)m[h].start()}},0)}function qa(a,b,d){var c=[],e=d.timeout;ia(b);var c=ka(a.a,d,a.c),f=new W(a.c,b,e);a.h=c.length;b=0;for(d=c.length;b<d;b++)c[b].load(function(b,c,d){ra(a,f,b,c,d)})};function sa(a,b){this.c=a;this.a=b}function ta(a,b,d){var c=z(a.c);a=(a.a.api||"fast.fonts.net/jsapi").replace(/^.*http(s?):(\/\/)?/,"");return c+"//"+a+"/"+b+".js"+(d?"?v="+d:"")}
-	sa.prototype.load=function(a){function b(){if(e["__mti_fntLst"+d]){var c=e["__mti_fntLst"+d](),g=[],k;if(c)for(var h=0;h<c.length;h++){var m=c[h].fontfamily;void 0!=c[h].fontStyle&&void 0!=c[h].fontWeight?(k=c[h].fontStyle+c[h].fontWeight,g.push(new H(m,k))):g.push(new H(m))}a(g)}else setTimeout(function(){b()},50)}var d=this.a.projectId,c=this.a.version;if(d){var e=this.c.m;B(this.c,ta(this,d,c),function(c){c?a([]):b()}).id="__MonotypeAPIScript__"+d}else a([])};function ua(a,b){this.c=a;this.a=b}ua.prototype.load=function(a){var b,d,c=this.a.urls||[],e=this.a.families||[],f=this.a.testStrings||{},g=new C;b=0;for(d=c.length;b<d;b++)A(this.c,c[b],D(g));var k=[];b=0;for(d=e.length;b<d;b++)if(c=e[b].split(":"),c[1])for(var h=c[1].split(","),m=0;m<h.length;m+=1)k.push(new H(c[0],h[m]));else k.push(new H(c[0]));F(g,function(){a(k,f)})};function va(a,b,d){a?this.c=a:this.c=b+wa;this.a=[];this.f=[];this.g=d||""}var wa="//fonts.googleapis.com/css";function xa(a,b){for(var d=b.length,c=0;c<d;c++){var e=b[c].split(":");3==e.length&&a.f.push(e.pop());var f="";2==e.length&&""!=e[1]&&(f=":");a.a.push(e.join(f))}}
-	function ya(a){if(0==a.a.length)throw Error("No fonts to load!");if(-1!=a.c.indexOf("kit="))return a.c;for(var b=a.a.length,d=[],c=0;c<b;c++)d.push(a.a[c].replace(/ /g,"+"));b=a.c+"?family="+d.join("%7C");0<a.f.length&&(b+="&subset="+a.f.join(","));0<a.g.length&&(b+="&text="+encodeURIComponent(a.g));return b};function za(a){this.f=a;this.a=[];this.c={}}
-	var Aa={latin:"BESbswy",cyrillic:"\u0439\u044f\u0416",greek:"\u03b1\u03b2\u03a3",khmer:"\u1780\u1781\u1782",Hanuman:"\u1780\u1781\u1782"},Ba={thin:"1",extralight:"2","extra-light":"2",ultralight:"2","ultra-light":"2",light:"3",regular:"4",book:"4",medium:"5","semi-bold":"6",semibold:"6","demi-bold":"6",demibold:"6",bold:"7","extra-bold":"8",extrabold:"8","ultra-bold":"8",ultrabold:"8",black:"9",heavy:"9",l:"3",r:"4",b:"7"},Ca={i:"i",italic:"i",n:"n",normal:"n"},Da=/^(thin|(?:(?:extra|ultra)-?)?light|regular|book|medium|(?:(?:semi|demi|extra|ultra)-?)?bold|black|heavy|l|r|b|[1-9]00)?(n|i|normal|italic)?$/;
-	function Ea(a){for(var b=a.f.length,d=0;d<b;d++){var c=a.f[d].split(":"),e=c[0].replace(/\+/g," "),f=["n4"];if(2<=c.length){var g;var k=c[1];g=[];if(k)for(var k=k.split(","),h=k.length,m=0;m<h;m++){var l;l=k[m];if(l.match(/^[\w-]+$/)){var n=Da.exec(l.toLowerCase());if(null==n)l="";else{l=n[2];l=null==l||""==l?"n":Ca[l];n=n[1];if(null==n||""==n)n="4";else var r=Ba[n],n=r?r:isNaN(n)?"4":n.substr(0,1);l=[l,n].join("")}}else l="";l&&g.push(l)}0<g.length&&(f=g);3==c.length&&(c=c[2],g=[],c=c?c.split(","):
-	g,0<c.length&&(c=Aa[c[0]])&&(a.c[e]=c))}a.c[e]||(c=Aa[e])&&(a.c[e]=c);for(c=0;c<f.length;c+=1)a.a.push(new H(e,f[c]))}};function Fa(a,b){this.c=a;this.a=b}var Ga={Arimo:!0,Cousine:!0,Tinos:!0};Fa.prototype.load=function(a){var b=new C,d=this.c,c=new va(this.a.api,z(d),this.a.text),e=this.a.families;xa(c,e);var f=new za(e);Ea(f);A(d,ya(c),D(b));F(b,function(){a(f.a,f.c,Ga)})};function Ha(a,b){this.c=a;this.a=b}Ha.prototype.load=function(a){var b=this.a.id,d=this.c.m;b?B(this.c,(this.a.api||"https://use.typekit.net")+"/"+b+".js",function(b){if(b)a([]);else if(d.Typekit&&d.Typekit.config&&d.Typekit.config.fn){b=d.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],k=b[f+1],h=0;h<k.length;h++)e.push(new H(g,k[h]));try{d.Typekit.load({events:!1,classes:!1,async:!0})}catch(m){}a(e)}},2E3):a([])};function Ia(a,b){this.c=a;this.f=b;this.a=[]}Ia.prototype.load=function(a){var b=this.f.id,d=this.c.m,c=this;b?(d.__webfontfontdeckmodule__||(d.__webfontfontdeckmodule__={}),d.__webfontfontdeckmodule__[b]=function(b,d){for(var g=0,k=d.fonts.length;g<k;++g){var h=d.fonts[g];c.a.push(new H(h.name,ga("font-weight:"+h.weight+";font-style:"+h.style)))}a(c.a)},B(this.c,z(this.c)+(this.f.api||"//f.fontdeck.com/s/css/js/")+ea(this.c)+"/"+b+".js",function(b){b&&a([])})):a([])};var Y=new pa(window);Y.a.c.custom=function(a,b){return new ua(b,a)};Y.a.c.fontdeck=function(a,b){return new Ia(b,a)};Y.a.c.monotype=function(a,b){return new sa(b,a)};Y.a.c.typekit=function(a,b){return new Ha(b,a)};Y.a.c.google=function(a,b){return new Fa(b,a)};var Z={load:p(Y.load,Y)};true?!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return Z}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"undefined"!==typeof module&&module.exports?module.exports=Z:(window.WebFont=Z,window.WebFontConfig&&Y.load(window.WebFontConfig));}());
-
-
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
 	/**
 	 * Constants that are shared between multiple files.
 	 */
@@ -46742,6 +46732,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	    DebugSwitcherTypes: {
 	        ENABLED: 'ENABLED',
 	        DISABLED: 'DISABLED' } };
+
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_RESULT__;/* Web Font Loader v1.6.24 - (c) Adobe Systems, Google. License: Apache 2.0 */
+	(function(){function aa(a,b,d){return a.call.apply(a.bind,arguments)}function ba(a,b,d){if(!a)throw Error();if(2<arguments.length){var c=Array.prototype.slice.call(arguments,2);return function(){var d=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(d,c);return a.apply(b,d)}}return function(){return a.apply(b,arguments)}}function p(a,b,d){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.m=b||a;this.c=this.m.document}var da=!!window.FontFace;function t(a,b,d,c){b=a.c.createElement(b);if(d)for(var e in d)d.hasOwnProperty(e)&&("style"==e?b.style.cssText=d[e]:b.setAttribute(e,d[e]));c&&b.appendChild(a.c.createTextNode(c));return b}function u(a,b,d){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(d,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
+	function w(a,b,d){b=b||[];d=d||[];for(var c=a.className.split(/\s+/),e=0;e<b.length;e+=1){for(var f=!1,g=0;g<c.length;g+=1)if(b[e]===c[g]){f=!0;break}f||c.push(b[e])}b=[];for(e=0;e<c.length;e+=1){f=!1;for(g=0;g<d.length;g+=1)if(c[e]===d[g]){f=!0;break}f||b.push(c[e])}a.className=b.join(" ").replace(/\s+/g," ").replace(/^\s+|\s+$/,"")}function y(a,b){for(var d=a.className.split(/\s+/),c=0,e=d.length;c<e;c++)if(d[c]==b)return!0;return!1}
+	function z(a){if("string"===typeof a.f)return a.f;var b=a.m.location.protocol;"about:"==b&&(b=a.a.location.protocol);return"https:"==b?"https:":"http:"}function ea(a){return a.m.location.hostname||a.a.location.hostname}
+	function A(a,b,d){function c(){k&&e&&f&&(k(g),k=null)}b=t(a,"link",{rel:"stylesheet",href:b,media:"all"});var e=!1,f=!0,g=null,k=d||null;da?(b.onload=function(){e=!0;c()},b.onerror=function(){e=!0;g=Error("Stylesheet failed to load");c()}):setTimeout(function(){e=!0;c()},0);u(a,"head",b)}
+	function B(a,b,d,c){var e=a.c.getElementsByTagName("head")[0];if(e){var f=t(a,"script",{src:b}),g=!1;f.onload=f.onreadystatechange=function(){g||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(g=!0,d&&d(null),f.onload=f.onreadystatechange=null,"HEAD"==f.parentNode.tagName&&e.removeChild(f))};e.appendChild(f);setTimeout(function(){g||(g=!0,d&&d(Error("Script load timeout")))},c||5E3);return f}return null};function C(){this.a=0;this.c=null}function D(a){a.a++;return function(){a.a--;E(a)}}function F(a,b){a.c=b;E(a)}function E(a){0==a.a&&a.c&&(a.c(),a.c=null)};function G(a){this.a=a||"-"}G.prototype.c=function(a){for(var b=[],d=0;d<arguments.length;d++)b.push(arguments[d].replace(/[\W_]+/g,"").toLowerCase());return b.join(this.a)};function H(a,b){this.c=a;this.f=4;this.a="n";var d=(b||"n4").match(/^([nio])([1-9])$/i);d&&(this.a=d[1],this.f=parseInt(d[2],10))}function fa(a){return I(a)+" "+(a.f+"00")+" 300px "+J(a.c)}function J(a){var b=[];a=a.split(/,\s*/);for(var d=0;d<a.length;d++){var c=a[d].replace(/['"]/g,"");-1!=c.indexOf(" ")||/^\d/.test(c)?b.push("'"+c+"'"):b.push(c)}return b.join(",")}function K(a){return a.a+a.f}function I(a){var b="normal";"o"===a.a?b="oblique":"i"===a.a&&(b="italic");return b}
+	function ga(a){var b=4,d="n",c=null;a&&((c=a.match(/(normal|oblique|italic)/i))&&c[1]&&(d=c[1].substr(0,1).toLowerCase()),(c=a.match(/([1-9]00|normal|bold)/i))&&c[1]&&(/bold/i.test(c[1])?b=7:/[1-9]00/.test(c[1])&&(b=parseInt(c[1].substr(0,1),10))));return d+b};function ha(a,b){this.c=a;this.f=a.m.document.documentElement;this.h=b;this.a=new G("-");this.j=!1!==b.events;this.g=!1!==b.classes}function ia(a){a.g&&w(a.f,[a.a.c("wf","loading")]);L(a,"loading")}function M(a){if(a.g){var b=y(a.f,a.a.c("wf","active")),d=[],c=[a.a.c("wf","loading")];b||d.push(a.a.c("wf","inactive"));w(a.f,d,c)}L(a,"inactive")}function L(a,b,d){if(a.j&&a.h[b])if(d)a.h[b](d.c,K(d));else a.h[b]()};function ja(){this.c={}}function ka(a,b,d){var c=[],e;for(e in b)if(b.hasOwnProperty(e)){var f=a.c[e];f&&c.push(f(b[e],d))}return c};function N(a,b){this.c=a;this.f=b;this.a=t(this.c,"span",{"aria-hidden":"true"},this.f)}function O(a){u(a.c,"body",a.a)}function P(a){return"display:block;position:absolute;top:-9999px;left:-9999px;font-size:300px;width:auto;height:auto;line-height:normal;margin:0;padding:0;font-variant:normal;white-space:nowrap;font-family:"+J(a.c)+";"+("font-style:"+I(a)+";font-weight:"+(a.f+"00")+";")};function Q(a,b,d,c,e,f){this.g=a;this.j=b;this.a=c;this.c=d;this.f=e||3E3;this.h=f||void 0}Q.prototype.start=function(){var a=this.c.m.document,b=this,d=q(),c=new Promise(function(c,e){function k(){q()-d>=b.f?e():a.fonts.load(fa(b.a),b.h).then(function(a){1<=a.length?c():setTimeout(k,25)},function(){e()})}k()}),e=new Promise(function(a,c){setTimeout(c,b.f)});Promise.race([e,c]).then(function(){b.g(b.a)},function(){b.j(b.a)})};function R(a,b,d,c,e,f,g){this.v=a;this.B=b;this.c=d;this.a=c;this.s=g||"BESbswy";this.f={};this.w=e||3E3;this.u=f||null;this.o=this.j=this.h=this.g=null;this.g=new N(this.c,this.s);this.h=new N(this.c,this.s);this.j=new N(this.c,this.s);this.o=new N(this.c,this.s);a=new H(this.a.c+",serif",K(this.a));a=P(a);this.g.a.style.cssText=a;a=new H(this.a.c+",sans-serif",K(this.a));a=P(a);this.h.a.style.cssText=a;a=new H("serif",K(this.a));a=P(a);this.j.a.style.cssText=a;a=new H("sans-serif",K(this.a));a=
+	P(a);this.o.a.style.cssText=a;O(this.g);O(this.h);O(this.j);O(this.o)}var S={D:"serif",C:"sans-serif"},T=null;function U(){if(null===T){var a=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent);T=!!a&&(536>parseInt(a[1],10)||536===parseInt(a[1],10)&&11>=parseInt(a[2],10))}return T}R.prototype.start=function(){this.f.serif=this.j.a.offsetWidth;this.f["sans-serif"]=this.o.a.offsetWidth;this.A=q();la(this)};
+	function ma(a,b,d){for(var c in S)if(S.hasOwnProperty(c)&&b===a.f[S[c]]&&d===a.f[S[c]])return!0;return!1}function la(a){var b=a.g.a.offsetWidth,d=a.h.a.offsetWidth,c;(c=b===a.f.serif&&d===a.f["sans-serif"])||(c=U()&&ma(a,b,d));c?q()-a.A>=a.w?U()&&ma(a,b,d)&&(null===a.u||a.u.hasOwnProperty(a.a.c))?V(a,a.v):V(a,a.B):na(a):V(a,a.v)}function na(a){setTimeout(p(function(){la(this)},a),50)}function V(a,b){setTimeout(p(function(){v(this.g.a);v(this.h.a);v(this.j.a);v(this.o.a);b(this.a)},a),0)};function W(a,b,d){this.c=a;this.a=b;this.f=0;this.o=this.j=!1;this.s=d}var X=null;W.prototype.g=function(a){var b=this.a;b.g&&w(b.f,[b.a.c("wf",a.c,K(a).toString(),"active")],[b.a.c("wf",a.c,K(a).toString(),"loading"),b.a.c("wf",a.c,K(a).toString(),"inactive")]);L(b,"fontactive",a);this.o=!0;oa(this)};
+	W.prototype.h=function(a){var b=this.a;if(b.g){var d=y(b.f,b.a.c("wf",a.c,K(a).toString(),"active")),c=[],e=[b.a.c("wf",a.c,K(a).toString(),"loading")];d||c.push(b.a.c("wf",a.c,K(a).toString(),"inactive"));w(b.f,c,e)}L(b,"fontinactive",a);oa(this)};function oa(a){0==--a.f&&a.j&&(a.o?(a=a.a,a.g&&w(a.f,[a.a.c("wf","active")],[a.a.c("wf","loading"),a.a.c("wf","inactive")]),L(a,"active")):M(a.a))};function pa(a){this.j=a;this.a=new ja;this.h=0;this.f=this.g=!0}pa.prototype.load=function(a){this.c=new ca(this.j,a.context||this.j);this.g=!1!==a.events;this.f=!1!==a.classes;qa(this,new ha(this.c,a),a)};
+	function ra(a,b,d,c,e){var f=0==--a.h;(a.f||a.g)&&setTimeout(function(){var a=e||null,k=c||null||{};if(0===d.length&&f)M(b.a);else{b.f+=d.length;f&&(b.j=f);var h,m=[];for(h=0;h<d.length;h++){var l=d[h],n=k[l.c],r=b.a,x=l;r.g&&w(r.f,[r.a.c("wf",x.c,K(x).toString(),"loading")]);L(r,"fontloading",x);r=null;null===X&&(X=window.FontFace?(x=/Gecko.*Firefox\/(\d+)/.exec(window.navigator.userAgent))?42<parseInt(x[1],10):!0:!1);X?r=new Q(p(b.g,b),p(b.h,b),b.c,l,b.s,n):r=new R(p(b.g,b),p(b.h,b),b.c,l,b.s,a,
+	n);m.push(r)}for(h=0;h<m.length;h++)m[h].start()}},0)}function qa(a,b,d){var c=[],e=d.timeout;ia(b);var c=ka(a.a,d,a.c),f=new W(a.c,b,e);a.h=c.length;b=0;for(d=c.length;b<d;b++)c[b].load(function(b,c,d){ra(a,f,b,c,d)})};function sa(a,b){this.c=a;this.a=b}function ta(a,b,d){var c=z(a.c);a=(a.a.api||"fast.fonts.net/jsapi").replace(/^.*http(s?):(\/\/)?/,"");return c+"//"+a+"/"+b+".js"+(d?"?v="+d:"")}
+	sa.prototype.load=function(a){function b(){if(e["__mti_fntLst"+d]){var c=e["__mti_fntLst"+d](),g=[],k;if(c)for(var h=0;h<c.length;h++){var m=c[h].fontfamily;void 0!=c[h].fontStyle&&void 0!=c[h].fontWeight?(k=c[h].fontStyle+c[h].fontWeight,g.push(new H(m,k))):g.push(new H(m))}a(g)}else setTimeout(function(){b()},50)}var d=this.a.projectId,c=this.a.version;if(d){var e=this.c.m;B(this.c,ta(this,d,c),function(c){c?a([]):b()}).id="__MonotypeAPIScript__"+d}else a([])};function ua(a,b){this.c=a;this.a=b}ua.prototype.load=function(a){var b,d,c=this.a.urls||[],e=this.a.families||[],f=this.a.testStrings||{},g=new C;b=0;for(d=c.length;b<d;b++)A(this.c,c[b],D(g));var k=[];b=0;for(d=e.length;b<d;b++)if(c=e[b].split(":"),c[1])for(var h=c[1].split(","),m=0;m<h.length;m+=1)k.push(new H(c[0],h[m]));else k.push(new H(c[0]));F(g,function(){a(k,f)})};function va(a,b,d){a?this.c=a:this.c=b+wa;this.a=[];this.f=[];this.g=d||""}var wa="//fonts.googleapis.com/css";function xa(a,b){for(var d=b.length,c=0;c<d;c++){var e=b[c].split(":");3==e.length&&a.f.push(e.pop());var f="";2==e.length&&""!=e[1]&&(f=":");a.a.push(e.join(f))}}
+	function ya(a){if(0==a.a.length)throw Error("No fonts to load!");if(-1!=a.c.indexOf("kit="))return a.c;for(var b=a.a.length,d=[],c=0;c<b;c++)d.push(a.a[c].replace(/ /g,"+"));b=a.c+"?family="+d.join("%7C");0<a.f.length&&(b+="&subset="+a.f.join(","));0<a.g.length&&(b+="&text="+encodeURIComponent(a.g));return b};function za(a){this.f=a;this.a=[];this.c={}}
+	var Aa={latin:"BESbswy",cyrillic:"\u0439\u044f\u0416",greek:"\u03b1\u03b2\u03a3",khmer:"\u1780\u1781\u1782",Hanuman:"\u1780\u1781\u1782"},Ba={thin:"1",extralight:"2","extra-light":"2",ultralight:"2","ultra-light":"2",light:"3",regular:"4",book:"4",medium:"5","semi-bold":"6",semibold:"6","demi-bold":"6",demibold:"6",bold:"7","extra-bold":"8",extrabold:"8","ultra-bold":"8",ultrabold:"8",black:"9",heavy:"9",l:"3",r:"4",b:"7"},Ca={i:"i",italic:"i",n:"n",normal:"n"},Da=/^(thin|(?:(?:extra|ultra)-?)?light|regular|book|medium|(?:(?:semi|demi|extra|ultra)-?)?bold|black|heavy|l|r|b|[1-9]00)?(n|i|normal|italic)?$/;
+	function Ea(a){for(var b=a.f.length,d=0;d<b;d++){var c=a.f[d].split(":"),e=c[0].replace(/\+/g," "),f=["n4"];if(2<=c.length){var g;var k=c[1];g=[];if(k)for(var k=k.split(","),h=k.length,m=0;m<h;m++){var l;l=k[m];if(l.match(/^[\w-]+$/)){var n=Da.exec(l.toLowerCase());if(null==n)l="";else{l=n[2];l=null==l||""==l?"n":Ca[l];n=n[1];if(null==n||""==n)n="4";else var r=Ba[n],n=r?r:isNaN(n)?"4":n.substr(0,1);l=[l,n].join("")}}else l="";l&&g.push(l)}0<g.length&&(f=g);3==c.length&&(c=c[2],g=[],c=c?c.split(","):
+	g,0<c.length&&(c=Aa[c[0]])&&(a.c[e]=c))}a.c[e]||(c=Aa[e])&&(a.c[e]=c);for(c=0;c<f.length;c+=1)a.a.push(new H(e,f[c]))}};function Fa(a,b){this.c=a;this.a=b}var Ga={Arimo:!0,Cousine:!0,Tinos:!0};Fa.prototype.load=function(a){var b=new C,d=this.c,c=new va(this.a.api,z(d),this.a.text),e=this.a.families;xa(c,e);var f=new za(e);Ea(f);A(d,ya(c),D(b));F(b,function(){a(f.a,f.c,Ga)})};function Ha(a,b){this.c=a;this.a=b}Ha.prototype.load=function(a){var b=this.a.id,d=this.c.m;b?B(this.c,(this.a.api||"https://use.typekit.net")+"/"+b+".js",function(b){if(b)a([]);else if(d.Typekit&&d.Typekit.config&&d.Typekit.config.fn){b=d.Typekit.config.fn;for(var e=[],f=0;f<b.length;f+=2)for(var g=b[f],k=b[f+1],h=0;h<k.length;h++)e.push(new H(g,k[h]));try{d.Typekit.load({events:!1,classes:!1,async:!0})}catch(m){}a(e)}},2E3):a([])};function Ia(a,b){this.c=a;this.f=b;this.a=[]}Ia.prototype.load=function(a){var b=this.f.id,d=this.c.m,c=this;b?(d.__webfontfontdeckmodule__||(d.__webfontfontdeckmodule__={}),d.__webfontfontdeckmodule__[b]=function(b,d){for(var g=0,k=d.fonts.length;g<k;++g){var h=d.fonts[g];c.a.push(new H(h.name,ga("font-weight:"+h.weight+";font-style:"+h.style)))}a(c.a)},B(this.c,z(this.c)+(this.f.api||"//f.fontdeck.com/s/css/js/")+ea(this.c)+"/"+b+".js",function(b){b&&a([])})):a([])};var Y=new pa(window);Y.a.c.custom=function(a,b){return new ua(b,a)};Y.a.c.fontdeck=function(a,b){return new Ia(b,a)};Y.a.c.monotype=function(a,b){return new sa(b,a)};Y.a.c.typekit=function(a,b){return new Ha(b,a)};Y.a.c.google=function(a,b){return new Fa(b,a)};var Z={load:p(Y.load,Y)};true?!(__WEBPACK_AMD_DEFINE_RESULT__ = function(){return Z}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"undefined"!==typeof module&&module.exports?module.exports=Z:(window.WebFont=Z,window.WebFontConfig&&Y.load(window.WebFontConfig));}());
+
+
 
 /***/ },
 /* 195 */
@@ -49897,7 +49911,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var KeyConfigs = __webpack_require__(237);
 	var CursorContexts = __webpack_require__(230);
 
-	var _require = __webpack_require__(194);
+	var _require = __webpack_require__(193);
 
 	var BorderDirections = _require.BorderDirections;
 	var KeyTypes = _require.KeyTypes;
@@ -55246,7 +55260,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/* WEBPACK VAR INJECTION */(function(process) {/* globals i18n:false */
 
-	var $ = __webpack_require__(19);
+	var $ = __webpack_require__(26);
 	var _ = __webpack_require__(16);
 
 	var crc32 = __webpack_require__(239);
@@ -57438,7 +57452,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var keyIdPropType = _require4.keyIdPropType;
 
-	var _require5 = __webpack_require__(194);
+	var _require5 = __webpack_require__(193);
 
 	var KeypadTypes = _require5.KeypadTypes;
 
@@ -57722,14 +57736,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * from MathQuill changes.
 	 */
 
-	var $ = __webpack_require__(19);
+	var $ = __webpack_require__(26);
 	// TODO(kevinb) allow test code to use const MathQuill = require('mathquill');
 	var MathQuill = window.MathQuill;
 
 	var Keys = __webpack_require__(247);
 	var CursorContexts = __webpack_require__(230);
 
-	var _require = __webpack_require__(194);
+	var _require = __webpack_require__(193);
 
 	var FractionBehaviorTypes = _require.FractionBehaviorTypes;
 
@@ -58486,7 +58500,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var defaultButtonHeightPx = _require.defaultButtonHeightPx;
 
-	var _require2 = __webpack_require__(194);
+	var _require2 = __webpack_require__(193);
 
 	var KeyTypes = _require2.KeyTypes;
 
@@ -58838,7 +58852,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Keys = __webpack_require__(247);
 
-	var _require = __webpack_require__(194);
+	var _require = __webpack_require__(193);
 
 	var KeyTypes = _require.KeyTypes;
 
@@ -59334,7 +59348,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var row = _require2.row;
 
-	var _require3 = __webpack_require__(194);
+	var _require3 = __webpack_require__(193);
 
 	var BorderStyles = _require3.BorderStyles;
 
@@ -59438,7 +59452,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var row = _require2.row;
 
-	var _require3 = __webpack_require__(194);
+	var _require3 = __webpack_require__(193);
 
 	var BorderStyles = _require3.BorderStyles;
 
@@ -59567,7 +59581,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var column = _require5.column;
 	var oneColumn = _require5.oneColumn;
 
-	var _require6 = __webpack_require__(194);
+	var _require6 = __webpack_require__(193);
 
 	var BorderStyles = _require6.BorderStyles;
 	var SwitchTypes = _require6.SwitchTypes;
@@ -59827,7 +59841,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var column = _require5.column;
 	var oneColumn = _require5.oneColumn;
 
-	var _require6 = __webpack_require__(194);
+	var _require6 = __webpack_require__(193);
 
 	var BorderStyles = _require6.BorderStyles;
 	var SwitchTypes = _require6.SwitchTypes;
@@ -60150,7 +60164,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var queryString = __webpack_require__(269);
 
-	var _require = __webpack_require__(194);
+	var _require = __webpack_require__(193);
 
 	var KeypadTypes = _require.KeypadTypes;
 	var SwitchTypes = _require.SwitchTypes;
@@ -60229,7 +60243,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var Keys = __webpack_require__(247);
 
-	var _require = __webpack_require__(194);
+	var _require = __webpack_require__(193);
 
 	var KeypadTypes = _require.KeypadTypes;
 
@@ -61291,7 +61305,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var bordersPropType = _require2.bordersPropType;
 	var keyIdPropType = _require2.keyIdPropType;
 
-	var _require3 = __webpack_require__(194);
+	var _require3 = __webpack_require__(193);
 
 	var KeyTypes = _require3.KeyTypes;
 
@@ -61442,7 +61456,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var buttonBorderWidthPx = _require4.buttonBorderWidthPx;
 	var lightGrey = _require4.lightGrey;
 
-	var _require5 = __webpack_require__(194);
+	var _require5 = __webpack_require__(193);
 
 	var SwitchTypes = _require5.SwitchTypes;
 
@@ -61560,7 +61574,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Keys = __webpack_require__(247);
 	var KeyConfigs = __webpack_require__(237);
 
-	var _require = __webpack_require__(194);
+	var _require = __webpack_require__(193);
 
 	var KeyTypes = _require.KeyTypes;
 
@@ -62192,7 +62206,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _warning = __webpack_require__(287);
+	var _warning = __webpack_require__(285);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -62299,19 +62313,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _shallowEqual = __webpack_require__(285);
+	var _shallowEqual = __webpack_require__(286);
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _wrapActionCreators = __webpack_require__(286);
+	var _wrapActionCreators = __webpack_require__(287);
 
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 
-	var _warning = __webpack_require__(287);
+	var _warning = __webpack_require__(285);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
-	var _isPlainObject = __webpack_require__(293);
+	var _isPlainObject = __webpack_require__(294);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
@@ -62319,7 +62333,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-	var _invariant = __webpack_require__(294);
+	var _invariant = __webpack_require__(295);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -62699,7 +62713,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var strictUriEncode = __webpack_require__(295);
+	var strictUriEncode = __webpack_require__(293);
 
 	function encode(value, strict) {
 		return strict ? strictUriEncode(value) : encodeURIComponent(value);
@@ -62804,7 +62818,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var KeypadButton = __webpack_require__(272);
 	var KeyConfigs = __webpack_require__(237);
 
-	var _require = __webpack_require__(194);
+	var _require = __webpack_require__(193);
 
 	var KeyTypes = _require.KeyTypes;
 	var EchoAnimationTypes = _require.EchoAnimationTypes;
@@ -62964,7 +62978,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var ReactCSSTransitionGroup = __webpack_require__(283);
 
 	var KeyConfigs = __webpack_require__(237);
-	var MultiSymbolPopover = __webpack_require__(288);
+	var MultiSymbolPopover = __webpack_require__(291);
 
 	var _require = __webpack_require__(205);
 
@@ -63055,11 +63069,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var View = _require3.View;
 
-	var Icon = __webpack_require__(289);
-	var MultiSymbolGrid = __webpack_require__(290);
-	var CornerDecal = __webpack_require__(291);
+	var Icon = __webpack_require__(288);
+	var MultiSymbolGrid = __webpack_require__(289);
+	var CornerDecal = __webpack_require__(290);
 
-	var _require4 = __webpack_require__(194);
+	var _require4 = __webpack_require__(193);
 
 	var KeyTypes = _require4.KeyTypes;
 	var BorderDirections = _require4.BorderDirections;
@@ -63798,7 +63812,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.ActionTypes = undefined;
 	exports['default'] = createStore;
 
-	var _isPlainObject = __webpack_require__(293);
+	var _isPlainObject = __webpack_require__(294);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
@@ -64068,7 +64082,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _createStore = __webpack_require__(276);
 
-	var _isPlainObject = __webpack_require__(293);
+	var _isPlainObject = __webpack_require__(294);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
@@ -64458,6 +64472,35 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	exports.__esModule = true;
+	exports['default'] = warning;
+	/**
+	 * Prints a warning in the console if it exists.
+	 *
+	 * @param {String} message The warning message.
+	 * @returns {void}
+	 */
+	function warning(message) {
+	  /* eslint-disable no-console */
+	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+	    console.error(message);
+	  }
+	  /* eslint-enable no-console */
+	  try {
+	    // This error was thrown as a convenience so that you can use this stack
+	    // to find the callsite that caused this warning to fire.
+	    throw new Error(message);
+	    /* eslint-disable no-empty */
+	  } catch (e) {}
+	  /* eslint-enable no-empty */
+	}
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	exports.__esModule = true;
@@ -64486,7 +64529,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -64503,113 +64546,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 287 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports['default'] = warning;
-	/**
-	 * Prints a warning in the console if it exists.
-	 *
-	 * @param {String} message The warning message.
-	 * @returns {void}
-	 */
-	function warning(message) {
-	  /* eslint-disable no-console */
-	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-	    console.error(message);
-	  }
-	  /* eslint-enable no-console */
-	  try {
-	    // This error was thrown as a convenience so that you can use this stack
-	    // to find the callsite that caused this warning to fire.
-	    throw new Error(message);
-	    /* eslint-disable no-empty */
-	  } catch (e) {}
-	  /* eslint-enable no-empty */
-	}
-
-/***/ },
 /* 288 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	/**
-	 * A popover that renders a set of keys floating above the page.
-	 */
-
-	var React = __webpack_require__(15);
-
-	var _require = __webpack_require__(145);
-
-	var StyleSheet = _require.StyleSheet;
-
-	var _require2 = __webpack_require__(238);
-
-	var View = _require2.View;
-
-	var _require3 = __webpack_require__(205);
-
-	var keyConfigPropType = _require3.keyConfigPropType;
-
-	var _require4 = __webpack_require__(194);
-
-	var KeyTypes = _require4.KeyTypes;
-	var BorderStyles = _require4.BorderStyles;
-
-	var MultiSymbolPopover = React.createClass({
-	    displayName: 'MultiSymbolPopover',
-
-	    propTypes: {
-	        keys: React.PropTypes.arrayOf(keyConfigPropType) },
-
-	    render: function () {
-	        var keys = this.props.keys;
-
-	        // TODO(charlie): We have to require this lazily because of a cyclic
-	        // dependence in our components.
-	        var TouchableKeypadButton = __webpack_require__(259);
-	        return React.createElement(
-	            View,
-	            { style: styles.container },
-	            keys.map(function (key) {
-	                var keyConfig = _extends({}, key, {
-	                    type: KeyTypes.NUMERAL });
-	                return React.createElement(TouchableKeypadButton, {
-	                    key: keyConfig.id,
-	                    keyConfig: keyConfig,
-	                    borders: BorderStyles.NONE
-	                });
-	            })
-	        );
-	    } });
-
-	var styles = StyleSheet.create({
-	    container: {
-	        flexDirection: 'column-reverse',
-	        position: 'relative',
-	        width: '100%',
-	        borderRadius: 2,
-	        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
-	        zIndex: 1 },
-
-	    popoverButton: {
-	        backgroundColor: '#FFF',
-	        borderWidth: 0 } });
-
-	module.exports = MultiSymbolPopover;
-
-	// NOTE(charlie): Right now, buttons that appear in the
-	// popover are styled identically to the numeral buttons, i.e.,
-	// in a very simple way (white background, no borders). If the
-	// numeral buttons change in style, we'll have to change this
-	// logic to mimic a different button type.
-
-/***/ },
-/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64671,7 +64608,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = Icon;
 
 /***/ },
-/* 290 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64828,7 +64765,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = MultiSymbolGrid;
 
 /***/ },
-/* 291 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -64881,6 +64818,83 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = CornerDecal;
 
 /***/ },
+/* 291 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	/**
+	 * A popover that renders a set of keys floating above the page.
+	 */
+
+	var React = __webpack_require__(15);
+
+	var _require = __webpack_require__(145);
+
+	var StyleSheet = _require.StyleSheet;
+
+	var _require2 = __webpack_require__(238);
+
+	var View = _require2.View;
+
+	var _require3 = __webpack_require__(205);
+
+	var keyConfigPropType = _require3.keyConfigPropType;
+
+	var _require4 = __webpack_require__(193);
+
+	var KeyTypes = _require4.KeyTypes;
+	var BorderStyles = _require4.BorderStyles;
+
+	var MultiSymbolPopover = React.createClass({
+	    displayName: 'MultiSymbolPopover',
+
+	    propTypes: {
+	        keys: React.PropTypes.arrayOf(keyConfigPropType) },
+
+	    render: function () {
+	        var keys = this.props.keys;
+
+	        // TODO(charlie): We have to require this lazily because of a cyclic
+	        // dependence in our components.
+	        var TouchableKeypadButton = __webpack_require__(259);
+	        return React.createElement(
+	            View,
+	            { style: styles.container },
+	            keys.map(function (key) {
+	                var keyConfig = _extends({}, key, {
+	                    type: KeyTypes.NUMERAL });
+	                return React.createElement(TouchableKeypadButton, {
+	                    key: keyConfig.id,
+	                    keyConfig: keyConfig,
+	                    borders: BorderStyles.NONE
+	                });
+	            })
+	        );
+	    } });
+
+	var styles = StyleSheet.create({
+	    container: {
+	        flexDirection: 'column-reverse',
+	        position: 'relative',
+	        width: '100%',
+	        borderRadius: 2,
+	        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.3)',
+	        zIndex: 1 },
+
+	    popoverButton: {
+	        backgroundColor: '#FFF',
+	        borderWidth: 0 } });
+
+	module.exports = MultiSymbolPopover;
+
+	// NOTE(charlie): Right now, buttons that appear in the
+	// popover are styled identically to the numeral buttons, i.e.,
+	// in a very simple way (white background, no borders). If the
+	// numeral buttons change in style, we'll have to change this
+	// logic to mimic a different button type.
+
+/***/ },
 /* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -64928,6 +64942,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	module.exports = function (str) {
+		return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+			return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+		});
+	};
+
+/***/ },
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getPrototype = __webpack_require__(300),
@@ -65000,7 +65025,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = isPlainObject;
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -65051,17 +65076,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 	module.exports = invariant;
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	module.exports = function (str) {
-		return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-			return '%' + c.charCodeAt(0).toString(16).toUpperCase();
-		});
-	};
 
 /***/ },
 /* 296 */
