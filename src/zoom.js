@@ -349,14 +349,14 @@ Zoom.prototype._calculateZoom = function() {
         // and then we want to see what happens if we expand fully to x or y
         // and we take the minimum of both of these dimensions
 
-        let viewportHeight = (window.innerHeight - this.getOffset());
+        const viewportHeight = (window.innerHeight - this.getOffset());
         var fillHeightScaleFactor = (viewportHeight / originalFullImageHeight) *
             maxScaleFactor;
         this._imgScaleFactor = Math.min(maxScaleFactor, fillHeightScaleFactor);
 
     } else {
         // Zoom to fit the viewport.
-        let viewportHeight = (window.innerHeight - this.getOffset());
+        const viewportHeight = (window.innerHeight - this.getOffset());
         var viewportWidth = (window.innerWidth - this.getOffset());
 
         var imageAspectRatio = originalFullImageWidth / originalFullImageHeight;
