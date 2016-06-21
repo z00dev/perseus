@@ -74,7 +74,7 @@ var EditorPage = React.createClass({
             ),
             gradeMessage: "",
             wasAnswered: false,
-            previewWidth: ViewportResizer.DEFAULT_WIDTH,
+            previewDevice: "noframe",
         };
     },
 
@@ -139,8 +139,8 @@ var EditorPage = React.createClass({
         this.props.onChange(newProps, cb, silent);
     },
 
-    handleViewportSizeChanged: function(width, height) {
-        this.setState({previewWidth: width});
+    handleViewportSizeChanged: function(device) {
+        this.setState({previewDevice: device});
     },
 
     changeJSON: function(newJson) {
@@ -223,8 +223,8 @@ var EditorPage = React.createClass({
                     gradeMessage={this.state.gradeMessage}
                     onCheckAnswer={this.handleCheckAnswer}
                     enabledFeatures={this.props.enabledFeatures}
+                    deviceType={this.state.previewDevice}
                     apiOptions={this.getApiOptions()}
-                    previewWidth={this.state.previewWidth}
                 />
             }
 
@@ -234,8 +234,9 @@ var EditorPage = React.createClass({
                     hints={this.props.hints}
                     imageUploader={this.props.imageUploader}
                     onChange={this.handleChange}
-                    previewWidth={this.state.previewWidth}
+                    deviceType={this.state.previewDevice}
                     enabledFeatures={this.props.enabledFeatures}
+                    deviceType={this.state.previewDevice}
                     apiOptions={this.getApiOptions()}
                 />
             }
