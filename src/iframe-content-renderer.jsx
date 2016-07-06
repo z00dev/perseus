@@ -90,6 +90,7 @@ const IframeContentRenderer = React.createClass({
     },
 
     _prepareFrame: function() {
+        // Don't initialize the iframe until the page has loaded
         if (this._frame) {
             this.refs.container.removeChild(this._frame);
         }
@@ -97,6 +98,7 @@ const IframeContentRenderer = React.createClass({
         this._frame = document.createElement("iframe");
         this._frame.style.width = "100%";
         this._frame.style.height = "100%";
+
         if (this.props.datasetKey) {
             // If the user has specified a data-* attribute to place on the
             // iframe, we set it here. Right now, this is used to
@@ -105,22 +107,29 @@ const IframeContentRenderer = React.createClass({
                 this.props.datasetValue;
         }
         this._frame.dataset.id = this.iframeID;
-        this.refs.container.appendChild(this._frame);
+        this._frame.onload = () => {
+            this._frame.onload = null;
+            setTimeout(() => {
+                this._frame.contentWindow.document.open();
+                this._frame.contentWindow.document.write(this.props.content);
+                this._frame.contentWindow.document.close();
+            });
+        };
 
-        this._frame.contentWindow.document.open();
-        this._frame.contentWindow.document.write(this.props.content);
-        this._frame.contentWindow.document.close();
+        this.refs.container.appendChild(this._frame);
     },
 
     sendNewData: function(data) {
         if (this.isMounted() && data) {
             this._lastData = data;
 
-            // We can't use JSON.stringify/parse for this because the apiOptions
-            // includes the functions GroupMetadataEditor, groupAnnotator,
-            // onFocusChange, and onInputError.
-            window.iframeDataStore[this.iframeID] = data;
-            this._frame.contentWindow.postMessage(this.iframeID, "*");
+            if (this._frame) {
+                // We can't use JSON.stringify/parse for this because the
+                // apiOptions includes the functions GroupMetadataEditor,
+                // groupAnnotator, onFocusChange, and onInputError.
+                window.iframeDataStore[this.iframeID] = data;
+                this._frame.contentWindow.postMessage(this.iframeID, "*");
+            }
         }
     },
 
