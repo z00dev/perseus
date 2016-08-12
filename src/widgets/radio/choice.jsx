@@ -37,7 +37,7 @@ const Choice = React.createClass({
         // because many of the properties on Options.propTypes are required.
         apiOptions: React.PropTypes.shape({
             satStyling: React.PropTypes.bool,
-            xomManatee: React.PropTypes.bool,
+            isMobile: React.PropTypes.bool,
         }),
         checked: React.PropTypes.bool,
         className: React.PropTypes.string,
@@ -181,7 +181,7 @@ const Choice = React.createClass({
                 },
             },
 
-            responsiveCheckboxInputXomManatee: {
+            responsiveMobileCheckboxInput: {
                 // On phones and tablets, we hide the circular radio button
                 // itself, and instead, show a green border when the item is
                 // selected. This saves horizontal space for content on small
@@ -365,14 +365,14 @@ const Choice = React.createClass({
 
         const styles = Choice.styles;
         const sat = this.props.apiOptions.satStyling;
-        const xomManatee = this.props.apiOptions.xomManatee;
+        const isMobile = this.props.apiOptions.isMobile;
 
         const className = classNames(
             this.props.className,
             "checkbox-label",
             css(
                 styles.label,
-                xomManatee && sharedStyles.disableTextSelection,
+                isMobile && sharedStyles.disableTextSelection,
                 styles.responsiveLabel,
                 sat && styles.satLabel
             )
@@ -394,12 +394,12 @@ const Choice = React.createClass({
                 sharedStyles.responsiveInput,
                 this.props.type === "radio" &&
                     sharedStyles.responsiveRadioInput,
-                this.props.type === "radio" && xomManatee &&
-                    sharedStyles.responsiveRadioInputXomManatee,
+                this.props.type === "radio" && isMobile &&
+                    sharedStyles.responsiveMobileRadioInput,
                 this.props.type === "checkbox" &&
                     styles.responsiveCheckboxInput,
-                this.props.type === "checkbox" && xomManatee &&
-                    styles.responsiveCheckboxInputXomManatee,
+                this.props.type === "checkbox" && isMobile &&
+                    styles.responsiveMobileCheckboxInput,
                 sat && this.props.type === "radio" &&
                     sharedStyles.perseusSrOnly,
                 sat && this.props.type === "checkbox" &&
