@@ -267,6 +267,7 @@ const PerseusEditor = React.createClass({
             withEntity,
             SelectionState.createEmpty(firstBlock)
         );
+
         return withNoSelection;
     },
 
@@ -708,6 +709,7 @@ const PerseusEditor = React.createClass({
                 {editorState},
                 this.state.editorState.getSelection()
             ).editorState;
+
 
         const newContent = editorState.getCurrentContent();
 

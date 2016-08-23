@@ -37,7 +37,7 @@ const {
     genKey,
 } = require('draft-js');
 
-const {List} = require('immutable');
+const {List, Repeat} = require('immutable');
 
 
 // This provides sensible defaults for all aspects of draftData
@@ -377,6 +377,14 @@ const _clearSurrounding = (contentState, block, left, right, text) => {
     return content;
 };
 
+const _trimmedEnds = (text) => {
+    const trimLeft = text.replace(/^[\s\uFEFF\xA0]+/g, '');
+    const start = text.length - trimLeft.length;
+    const trimRight = text.replace(/[\s\uFEFF\xA0]+$/g, '');
+    const end = trimRight.length;
+    return {start, end};
+}
+
 function decorateSelection(draftData, decoration) {
     const data = _fillData(draftData);
     const newData = {};
@@ -394,8 +402,9 @@ function decorateSelection(draftData, decoration) {
     let decorated = data.contentState;
     let undecorated = data.contentState;
     blocks.forEach((block) => {
-        let leftOffset = 0;
-        let rightOffset = block.getLength();
+        const trimmedEnds = _trimmedEnds(block.getText());
+        let leftOffset = trimmedEnds.start;
+        let rightOffset = trimmedEnds.end;
         if (block.getKey() === selection.getStartKey()) {
             leftOffset = selection.getStartOffset();
         }
@@ -460,6 +469,85 @@ function decorateSelection(draftData, decoration) {
     return newData;
 }
 
+
+const _mergeBlocks = (block1, block2, selection) => {
+    const text1 = block1.getText();
+    const chars1 = block1.getCharacterList();
+    const newCharData = CharacterMetadata.create({entity: null});
+    const addedCharList = Repeat(newCharData, 1);
+    const newText = text1.concat('\n', block2.getText());
+    const newCharList = chars1
+                          .concat(addedCharList, block2.getCharacterList());
+    const newBlock = block1.merge({
+        text: newText,
+        characterList: newCharList,
+    });
+
+    let newSelection = selection;
+    if(newSelection.getAnchorKey() === block2.getKey()) {
+        newSelection = newSelection.merge({
+            anchorKey: block1.getKey(),
+            anchorOffset: newSelection.getAnchorOffset() + text1.length + 1,
+        });
+    }
+
+    if(newSelection.getFocusKey() === block2.getKey()) {
+        newSelection = newSelection.merge({
+            focusKey: block1.getKey(),
+            focusOffset: newSelection.getFocusOffset() + text1.length + 1,
+        });
+    }
+
+    return {block: newBlock, selection: newSelection};
+};
+
+// In markdown, a block is when there are two new lines, not just one.
+// This function ensures that each block ends with a newline
+function parseMarkdownBlocks(draftData) {
+    const data = _fillData(draftData);
+    const newData = {...data};
+    const blocks = data.contentState.getBlockMap().toSeq().toArray();
+    const newBlocks = [];
+
+    newBlocks.push(blocks[0]);
+    let newI = 0;
+    let oldI = 1;
+    while(oldI < blocks.length) {
+        if (!newBlocks[newI].getText().endsWith('\n')
+                && !blocks[oldI].getText().startsWith('\n')) {
+            const {block, selection} =
+                _mergeBlocks(newBlocks[newI], blocks[oldI], newData.selection);
+            newBlocks[newI] = block;
+            newData.selection = selection;
+        } else {
+            newBlocks.push(blocks[oldI]);
+            newI++;
+        }
+        oldI++;
+    }
+
+    // If no blocks have been merged, exit early for performance
+    if (newBlocks.length === blocks.length) {
+        return data;
+    }
+
+    const blockMap = BlockMapBuilder.createFromArray(newBlocks);
+    newData.contentState = newData.contentState.merge({
+        blockMap,
+        // selectionAfter: newData.selection,
+    });
+
+    if (newData.editorState) {
+        newData.editorState = EditorState.set(newData.editorState, {
+            currentContent:  newData.contentState,
+            selection: newData.selection,
+            forceSelection: true,
+        });
+    }
+
+    return newData;
+}
+
 module.exports = {
     regexStrategy,
     findPattern,
@@ -471,5 +559,6 @@ module.exports = {
     selectEnd,
     snapSelectionOutsideEntities,
     decorateSelection,
+   parseMarkdownBlocks 
 };
 
