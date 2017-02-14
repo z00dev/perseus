@@ -3,15 +3,9 @@
 /* To fix, remove an entry above, run ka-lint, and fix errors. */
 
 var React = require('react');
-var synth = window.speechSynthesis;
+var ReadToMe = require("./read-to-me.jsx");
 
 var QuestionParagraph = React.createClass({
-
-    talkToMeFriend: function(){
-        var utterThis = new SpeechSynthesisUtterance(this.props.children.props.children[0])
-        return synth.speak(utterThis)
-    },
-
     render: function() {
         console.log(this.props.children.props.children[0])
         var className = (this.props.className) ?
@@ -23,7 +17,7 @@ var QuestionParagraph = React.createClass({
                 className={className}
                 data-perseus-component-index={this.props.translationIndex}
                 data-perseus-paragraph-index={this.props.paragraphIndex}>
-                <button onClick={this.talkToMeFriend}>Read to Me</button>
+                <button onClick={() => ReadToMe(this.props.children.props.children[0])}>Read to Me</button>
             {this.props.children}
         </div>;
     }

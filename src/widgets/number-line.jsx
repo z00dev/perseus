@@ -9,6 +9,8 @@ var _ = require("underscore");
 
 var Changeable   = require("../mixins/changeable.jsx");
 
+var ReadToMe     = require("../read-to-me.jsx");
+
 var NumberInput  = require("../components/number-input.jsx");
 var MathOutput   = require("../components/math-output.jsx");
 const SimpleKeypadInput = require("../components/simple-keypad-input.jsx");
@@ -432,6 +434,7 @@ var NumberLine = React.createClass({
             onMove={(coord) => {
                 this.change({numLinePosition: coord[0]});
                 this.props.trackInteraction();
+                ReadToMe(coord[0]);
             }}
             isMobile={this.props.apiOptions.isMobile}
             mobileStyleOverride={mobileDotStyle}
