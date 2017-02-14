@@ -6,6 +6,7 @@ var React = require('react');
 var ReadToMe = require("./read-to-me.jsx");
 
 var QuestionParagraph = React.createClass({
+
     render: function() {
         console.log(this.props.children.props.children[0])
         var className = (this.props.className) ?

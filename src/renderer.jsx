@@ -666,7 +666,7 @@ var Renderer = React.createClass({
         }
     },
 
-    // wrap top-level elements in a QuestionParagraph, mostly
+    // wrap top-level elements in a raph, mostly
     // for appropriate spacing and other css
     outputMarkdown: function(ast, state) {
         if (_.isArray(ast)) {
