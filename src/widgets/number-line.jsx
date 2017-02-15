@@ -222,6 +222,7 @@ var NumberLine = React.createClass({
     getInitialState() {
         return {
             numDivisionsEmpty: false,
+            voiceEnabled: false,
         };
     },
 
@@ -242,6 +243,12 @@ var NumberLine = React.createClass({
                divisionRange[0] < divisionRange[1] &&
                0 < this.props.numDivisions &&
                0 < this.props.snapDivisions;
+    },
+
+    onVoiceEnabledChange: function() {
+        this.setState({
+            voiceEnabled: !this.state.voiceEnabled,
+        });
     },
 
     onNumDivisionsChange: function(numDivisions, cb) {
@@ -434,7 +441,7 @@ var NumberLine = React.createClass({
             onMove={(coord) => {
                 this.change({numLinePosition: coord[0]});
                 this.props.trackInteraction();
-                ReadToMe(coord[0]);
+                if (this.state.voiceEnabled) { ReadToMe(coord[0]); }
             }}
             isMobile={this.props.apiOptions.isMobile}
             mobileStyleOverride={mobileDotStyle}
@@ -583,9 +590,22 @@ var NumberLine = React.createClass({
             </label>;
         }
 
+        const readToMeCheckbox = <div id="readToMeCheckbox">
+                                 <input id="readToMeCheckboxInput"
+                                     type="checkbox"
+                                     value={this.state.voiceEnabled}
+                                     onChange={this.onVoiceEnabledChange}
+                                 />
+                                 <label
+                                     id="readToMeCheckboxInput"
+                                     htmlFor="readToMeCheckbox"
+                                 > Read the number line to me </label>
+                                 </div>;
+
         return <div className={"perseus-widget " +
             "perseus-widget-interactive-number-line"}
         >
+            {readToMeCheckbox}
             {tickCtrl}
             {!this.isValid() ?
                 <div className="perseus-error">
