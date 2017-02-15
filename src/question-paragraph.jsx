@@ -8,13 +8,21 @@ var SpeakerIcon = require('./icons/speaker.jsx');
 var ReadToMe = require("./read-to-me.jsx");
 
 var QuestionParagraph = React.createClass({
+    getReadableText() {
+        const children = this.props.children.props.children;
+        if (Array.isArray(children)) {
+            return children.filter((child) => {
+                if (typeof child === 'string' && child.trim() !== '') {
+                    return child;
+                }
+            }).join(' ') || '';
+        } else {
+            return '';
+        }
+    },
 
-    render: function() {
-        const text = this.props.children.props.children.filter((child) => {
-            if (typeof child === 'string' && child.trim() !== '') {
-                return child;
-            }
-        }).join(' ') || '';
+    render() {
+        const text = this.getReadableText();
 
         var className = this.props.className
             ? "paragraph " + this.props.className
