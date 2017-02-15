@@ -13,6 +13,7 @@ function ReadToMe(words) {
 //    console.log("ReadToMe:", words);
     const utterThis = new SpeechSynthesisUtterance(words);
     populateVoices(utterThis);
+    synth.cancel();
     return synth.speak(utterThis);
 }
 
