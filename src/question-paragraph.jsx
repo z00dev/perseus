@@ -8,7 +8,7 @@ var ReadToMe = require("./read-to-me.jsx");
 var QuestionParagraph = React.createClass({
 
     render: function() {
-        console.log(this.props.children.props.children[0])
+//        console.log(this.props.children.props.children[0])
         var className = (this.props.className) ?
             "paragraph " + this.props.className :
             "paragraph";
@@ -18,7 +18,11 @@ var QuestionParagraph = React.createClass({
                 className={className}
                 data-perseus-component-index={this.props.translationIndex}
                 data-perseus-paragraph-index={this.props.paragraphIndex}>
-                <button onClick={() => ReadToMe(this.props.children.props.children[0])}>Read to Me</button>
+               <button type="button"
+                onClick={() => ReadToMe(this.props.children.props.children[0])}
+               >
+                Read to Me
+               </button>
             {this.props.children}
         </div>;
     }

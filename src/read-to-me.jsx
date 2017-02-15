@@ -1,20 +1,20 @@
 const synth = window.speechSynthesis;
 
 const populateVoices = (utterance) => {
-    let voices = synth.getVoices();
-    for(let i = 0; i < voices.length ; i++) {
-        if(voices[i].name === "Google US English") {
-            utterance.voice = voices[i];
+    const voices = synth.getVoices();
+    voices.find((voice) => {
+        if (voice.name === "Google US English") {
+            utterance.voice = voice;
         }
-    }
+    });
 };
 
 function ReadToMe(words) {
-    console.log("ReadToMe:", words);
+//    console.log("ReadToMe:", words);
     const utterThis = new SpeechSynthesisUtterance(words);
-    populateVoices(utterThis)
+    populateVoices(utterThis);
     return synth.speak(utterThis);
-};
+}
 
 
 
