@@ -3,26 +3,33 @@
 /* To fix, remove an entry above, run ka-lint, and fix errors. */
 
 var React = require('react');
+
+var SpeakerIcon = require('./icons/speaker.jsx');
 var ReadToMe = require("./read-to-me.jsx");
 
 var QuestionParagraph = React.createClass({
 
     render: function() {
-//        console.log(this.props.children.props.children[0])
-        var className = (this.props.className) ?
-            "paragraph " + this.props.className :
-            "paragraph";
+        const text = this.props.children.props.children.filter((child) => {
+            if (typeof child === 'string' && child.trim() !== '') {
+                return child;
+            }
+        }).join(' ') || '';
+
+        var className = this.props.className
+            ? "paragraph " + this.props.className
+            : "paragraph";
+
         // For perseus-article just-in-place-translation (jipt), we need
         // to attach some metadata to top-level QuestionParagraphs:
         return <div
-                className={className}
-                data-perseus-component-index={this.props.translationIndex}
-                data-perseus-paragraph-index={this.props.paragraphIndex}>
-               <button type="button"
-                onClick={() => ReadToMe(this.props.children.props.children[0])}
-               >
-                Read to Me
-               </button>
+            className={className}
+            data-perseus-component-index={this.props.translationIndex}
+            data-perseus-paragraph-index={this.props.paragraphIndex}
+        >
+            {text !== '' && <span onClick={() => ReadToMe(text)}>
+                <SpeakerIcon/>
+            </span>}
             {this.props.children}
         </div>;
     }

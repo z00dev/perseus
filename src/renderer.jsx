@@ -13,8 +13,11 @@ var _ = require("underscore");
 var classNames = require("classnames");
 
 var JiptParagraphs = require("./jipt-paragraphs.jsx");
+var katexA11y = require('react-components/katex-a11y.js');
 var PerseusMarkdown = require("./perseus-markdown.jsx");
 var QuestionParagraph = require("./question-paragraph.jsx");
+var ReadToMe = require("./read-to-me.jsx");
+var SpeakerIcon = require('./icons/speaker.jsx');
 var SvgImage = require("./components/svg-image.jsx");
 var TeX = require("react-components/tex.jsx");
 var WidgetContainer = require("./widget-container.jsx");
@@ -947,6 +950,7 @@ var Renderer = React.createClass({
             // the same is supported by KaTeX.  It does the same for align*.
             // TODO(kevinb) update content to use aligned instead of align.
             const tex = node.content.replace(/\{align[*]?\}/g, '{aligned}');
+            const text = katexA11y.renderString(tex);
 
             // We render math here instead of in perseus-markdown.jsx
             // because we need to pass it our onRender callback.
@@ -961,12 +965,27 @@ var Renderer = React.createClass({
                 {/* We add extra empty spans around the math to make it not
                     wrap (I don't know why this works, but it does) */}
                 <span />
-                <TeX
-                    onRender={this.props.onRender}
-                    onResourceLoaded={this.props.onRender}
-                >
-                    {tex}
-                </TeX>
+                <span>
+                    <span
+                        onClick={() => {
+                            console.log(`reading: ${text}`);
+                            ReadToMe(text);
+                        }}
+                        style={{
+                            display: 'inline-block',
+                            transform: 'translate(0, 6px)',
+                            paddingRight: 6,
+                        }}
+                    >
+                        <SpeakerIcon />
+                    </span>
+                    <TeX
+                        onRender={this.props.onRender}
+                        onResourceLoaded={this.props.onRender}
+                    >
+                        {tex}
+                    </TeX>
+                </span>
                 <span />
             </span>;
 
