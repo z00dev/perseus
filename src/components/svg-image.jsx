@@ -11,6 +11,8 @@ var _ = require("underscore");
 var FixedToResponsive = require("../components/fixed-to-responsive.jsx");
 var Graphie = require("../components/graphie.jsx");
 var ImageLoader = require("../components/image-loader.jsx");
+var ReadToMe = require("../read-to-me.jsx");
+var SpeakerIcon = require('../icons/speaker.jsx');
 var Util = require("../util.js");
 var Zoom = require("../zoom.js");
 
@@ -189,6 +191,12 @@ function defaultPreloader() {
             minWidth: "20px",
         },
     });
+}
+
+function getGraphieContent (string) {
+    if (string !== '') {
+        return string.replace(/[^0-9.+*/=]/g, " ")
+    }
 }
 
 var SvgImage = React.createClass({
@@ -579,8 +587,12 @@ var SvgImage = React.createClass({
         }
 
         var imageUrl = getSvgUrl(imageSrc);
-
-        var graphie;
+        var graphieText;
+        if(this.state.labels[0]) {
+            console.log("graphie text", this.state.labels[0].content)
+            graphieText = getGraphieContent(this.state.labels[0].content)
+            console.log(graphieText)
+        }
         // Since we only want to do the graphie setup once, we only render the
         // graphie once everything is loaded
         if (this.isLoadedInState(this.state)) {
@@ -612,6 +624,8 @@ var SvgImage = React.createClass({
             );
         }
 
+        var graphie;
+
         if (responsive) {
             return (
                 <FixedToResponsive
@@ -627,6 +641,9 @@ var SvgImage = React.createClass({
                         preloader={preloader}
                         imgProps={imageProps}
                     />
+                {graphieText !== '' && <span onClick={() => ReadToMe(graphieText)}>
+                        <SpeakerIcon/>
+                    </span>}
                     {graphie}
                     {extraGraphie}
                 </FixedToResponsive>
@@ -645,7 +662,10 @@ var SvgImage = React.createClass({
                         preloader={preloader}
                         imgProps={imageProps}
                     />
-                    {graphie}
+                {graphieText !== '' && <span onClick={() => ReadToMe(graphieText)}>
+                        <SpeakerIcon/>
+                    </span>}
+                        {graphie}
                 </div>
             );
         }
