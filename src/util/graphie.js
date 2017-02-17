@@ -18,6 +18,11 @@ const KhanMath = require("./math.js");
 const processMath = require("./tex.js").processMath;
 const KhanColors = require("./colors");
 
+const React = require("react");
+const ReactDOM = require("react-dom");
+const Speaker = require("../icons/speaker.jsx");
+const ReadToMe = require("../read-to-me.jsx");
+
 /* Convert cartesian coordinates [x, y] to polar coordinates [r,
  * theta], with theta in degrees, or in radians if angleInRadians is
  * specified.
@@ -732,6 +737,17 @@ GraphUtils.createGraphie = function(el) {
                     const height = span.scrollHeight;
                     setLabelMargins(span, [width, height]);
                 });
+
+                const speakerContainer = document.createElement('span');
+                span.appendChild(speakerContainer);
+                ReactDOM.render(<Speaker/>, speakerContainer);
+
+                speakerContainer.addEventListener('click', () => {
+                    const readableMath = math
+                        .replace(/Huge|green|blue/g, '')
+                        .replace('?', 'something');
+                    ReadToMe(readableMath);
+                });
             };
 
             $span.processText = function(text) {
@@ -739,6 +755,14 @@ GraphUtils.createGraphie = function(el) {
                 const width = span.scrollWidth;
                 const height = span.scrollHeight;
                 setLabelMargins(span, [width, height]);
+
+                const speakerContainer = document.createElement('span');
+                span.appendChild(speakerContainer);
+                ReactDOM.render(<Speaker />, speakerContainer);
+
+                speakerContainer.addEventListener('click', () => {
+                    ReadToMe(text);
+                });
             };
 
             if (latex) {
