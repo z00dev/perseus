@@ -3,9 +3,9 @@ const Selector = require("./selector.js");
 /**
  * A Gorgon lint rule consists of a name, a selector, a pattern and a function
  * that is passed the results of matching the selector and pattern and
- * returns a lint error message, if there is one At least one of the
+ * returns a lint error message, if any lint is detected. At least one of the
  * selector and pattern must be specified. If there is no selector, we
- * default to "text" so that the pattern only matches text nodes.  If
+ * default to "text" so that the pattern only matches text nodes. If
  * there is no pattern, we just match the entire content of the
  * selected node.
  *
@@ -14,9 +14,9 @@ const Selector = require("./selector.js");
  * that is the result of the selector match and the array of strings
  * that results from the regexp match. So the signature is:
  *
- *  lint_callback(selectedNodes, matchedStrings)
+ *  lintCallback(traversalState, contentString, selectedNodes, matchedStrings)
  *
- * If there is no lint at the currentNode, then this function should
+ * If there is no lint at the current node, then this function should
  * return a falsy value. If there is lint, then the function should
  * return an error message describing the problem.
  *
@@ -30,10 +30,11 @@ const Selector = require("./selector.js");
  *     end: the end index of the error
  *   }
  *
- * If you pass a string to the rule() constructor in place of a lint function
- * then it will use a default function that unconditionally returns the
- * error message. If the node is a text node, it will add the start and end
- * indexes of the portion of the string that matched the pattern.
+ * If you pass a string to the rule() constructor in place of a lint
+ * function then it will use a default function that unconditionally
+ * returns that string as the error message. If the node is a text
+ * node, it will add the start and end indexes of the portion of the
+ * string that matched the pattern.
  *
  * Rule.makeRule() is a factory method that takes a single object as its
  * argument and is useful when lint rules are described in JSON data structures.
@@ -88,7 +89,9 @@ class Rule {
 
     // If the argument is a regular expression or a string that does
     // not begin with / then just return it. Otherwise, compile it to
-    // a regular expression.
+    // a regular expression. We include our own regular expression
+    // parsing here because we want to allow rule to be described by
+    // objects in JSON files, and JSON files do not allow RegExp literals.
     static makePattern(pattern) {
         if (!pattern || pattern instanceof RegExp || pattern[0] !== "/") {
             return pattern;

@@ -35,6 +35,8 @@ class Parser {
     }
 
     isIdentifier() {
+        // The Parser.TOKENS regexp ensures that we only have to check
+        // the first character of a token to know what kind of token it is.
         const c = this.tokens[this.tokenIndex][0];
         return (c >= "a" && c <= "z") || (c >= "A" && c <= "Z");
     }
@@ -124,9 +126,9 @@ class Parser {
 }
 
 // We break the input string into tokens with this regexp. Token types
-// are identifiers, integers, regular expressions, punctuation and
-// spaces.  Note that spaces tokens are only returned when they appear
-// before an identifier or wildcard token and are otherwise omitted.
+// are identifiers, integers, punctuation and spaces. Note that spaces
+// tokens are only returned when they appear before an identifier or
+// wildcard token and are otherwise omitted.
 Parser.TOKENS = /([a-zA-Z]\w*)|(\d+)|[^\s]|(\s(?=[a-zA-Z\*]))/g;
 
 class Selector {
