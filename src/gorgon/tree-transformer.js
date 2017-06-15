@@ -130,8 +130,10 @@ export default class TreeTransformer {
             state._containers.push(node);
             state._ancestors.push(node);
 
-            // Record the node's content if it has any
-            if (node.type === "text" && typeof node.content === "string") {
+            // Record the node's text content if it has any.
+            // Usually this is for nodes with a type property of "text",
+            // but other nodes types like "math" may also have content.
+            if (typeof node.content === "string") {
                 content = node.content;
             }
 

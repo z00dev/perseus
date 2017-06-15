@@ -208,4 +208,128 @@ describe("Individual lint rules tests", () => {
         "|col1|col2|\n|----|----|\n|cell1|cell2|\n|cell1|cell2|",
         "|cell1|\n|----|\n|cell2|\n|cell3|",
     ]);
+
+    expectWarning(require("../rules/unescaped-dollar.js"), [
+        "It costs $10",
+        "It costs $$10$",
+    ]);
+
+    expectPass(require("../rules/unescaped-dollar.js"), [
+        "It costs \\$10",
+        "It costs $10x$",
+    ]);
+
+    expectWarning(require("../rules/math-starts-with-space.js"), [
+        "foo$~ x$bar",
+        "$\\qquad x$",
+        "$\\quad x$",
+        "$\\, x$",
+        "$\\; x$",
+        "$\\: x$",
+        "$\\ x$",
+        "$\\! x$",
+        "$\\enspace x$",
+        "$\\phantom{xyz} x$",
+    ]);
+    expectPass(require("../rules/math-starts-with-space.js"), [
+        "$a~ x$",
+        "$a\\qquad x$",
+        "$a\\quad x$",
+        "$a\\, x$",
+        "$a\\; x$",
+        "$a\\: x$",
+        "$a\\ x$",
+        "$a\\! x$",
+        "$a\\enspace x$",
+        "$a\\phantom{xyz} x$",
+    ]);
+
+    expectWarning(require("../rules/math-empty.js"), [
+        "foo $$ bar",
+        "foo\n\n$$\n\nbar",
+        "$$ | $$ | $$\n- | - | -\ndata 1 | data 2 | data 3",
+    ]);
+    expectPass(require("../rules/math-empty.js"), [
+        "foo $x$ bar",
+        "foo\n\n$x$\n\nbar",
+        "$x$ | $y$ | $z$\n- | - | -\ndata 1 | data 2 | data 3",
+    ]);
+
+    expectWarning(require("../rules/math-frac.js"), [
+        "$\\frac 12$",
+        "$\\frac{1}{2}$",
+    ]);
+    expectPass(require("../rules/math-frac.js"), [
+        "$\\dfrac 12$",
+        "$\\dfrac{1}{2}$",
+        "$\\fraction 12$",
+    ]);
+
+    expectWarning(require("../rules/math-text-empty.js"), [
+        "$x\\text{}y$",
+        "$x\\text{ }y$",
+        "$x\\text{\n}y$",
+        "$x\\text{\t}y$",
+    ]);
+    expectPass(require("../rules/math-text-empty.js"), ["$x\\text{z}y$"]);
+
+    expectWarning(require("../rules/math-adjacent.js"), ["$x=b+c$\n\n$x-b=c$"]);
+    expectPass(require("../rules/math-adjacent.js"), [
+        "$x=b+c$\n\nnew paragraph\n\n$x-b=c$",
+    ]);
+
+    expectWarning(require("../rules/math-align-linebreaks"), [
+        "$\\begin{align}x\\\\y\\end{align}$",
+        "$\\begin{align} x \\\\ y \\end{align}$",
+        "$\\begin{align}x\\\\\\y\\end{align}$",
+        "$\\begin{align}x\\\\\\\\\\y\\end{align}$",
+        "$\\begin{align}x\\\\\\\\\\\\y\\end{align}$",
+    ]);
+    expectPass(require("../rules/math-align-linebreaks"), [
+        "$\\begin{align}x\\sqrty\\end{align}$",
+        "$\\begin{align}x\\\\\\\\y\\end{align}$",
+        "$\\begin{align}x \\\\\\\\ y\\end{align}$",
+    ]);
+
+    expectWarning(require("../rules/math-align-extra-break"), [
+        "$\\begin{align}x \\\\\\\\ y \\\\ \\end{align}$",
+        "$\\begin{align}x \\\\\\\\ y \\\\\\\\ \\end{align}$",
+    ]);
+    expectPass(require("../rules/math-align-extra-break"), [
+        "$\\begin{align} x \\\\\\\\ y  \\end{align}$",
+    ]);
+
+    expectWarning(require("../rules/math-nested.js"), [
+        "$\\text{4$x$}$",
+        "inline $\\text{4$x$}$ math",
+        "$\\text{$$}$",
+    ]);
+    expectPass(require("../rules/math-nested.js"), [
+        "$\\text{4}x$",
+        "inline $\\text{4}x$ math",
+    ]);
+
+    expectWarning(require("../rules/math-font-size"), [
+        "$\\tiny{x}$",
+        "inline $\\Tiny{x}$ math",
+        "$a \\small{x} b$",
+        "$\\large{ xyz }$",
+        "$ \\Large { x } $",
+        "$\\LARGE{x}$",
+        "$\\huge{x}$",
+        "$\\Huge{x}$",
+        "$\\normalsize{x}$",
+        "$\\scriptsize{x}$",
+    ]);
+    expectPass(require("../rules/math-font-size"), [
+        "$\\sqrt{x}$",
+        "inline $\\sqrt{x}$ math",
+    ]);
+
+    /*
+    expectWarning(require("../rules/"), [
+    ]);
+    expectPass(require("../rules/"), [
+    ]);
+*/
 });
