@@ -65,7 +65,11 @@ export type TreeNode = {type: string};
 // TraversalCallback is the type of the callback function passed to the
 // traverse() method. It is invoked with node, state, and content arguments
 // and is expected to return nothing.
-export type TraversalCallback = (TreeNode, TraversalState, string) => void;
+export type TraversalCallback = (
+    node: TreeNode,
+    state: TraversalState,
+    content: string
+) => void;
 
 // This is the TreeTransformer class described in detail at the
 // top of this file.
@@ -120,7 +124,7 @@ export default class TreeTransformer {
         if (TreeTransformer.isNode(n)) {
             // If we were called on a node object, then we handle it
             // this way.
-            let node = ((n: any): TreeNode); // safe cast because we just tested
+            const node = ((n: any): TreeNode); // safe cast; we just tested
 
             // Put the node on the stack before recursing on its children
             state._containers.push(node);
@@ -174,7 +178,7 @@ export default class TreeTransformer {
         } else if (Array.isArray(n)) {
             // If we were called on an array instead of a node, then
             // this is the code we use to recurse.
-            let nodes: Array<TreeNode> = n;
+            const nodes: Array<TreeNode> = n;
 
             // Push the array onto the stack. This will allow the
             // TraversalState object to locate siblings of this node.

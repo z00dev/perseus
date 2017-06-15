@@ -42,7 +42,7 @@
  *    A selector is one or more comma-separated treeSelectors. A node matches
  *    the selector if it matches any of the treeSelectors.
  *
- * treeSelector := (treeSelector combinator)? nodeSelector 
+ * treeSelector := (treeSelector combinator)? nodeSelector
  *
  *    A treeSelector is a nodeSelector optionally preceeded by a combinator
  *    and another tree selector. The tree selector matches if the current node
@@ -362,10 +362,10 @@ class TypeSelector extends Selector {
 }
 
 /**
- * This selector subclass is the superclass of the classes that implement 
- * matching for the four combinators. It defines left and right properties
- * for the two selectors that are to be combined, but does not define 
- * a match method.
+ * This selector subclass is the superclass of the classes that implement
+ * matching for the four combinators. It defines left and right properties for
+ * the two selectors that are to be combined, but does not define a match
+ * method.
  */
 class SelectorCombinator extends Selector {
     left: Selector;

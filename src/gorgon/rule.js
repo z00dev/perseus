@@ -118,8 +118,10 @@ export type RuleCheckReturnType = ?{
 // This is the return type of the lint detection function passed as the 4th
 // argument to the Rule() constructor. It can return null or a string or an
 // object containing a string and two numbers.
+// prettier-ignore
+// (prettier formats this in a way that ka-lint does not like)
 export type LintTesterReturnType = ?(
-    | string
+    string
     | {
           message: string,
           start: number,
@@ -133,10 +135,10 @@ export type LintTesterReturnType = ?(
 // the pattern match. It should return null if no lint is detected or an
 // error message or an object contining an error message.
 export type LintTester = (
-    TraversalState,
-    string,
-    Array<TreeNode>,
-    PatternMatchType
+    state: TraversalState,
+    content: string,
+    selectorMatch: Array<TreeNode>,
+    patternMatch: PatternMatchType
 ) => LintTesterReturnType;
 
 /**
