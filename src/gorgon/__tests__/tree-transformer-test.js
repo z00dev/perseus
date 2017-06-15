@@ -1,5 +1,5 @@
-const assert = require("assert");
-const TreeTransformer = require("../tree-transformer.js");
+import assert from "assert";
+import TreeTransformer from "../tree-transformer.js";
 
 describe("gorgon tree transformer", () => {
     function clone(o) {
@@ -345,6 +345,55 @@ describe("gorgon tree transformer", () => {
                                 },
                             },
                         ]);
+                    }
+
+                    // Ensure that we don't traverse any new nodes
+                    assert.notEqual(n.id, 99);
+                    assert.notEqual(n.id, 100);
+                    assert.notEqual(n.id, 101);
+                });
+
+                // Traverse what remains and see if we get what is expected
+                assert.deepEqual(
+                    getTraversalOrder(copy),
+                    expectedTraversals[id]
+                );
+            }
+        });
+
+        it("Can replace nodes with two nodes " + treenum, () => {
+            const expectedTraversals = [
+                null,
+                [99, 101, 100, 3, 2, 5, 6, 7, 4, 0],
+                [1, 99, 101, 100, 5, 6, 7, 4, 0],
+                [1, 99, 101, 100, 2, 5, 6, 7, 4, 0],
+                [1, 3, 2, 99, 101, 100, 0],
+                [1, 3, 2, 99, 101, 100, 6, 7, 4, 0],
+                [1, 3, 2, 5, 99, 101, 100, 7, 4, 0],
+                [1, 3, 2, 5, 6, 99, 101, 100, 4, 0],
+            ];
+
+            // Loop through all the nodes except the root
+            for (let id = 1; id < nodes.length; id++) {
+                // Make a copy of the tree
+                const copy = clone(tree);
+                // Replace the node with two new ones
+                new TreeTransformer(copy).traverse((n, state) => {
+                    if (n.id === id) {
+                        state.replace(
+                            {
+                                id: 99,
+                                type: "replacement",
+                            },
+                            {
+                                id: 100,
+                                type: "replacement",
+                                content: {
+                                    id: 101,
+                                    type: "nested",
+                                },
+                            }
+                        );
                     }
 
                     // Ensure that we don't traverse any new nodes

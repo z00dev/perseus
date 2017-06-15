@@ -1,10 +1,10 @@
 // These tests exercise the Selector.match() method and also test that we
 // can integrate ../../perseus-markdown.js with ../tree-transform.js and
 // ../selector.js
-const assert = require("assert");
-const PerseusMarkdown = require("../../perseus-markdown.jsx");
-const TreeTransformer = require("../tree-transformer.js");
-const Selector = require("../selector.js");
+import assert from "assert";
+import PerseusMarkdown from "../../perseus-markdown.jsx";
+import TreeTransformer from "../tree-transformer.js";
+import Selector from "../selector.js";
 
 describe("Gorgon selector matching:", () => {
     const markdown = `
@@ -60,7 +60,7 @@ C
                 if (n.type === type) {
                     assert.equal(match[0], n);
                 } else {
-                    assert.equal(match, false);
+                    assert.equal(match, null);
                 }
             });
 
@@ -88,7 +88,7 @@ C
                 matchedText += content;
                 numMatches++;
             } else {
-                assert.equal(match, false);
+                assert.equal(match, null);
             }
         });
 
@@ -121,7 +121,7 @@ C
                 matchedText += content;
                 numMatches++;
             } else {
-                assert.equal(match, false);
+                assert.equal(match, null);
             }
         });
 
@@ -138,7 +138,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 2);
                 assert.equal(match[0].type, "paragraph");
@@ -162,7 +162,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 3);
                 assert.equal(match[0].type, "paragraph");
@@ -187,7 +187,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 2);
                 assert.equal(match[0].type, "heading");
@@ -212,7 +212,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 3);
                 assert.equal(match[0].type, "heading");
@@ -238,7 +238,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 2);
                 assert.equal(match[0].type, "heading");
@@ -262,7 +262,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 3);
                 assert.equal(match[0].type, "heading");
@@ -287,7 +287,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 3);
                 assert.equal(match[0].type, "list");
@@ -313,7 +313,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 3);
                 assert.equal(match[0].type, "list");
@@ -339,7 +339,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 3);
                 assert.equal(match[0].type, "paragraph");
@@ -366,7 +366,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 3);
                 assert.equal(match[0].type, "paragraph");
@@ -393,7 +393,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 assert.equal(match.length, 1);
                 assert.equal(match[0], n);
@@ -416,7 +416,7 @@ C
 
         tt.traverse((n, state, content) => {
             const match = selector.match(state);
-            if (match !== false) {
+            if (match !== null) {
                 assert.ok(Array.isArray(match));
                 if (n.type === "heading") {
                     assert.equal(match.length, 1);

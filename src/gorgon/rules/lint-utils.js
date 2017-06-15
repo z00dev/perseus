@@ -6,7 +6,7 @@ const HOSTNAME = /\/\/([^\/]+)/;
 
 // Return the hostname of the URL, with any "www." prefix removed.
 // If this is a relative URL with no hostname, return an empty string.
-function getHostname(url) {
+export function getHostname(url) {
     if (!url) {
         return "";
     }
@@ -39,12 +39,7 @@ const internalDomains = new Set([
 
 // Returns true if this URL is relative, or if it is an absolute
 // URL with one of the domains listed above as its hostname.
-function isInternalURL(url) {
+export function isInternalURL(url) {
     const hostname = getHostname(url);
     return hostname === "" || internalDomains.has(hostname);
 }
-
-module.exports = {
-    getHostname: getHostname,
-    isInternalURL: isInternalURL,
-};

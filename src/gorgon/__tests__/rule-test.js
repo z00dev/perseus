@@ -1,7 +1,7 @@
-const assert = require("assert");
-const PerseusMarkdown = require("../../perseus-markdown.jsx");
-const TreeTransformer = require("../tree-transformer.js");
-const Rule = require("../rule.js");
+import assert from "assert";
+import PerseusMarkdown from "../../perseus-markdown.jsx";
+import TreeTransformer from "../tree-transformer.js";
+import Rule from "../rule.js";
 
 describe("Gorgon lint Rules class", () => {
     const markdown = `

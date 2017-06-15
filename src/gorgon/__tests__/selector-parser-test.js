@@ -1,5 +1,5 @@
-const assert = require("assert");
-const Selector = require("../selector.js");
+import assert from "assert";
+import Selector from "../selector.js";
 
 describe("gorgon selector parser", () => {
     const validExpressions = [

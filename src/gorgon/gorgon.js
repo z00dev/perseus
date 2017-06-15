@@ -1,4 +1,4 @@
-const PerseusMarkdown = require("../perseus-markdown.jsx");
+import PerseusMarkdown from "../perseus-markdown.jsx";
 
 module.exports = {
     parse: PerseusMarkdown.parse,

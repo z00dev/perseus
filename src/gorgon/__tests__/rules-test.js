@@ -1,6 +1,6 @@
 const assert = require("assert");
 const PerseusMarkdown = require("../../perseus-markdown.jsx");
-const TreeTransformer = require("../tree-transformer.js");
+import TreeTransformer from "../tree-transformer.js";
 
 describe("Individual lint rules tests", () => {
     function testRule(rule, markdown) {
