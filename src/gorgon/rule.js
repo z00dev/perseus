@@ -8,8 +8,8 @@
  * an error message, and the start and end positions within the node's content
  * string of the lint.
  *
- * A Gorgon lint rule consists of a name, a selector, a pattern and a
- * function.  The check() method uses the selector, pattern, and function as
+ * A Gorgon lint rule consists of a name, a selector, a pattern (RegExp) and
+ * a function. The check() method uses the selector, pattern, and function as
  * follows:
  *
  * - First, check() tests whether the node currently being traversed matches
@@ -41,8 +41,8 @@
  *   properties. The value of the `rule` property is the name of the rule,
  *   which is useful for error reporting purposes.
  *
- * When you create a Rule with the Rule() constructor, the selector, pattern
- * and function are optional, but you may not omit both the selector and the
+ * The name, selector, pattern and function arguments to the Rule()
+ * constructor are optional, but you may not omit both the selector and the
  * pattern. If you do not specify a selector, a default selector that matches
  * any node of type "text" will be used. If you do not specify a pattern, then
  * any node that matches the selector will be assumed to match the pattern as
@@ -52,29 +52,22 @@
  * that includes the error message and the start and end indexes of the
  * portion of the content string that matched the pattern.
  *
- * The pattern you pass to the Rule() constructor can be a RegExp or a plain
- * string. If you use a plain string then matching will be done with indexOf()
- * for speed and the string will not be converted to a RegExp. If a plain
- * string pattern matches, the Rule() class synthesizes a match result object
- * like those returned by the string.match() method, and this synthetic result
- * will be passed to the lint function.
- *
  * One of the design goals of this Rule class is to allow simple lint rules to
  * be described in JSON files without any JavaScript code. So in addition to
  * the Rule() constructor, the class also defines a Rule.makeRule() factory
  * method. This method takes a single object as its argument and expects the
- * object to have four string properties. The `name` property is required and
- * is passed as the first argument to the Rule() construtctor.  The optional
- * `selector` property, if specified, is passed to Selector.parse() and the
- * resulting Selector object is used as the second argument to Rule().  The
- * optional `pattern` property specifies the third argument to Rule(). If this
- * string begins with a '/', then it is parsed as a RegExp. Otherwise it is
- * passed to Rule() as a plain string. Finally, the `message` property
- * specifies an error message that is passed as the final argument to
- * Rule(). You can also use a real RegExp as the value of the `pattern`
- * property or define a custom lint function on the `lint` property instead of
- * setting the `message` property. Doing either of these things means that
- * your rule description can no longer be saved in a JSON file, however.
+ * object to have four string properties. The `name` property is passed as the
+ * first argument to the Rule() construtctor.  The optional `selector`
+ * property, if specified, is passed to Selector.parse() and the resulting
+ * Selector object is used as the second argument to Rule().  The optional
+ * `pattern` property is converted to a RegExp before being passed as the
+ * third argument to Rule(). (See Rule.makePattern() for details on the string
+ * to RegExp conversion). Finally, the `message` property specifies an error
+ * message that is passed as the final argument to Rule(). You can also use a
+ * real RegExp as the value of the `pattern` property or define a custom lint
+ * function on the `lint` property instead of setting the `message`
+ * property. Doing either of these things means that your rule description can
+ * no longer be saved in a JSON file, however.
  *
  * For example, here are two lint rules defined with Rule.makeRule():
  *
@@ -146,10 +139,9 @@ export type LintTester = (
  * this file for detailed description.
  */
 export default class Rule {
-    name: string; // The required name of the rule
+    name: string; // The name of the rule
     selector: Selector; // The specified selector or the DEFAULT_SELECTOR
     pattern: ?RegExp; // A regular expression if one was specified
-    plainTextPattern: ?string; // Or a plain-text pattern if specified
     lint: LintTester; // The lint-testing function or a default
     message: ?string; // The error message for use with the default function
     static DEFAULT_SELECTOR: Selector;
@@ -157,28 +149,18 @@ export default class Rule {
     // The comment at the top of this file has detailed docs for
     // this constructor and its arguments
     constructor(
-        name: string,
+        name: ?string,
         selector: ?Selector,
-        pattern: ?(RegExp | string),
+        pattern: ?RegExp,
         lint: LintTester | string
     ) {
         if (!selector && !pattern) {
             throw new Error("Lint rules must have a selector or pattern");
         }
 
-        // The rule name is required
-        this.name = name;
-        // If no selector is specified, we use a default
+        this.name = name || "unnamed rule";
         this.selector = selector || Rule.DEFAULT_SELECTOR;
-
-        // The pattern argument can be a string or a RegExp
-        this.pattern = null;
-        this.plainTextPattern = null;
-        if (typeof pattern === "string") {
-            this.plainTextPattern = pattern;
-        } else {
-            this.pattern = pattern;
-        }
+        this.pattern = pattern || null;
 
         // If we're called with an error message instead of a function then
         // use a default function that will return the message.
@@ -195,7 +177,7 @@ export default class Rule {
     // See the documentation at the start of this file for details.
     static makeRule(options: Object) {
         return new Rule(
-            options.name || "unnamed rule",
+            options.name,
             options.selector ? Selector.parse(options.selector) : null,
             Rule.makePattern(options.pattern),
             options.lint || options.message
@@ -224,24 +206,13 @@ export default class Rule {
         let patternMatch;
         if (this.pattern) {
             patternMatch = content.match(this.pattern);
-        } else if (this.plainTextPattern != null) {
-            // If it is just a string we match with indexOf
-            const matchIndex = content.indexOf(this.plainTextPattern);
-            if (matchIndex !== -1) {
-                // Create a fake RegExp match object
-                patternMatch = Rule.FakePatternMatch(
-                    content,
-                    this.plainTextPattern,
-                    matchIndex
-                );
-            }
         } else {
-            // If there is no pattern, then just match all of the content
-            // Again, we create a fake RegExp match object
+            // If there is no pattern, then just match all of the content.
+            // Use a fake RegExp match object to represent this default match.
             patternMatch = Rule.FakePatternMatch(content, content, 0);
         }
 
-        // If the pattern didn't match, then we're done
+        // If there was a pattern and it didn't match, then we're done
         if (!patternMatch) {
             return null;
         }
@@ -314,28 +285,40 @@ ${e.stack}`,
         };
     }
 
-    // The makeRule() factory function uses this static method to turn a
-    // string into a "pattern", where a pattern is a RegExp or a string.
-    // If the argument is a regular expression or a string that does
-    // not begin with / then just return it. Otherwise, compile it to
-    // a regular expression. We include our own regular expression
-    // parsing here because we want to allow rule to be described by
-    // objects in JSON files, and JSON files do not allow RegExp literals.
-    static makePattern(pattern: string): string | RegExp {
-        if (!pattern || pattern instanceof RegExp || pattern[0] !== "/") {
+    // The makeRule() factory function uses this static method to turn its
+    // argument into a RegExp. If the argument is already a RegExp, we just
+    // return it. Otherwise, we compile it into a RegExp and return that.
+    // The reason this is necessary is that Rule.makeRule() is designed for
+    // use with data from JSON files and JSON files can't include RegExp
+    // literals. Strings passed to this function do not need to be delimited
+    // with / characters unless you want to include flags for the RegExp.
+    //
+    // Examples:
+    //
+    //   input ""        ==> output null
+    //   input /foo/     ==> output /foo/
+    //   input "foo"     ==> output /foo/
+    //   input "/foo/i"  ==> output /foo/i
+    //
+    static makePattern(pattern: ?(RegExp | string)): ?RegExp {
+        if (!pattern) {
+            return null;
+        } else if (pattern instanceof RegExp) {
             return pattern;
+        } else if (pattern[0] === "/") {
+            const lastSlash = pattern.lastIndexOf("/");
+            const expression = pattern.substring(1, lastSlash);
+            const flags = pattern.substring(lastSlash + 1);
+            return new RegExp(expression, ((flags: any): RegExp$flags));
+        } else {
+            return new RegExp(pattern);
         }
-
-        const lastSlash = pattern.lastIndexOf("/");
-        const expression = pattern.substring(1, lastSlash);
-        const flags = pattern.substring(lastSlash + 1);
-        return new RegExp(expression, ((flags: any): RegExp$flags));
     }
 
     // This static method returns an string array with index and input
     // properties added, in order to simulate the return value of the
-    // String.match() method. We use it when a Rule's pattern is is a plain
-    // string rather than a RegExp.
+    // String.match() method. We use it when a Rule has no pattern and we
+    // want to simulate a match on the entire content string.
     static FakePatternMatch(
         input: string,
         match: ?string,

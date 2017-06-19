@@ -18,7 +18,7 @@ This paragraph contains an unescaped $ sign.
         {
             name: "heading-title-case",
             selector: "heading",
-            pattern: "/\\s[A-Z][a-z]/",
+            pattern: "\\s[A-Z][a-z]",
             message: `Title case in heading:
 Only capitalize the first word of headings.`,
         },

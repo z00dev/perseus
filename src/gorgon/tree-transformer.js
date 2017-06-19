@@ -378,13 +378,13 @@ export class TraversalState {
         // and the top of the indexes stack is a corresponding array index
         // or object property. This is hard for Flow, so we have to do some
         // unsafe casting and be careful when we use which cast version
-        const isarray = Array.isArray(parent);
+        const parentIsArray = Array.isArray(parent);
         const array = ((parent: any): Array<TreeNode>);
         const index = ((this._indexes.top(): any): number);
         const object = ((parent: any): TreeNode);
         const property = ((this._indexes.top(): any): string);
 
-        if (isarray) {
+        if (parentIsArray) {
             // For an array parent we just splice the new nodes in
             array.splice(index, 1, ...replacements);
             // Adjust the index to account for the changed array length.

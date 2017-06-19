@@ -2,6 +2,9 @@ const assert = require("assert");
 const PerseusMarkdown = require("../../perseus-markdown.jsx");
 import TreeTransformer from "../tree-transformer.js";
 
+// TODO(davidflanagan):
+// Come back to this file convert the require() calls to imports
+
 describe("Individual lint rules tests", () => {
     function testRule(rule, markdown) {
         const tree = PerseusMarkdown.parse(markdown);
