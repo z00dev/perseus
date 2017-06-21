@@ -26,6 +26,8 @@ var Zoomable = require("./components/zoomable.jsx");
 var Deferred = require("./deferred.js");
 var preprocessTex = require("./util/katex-preprocess.js");
 
+const Gorgon = require("./gorgon/gorgon.js"); // The linter engine
+
 const { keypadElementPropType } = require("../math-input").propTypes;
 
 var { mapObject, mapObjectFromArray } = require("./interactive2/objective_.js");
@@ -1566,6 +1568,7 @@ var Renderer = React.createClass({
         // state on this component to do this in a less hacky way.
         this._isTwoColumn = false;
 
+        // Parse the string of markdown to a parse tree
         var parsedMarkdown = PerseusMarkdown.parse(content, {
             // Recognize crowdin IDs while translating articles
             // (This should never be hit by exercises, though if you
@@ -1574,10 +1577,26 @@ var Renderer = React.createClass({
             isJipt: this.translationIndex != null,
         });
 
+        // Optionally apply the linter to the parse tree
+        // TODO: how do we also apply the linter to nested content
+        // such as widgets that include more markdown? If we move
+        // the linting into outputMarkdown does that help to recursively
+        // catch other markdown somehow?
         if (this.props.highlightLint || this.props.linterCallback) {
-            // TODO: this is where we integrate the linter
+            // If highlightLint is true and lint is detected, this call
+            // will modify the parse tree by adding lint nodes that will
+            // serve to highlight the lint when rendered
+            const lintWarnings = Gorgon.runLinter(parsedMarkdown,
+                                                  this.props.highlightLint);
+
+            // Note that we call the callback even if the warnings array
+            // is empty.
+            if (this.props.linterCallback) {
+                this.props.linterCallback(lintWarnings);
+            }
         }
 
+        // Render the linted markdown parse tree with React components
         var markdownContents = this.outputMarkdown(parsedMarkdown, {
             baseElements: apiOptions.baseElements,
         });
