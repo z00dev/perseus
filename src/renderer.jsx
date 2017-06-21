@@ -182,6 +182,15 @@ var Renderer = React.createClass({
         // Callback which is called when serialized state changes with the new
         // serialized state.
         onSerializedStateUpdated: React.PropTypes.func,
+
+        // If highlightLint is true, then content will be passed to the
+        // linter and any warnings will be highlighted in the rendered output
+        // If linterCallback is set to a function, then content will be linted
+        // and this function will be invoked once with a (possibly empty)
+        // array of lint warnings. If neither property is set, then the
+        // linter will not be used at all.
+        highlightLint: React.PropTypes.bool,
+        linterCallback: React.PropTypes.func,
     },
 
     getDefaultProps: function() {
@@ -204,6 +213,8 @@ var Renderer = React.createClass({
             reviewMode: false,
             serializedState: null,
             onSerializedStateUpdated: () => {},
+            highlightLint: false,
+            linterCallback: null,
         };
     },
 
@@ -1562,6 +1573,11 @@ var Renderer = React.createClass({
             // go for it.)
             isJipt: this.translationIndex != null,
         });
+
+        if (this.props.highlightLint || this.props.linterCallback) {
+            // TODO: this is where we integrate the linter
+        }
+
         var markdownContents = this.outputMarkdown(parsedMarkdown, {
             baseElements: apiOptions.baseElements,
         });

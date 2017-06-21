@@ -26,7 +26,16 @@ window.addEventListener("message", (event) => {
     if (typeof event.data === "string") {
         requestIframeData[event.data]();
     } else if (event.data.id) {
-        updateIframeHeight[event.data.id](event.data.height);
+        if (event.data.height !== undefined) {
+            updateIframeHeight[event.data.id](event.data.height);
+        } else if (event.data.lintWarnings) {
+            // This is a lint report being sent back from the linter.
+            // TODO:
+            // We'll want to display the number of warnings in the HUD.
+            // But for now, we just log it to the console
+            // eslint-disable-next-line no-console
+            console.log("LINTER REPORT", event.data.lintWarnings);
+        }
     }
 });
 

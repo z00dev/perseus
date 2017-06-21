@@ -103,6 +103,13 @@ const PreviewFrame = React.createClass({
         }, "*");
     },
 
+    reportLint: function(lintWarnings) {
+        window.parent.postMessage({
+            id: window.frameElement.getAttribute("data-id"),
+            lintWarnings: lintWarnings,
+        }, "*");
+    },
+
     render: function() {
         if (this.state.data) {
             const updatedData = Object.assign(this.state.data, {
@@ -144,6 +151,10 @@ const PreviewFrame = React.createClass({
                 >
                     <ArticleRenderer
                         {...updatedData}
+                        highlightLint={!!this.state.data.highlightLint}
+                        linterCallback={
+                            this.state.data.reportLint ? this.reportLint : null
+                        }
                     />
                 </div>;
             } else if (this.state.type === "article-all") {
