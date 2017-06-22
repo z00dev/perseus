@@ -187,12 +187,7 @@ var Renderer = React.createClass({
 
         // If highlightLint is true, then content will be passed to the
         // linter and any warnings will be highlighted in the rendered output
-        // If linterCallback is set to a function, then content will be linted
-        // and this function will be invoked once with a (possibly empty)
-        // array of lint warnings. If neither property is set, then the
-        // linter will not be used at all.
         highlightLint: React.PropTypes.bool,
-        linterCallback: React.PropTypes.func,
     },
 
     getDefaultProps: function() {
@@ -216,7 +211,6 @@ var Renderer = React.createClass({
             serializedState: null,
             onSerializedStateUpdated: () => {},
             highlightLint: false,
-            linterCallback: null,
         };
     },
 
@@ -408,6 +402,7 @@ var Renderer = React.createClass({
                 type={type}
                 initialProps={this.getWidgetProps(id)}
                 shouldHighlight={shouldHighlight}
+                highlightLint={this.props.highlightLint}
             />;
         } else {
             return null;
@@ -1578,22 +1573,15 @@ var Renderer = React.createClass({
         });
 
         // Optionally apply the linter to the parse tree
-        // TODO: how do we also apply the linter to nested content
-        // such as widgets that include more markdown? If we move
-        // the linting into outputMarkdown does that help to recursively
-        // catch other markdown somehow?
-        if (this.props.highlightLint || this.props.linterCallback) {
+        if (this.props.highlightLint) {
             // If highlightLint is true and lint is detected, this call
             // will modify the parse tree by adding lint nodes that will
             // serve to highlight the lint when rendered
+            const lintStartTime = Date.now();
             const lintWarnings = Gorgon.runLinter(parsedMarkdown,
                                                   this.props.highlightLint);
-
-            // Note that we call the callback even if the warnings array
-            // is empty.
-            if (this.props.linterCallback) {
-                this.props.linterCallback(lintWarnings);
-            }
+            console.log("Linting took", Date.now() - lintStartTime,
+                        "milliseconds", lintWarnings);
         }
 
         // Render the linted markdown parse tree with React components

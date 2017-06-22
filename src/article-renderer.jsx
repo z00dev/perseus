@@ -1,4 +1,3 @@
-
 "use strict";
 
 /**
@@ -36,11 +35,7 @@ const ArticleRenderer = React.createClass({
 
         // Whether to use the new Bibliotron styles for articles
         useNewStyles: React.PropTypes.bool,
-
-        // These props control the linter. We just pass them through
-        // to the Renderer component
         highlightLint: React.PropTypes.bool,
-        linterCallback: React.PropTypes.func,
     },
 
     getDefaultProps() {
@@ -48,7 +43,6 @@ const ArticleRenderer = React.createClass({
             apiOptions: {},
             useNewStyles: false,
             highlightLint: false,
-            linterCallback: null,
         };
     },
 
@@ -192,7 +186,6 @@ const ArticleRenderer = React.createClass({
                         },
                     }}
                     highlightLint={this.props.highlightLint}
-                    linterCallback={this.props.linterCallback}
                 />
             </div>;
         });

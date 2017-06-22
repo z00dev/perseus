@@ -103,13 +103,6 @@ const PreviewFrame = React.createClass({
         }, "*");
     },
 
-    reportLint: function(lintWarnings) {
-        window.parent.postMessage({
-            id: window.frameElement.getAttribute("data-id"),
-            lintWarnings: lintWarnings,
-        }, "*");
-    },
-
     render: function() {
         if (this.state.data) {
             const updatedData = Object.assign(this.state.data, {
@@ -130,7 +123,10 @@ const PreviewFrame = React.createClass({
                     style={this.props.isMobile ? {} : {margin: 30}}
                     ref="container"
                 >
-                    <ItemRenderer {...updatedData} />
+                    <ItemRenderer
+                        {...updatedData}
+                        highlightLint={!!this.state.data.highlightLint}
+                    />
                     <div id="workarea" style={{marginLeft: 0}}/>
                     <div id="hintsarea"/>
                 </div>;
@@ -142,6 +138,7 @@ const PreviewFrame = React.createClass({
                 >
                     <HintRenderer
                         {...updatedData}
+                        highlightLint={!!this.state.data.highlightLint}
                     />
                 </div>;
             } else if (this.state.type === "article") {
@@ -152,9 +149,6 @@ const PreviewFrame = React.createClass({
                     <ArticleRenderer
                         {...updatedData}
                         highlightLint={!!this.state.data.highlightLint}
-                        linterCallback={
-                            this.state.data.reportLint ? this.reportLint : null
-                        }
                     />
                 </div>;
             } else if (this.state.type === "article-all") {
@@ -166,6 +160,7 @@ const PreviewFrame = React.createClass({
                         return <ArticleRenderer
                             key={i}
                             {...data}
+                            highlightLint={!!this.state.data.highlightLint}
                         />;
                     })}
                 </div>;

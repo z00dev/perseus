@@ -362,6 +362,11 @@ var Widgets = {
         var widgetInfo = widgets[type];
         return (widgetInfo && widgetInfo.tracking) || DEFAULT_TRACKING;
     },
+
+    isLintable: function(type) {
+        var widgetInfo = widgets[type];
+        return (widgetInfo && widgetInfo.isLintable) || false;
+    },
 };
 
 module.exports = Widgets;

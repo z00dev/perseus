@@ -119,12 +119,7 @@ const ArticleEditor = React.createClass({
             },
             json: section,
             useNewStyles: this.props.useNewStyles,
-            // You don't have to run the linter right away, but do run it
-            // occasionally and send us reports when you do
-            reportLint: true,
-            // When you run the linter, highlight problems to the uesr
-            // We'll define UX for turning this off
-            highlightLint: true,
+            highlightLint: true, // Provide UX for turning this off
         };
     },
 

@@ -126,6 +126,7 @@ var EditorPage = React.createClass({
                 apiOptions: deviceBasedApiOptions,
                 initialHintsVisible: 0,
                 device: this.props.previewDevice,
+                highlightLint: true,
             }).extend(
                 _(this.props).pick("workAreaSelector",
                                    "solutionAreaSelector",

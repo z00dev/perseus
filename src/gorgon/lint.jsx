@@ -10,8 +10,7 @@ const Lint = React.createClass({
         if (this.props.inline) {
             return <span
                 style={{
-                    backgroundColor: '#fcc',
-                    textDecoration: 'dotted red underline',
+                    borderBottom: '2px dotted #ffbe26',
                 }}
                 title={this.props.message}
             >
@@ -20,8 +19,7 @@ const Lint = React.createClass({
         } else {
             return <div
                 style={{
-                    backgroundColor: '#fdd',
-                    borderRight: '3px dotted red',
+                    borderLeft: '2px dotted #ffbe26',
                 }}
                 title={this.props.message}
             >

@@ -40,6 +40,7 @@ const Radio = React.createClass({
             selected: React.PropTypes.bool,
             rationaleShown: React.PropTypes.bool,
         }).isRequired),
+        highlightLint: React.PropTypes.bool,
     },
 
     getDefaultProps: function() {
@@ -49,6 +50,7 @@ const Radio = React.createClass({
             multipleSelect: false,
             countChoices: false,
             deselectEnabled: false,
+            highlightLint: false,
         };
     },
 
@@ -95,6 +97,7 @@ const Radio = React.createClass({
             widgets={widgets}
             findExternalWidgets={this.props.findWidgets}
             alwaysUpdate={true}
+            highlightLint={this.props.highlightLint}
         />;
     },
 
