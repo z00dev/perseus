@@ -240,15 +240,29 @@
             }
         }
 
-        .perseus-radio-rationale-content .perseus-renderer > .paragraph {
-            .text(@choiceTextSize, @choiceLineHeight, @gray68);
+        .rationale-content(@color) {
+            .perseus-renderer > .paragraph {
+                .text(@choiceTextSize, @choiceLineHeight, @color);
 
-            .paragraph {
-                .text(@choiceTextSize, @choiceLineHeight, @gray68);
+                .paragraph {
+                    .text(@choiceTextSize, @choiceLineHeight, @color);
 
-                .katex {
-                    color: @gray68;
+                    .katex {
+                        color: @color;
+                    }
                 }
+            }
+        }
+
+        .perseus-radio-rationale-content {
+            .rationale-content(@gray68);
+
+            &.rationale-correct {
+                .rationale-content(@kaGreenHover);
+            }
+
+            &.rationale-incorrect {
+                .rationale-content(@warn);
             }
         }
     }
@@ -360,15 +374,29 @@
             }
         }
 
-        .perseus-radio-rationale-content .perseus-renderer > .paragraph {
-            .text(@choiceTextSize, @choiceLineHeight, @gray68);
+        .rationale-content(@color) {
+            .perseus-renderer > .paragraph {
+                .text(@choiceTextSize, @choiceLineHeight, @color);
 
-            .paragraph {
-                .text(@choiceTextSize, @choiceLineHeight, @gray68);
+                .paragraph {
+                    .text(@choiceTextSize, @choiceLineHeight, @color);
 
-                .katex {
-                    color: @gray68;
+                    .katex {
+                        color: @color;
+                    }
                 }
+            }
+        }
+
+        .perseus-radio-rationale-content {
+            .rationale-content(@gray68);
+
+            &.rationale-correct {
+                .rationale-content(@kaGreenHover);
+            }
+
+            &.rationale-incorrect {
+                .rationale-content(@warn);
             }
         }
     }

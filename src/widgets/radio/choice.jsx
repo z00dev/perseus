@@ -49,6 +49,7 @@ const Choice = React.createClass({
         rationale: React.PropTypes.node,
         content: React.PropTypes.node,
         correct: React.PropTypes.bool,
+        highlighted: React.PropTypes.bool,
         deselectEnabled: React.PropTypes.bool,
         disabled: React.PropTypes.bool,
         editMode: React.PropTypes.bool,
@@ -401,7 +402,13 @@ const Choice = React.createClass({
             );
         }
 
-        const {reviewMode, correct, checked, isLastChoice} = this.props;
+        const {
+            reviewMode,
+            correct,
+            checked,
+            isLastChoice,
+            highlighted,
+        } = this.props;
         // HACK: while most of the styling for rendering SAT items is handled
         // via aphrodite, we also need to assign normal CSS classnames here to
         // special-case the coloring of MathJax formulas (see .MathJax .math in
@@ -447,7 +454,10 @@ const Choice = React.createClass({
                 styles.rationale,
                 !sat && styles.nonSatRationale,
                 sat && styles.satReviewRationale
-            )
+            ), {
+                "rationale-correct": !sat && highlighted && correct,
+                "rationale-incorrect": !sat && highlighted && !correct,
+            }
         );
 
         // In edit mode, we must allow selection of the contentEditable
