@@ -14,8 +14,12 @@ const _ = require("underscore");
 
 const ApiOptions = require("./perseus-api.jsx").Options;
 const Editor = require("./editor.jsx");
-const {iconCircleArrowDown, iconCircleArrowUp, iconPlus, iconTrash} =
-    require("./icon-paths.js");
+const {
+    iconCircleArrowDown,
+    iconCircleArrowUp,
+    iconPlus,
+    iconTrash,
+    iconExclamationSign} =  require("./icon-paths.js");
 const InlineIcon = require("./components/inline-icon.jsx");
 const JsonEditor = require("./json-editor.jsx");
 const DeviceFramer = require("./components/device-framer.jsx");
@@ -84,6 +88,12 @@ const ArticleEditor = React.createClass({
         };
     },
 
+    getInitialState: function() {
+        return {
+            highlightLint: true,
+        };
+    },
+
     componentDidUpdate: function() {
         if (this.props.mode === "preview") {
             this.refs["frame-all"].sendNewData({
@@ -93,10 +103,6 @@ const ArticleEditor = React.createClass({
                 }),
             });
         } else {
-            // TODO(davidflanagan):
-            // Is this really updating all the sections even when only
-            // one of them has changed? That could be triggering a react
-            // diff in 10s of different iframes on each keystroke. Yuck!
             this._sections().forEach((section, i) => {
                 this.refs["frame-" + i].sendNewData({
                     type: "article",
@@ -119,7 +125,7 @@ const ArticleEditor = React.createClass({
             },
             json: section,
             useNewStyles: this.props.useNewStyles,
-            highlightLint: true, // Provide UX for turning this off
+            highlightLint: this.state.highlightLint,
         };
     },
 
@@ -222,11 +228,11 @@ const ArticleEditor = React.createClass({
                     </div>,
                 ];
             })}
-            {this._renderAddSection()}
+            {this._renderBottomButtons()}
         </div>;
     },
 
-    _renderAddSection: function() {
+    _renderBottomButtons: function() {
         return <div className="perseus-editor-row">
             <div className="perseus-editor-left-cell">
                 <a
@@ -239,6 +245,19 @@ const ArticleEditor = React.createClass({
                     }}
                 >
                     <InlineIcon {...iconPlus} /> Add a section
+                </a>
+               &nbsp;
+                <a
+                    href="#"
+                    className="simple-button orange"
+                    onClick={() => {
+                        this.setState({
+                            highlightLint: !this.state.highlightLint,
+                        });
+                    }}
+                >
+                    <InlineIcon {...iconExclamationSign} />
+                    { this.state.highlightLint ? " Linter off" : " Linter on" }
                 </a>
             </div>
         </div>;

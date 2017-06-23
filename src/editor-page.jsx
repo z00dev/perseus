@@ -72,6 +72,7 @@ var EditorPage = React.createClass({
             ),
             gradeMessage: "",
             wasAnswered: false,
+            highlightLint: true,
         };
     },
 
@@ -126,7 +127,7 @@ var EditorPage = React.createClass({
                 apiOptions: deviceBasedApiOptions,
                 initialHintsVisible: 0,
                 device: this.props.previewDevice,
-                highlightLint: true,
+                highlightLint: this.state.highlightLint,
             }).extend(
                 _(this.props).pick("workAreaSelector",
                                    "solutionAreaSelector",
@@ -211,6 +212,21 @@ var EditorPage = React.createClass({
                         onViewportSizeChanged={
                             this.props.onPreviewDeviceChange}
                     />
+                }
+
+                {!this.props.jsonMode &&
+                    <button
+                        style={{marginLeft: 10, padding: 6}}
+                        onClick={() => {
+                            this.setState({
+                                highlightLint: !this.state.highlightLint,
+                            });
+                        }}
+                    >
+                    { this.state.highlightLint
+                         ? "Turn linter off"
+                         : "Turn linter on" }
+                    </button>
                 }
             </div>
 

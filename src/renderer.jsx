@@ -268,6 +268,7 @@ var Renderer = React.createClass({
         // componentWillUpdate and the reuseMarkdown attr?
         this.reuseMarkdown = !oldJipt && !newJipt &&
             oldContent === newContent &&
+            this.props.highlightLint === nextProps.highlightLint &&
                 // yes, this is identity array comparison, but these are passed
                 // in from state in the item-renderer, so they should be
                 // identity equal unless something changed, and it's expensive
