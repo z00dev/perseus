@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 
         ':hover + div': {
             display: 'inline-block',
-        }
+        },
     },
     hidden: {
         display: "none",

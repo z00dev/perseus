@@ -144,7 +144,7 @@ const PreviewFrame = React.createClass({
             } else if (this.state.type === "article") {
                 return <div
                     className={perseusClass}
-                    style={this.props.isMobile ? {margin: 16} : {margin: 30}}
+                    style={this.props.isMobile ? {margin: 0} : {margin: 30}}
                 >
                     <ArticleRenderer
                         {...updatedData}
@@ -154,7 +154,7 @@ const PreviewFrame = React.createClass({
             } else if (this.state.type === "article-all") {
                 return <div
                     className={perseusClass}
-                    style={this.props.isMobile ? {margin: 16} : {margin: 30}}
+                    style={this.props.isMobile ? {margin: 0} : {margin: 30}}
                 >
                     {updatedData.map((data, i) => {
                         return <ArticleRenderer

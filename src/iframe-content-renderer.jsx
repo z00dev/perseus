@@ -116,6 +116,16 @@ const IframeContentRenderer = React.createClass({
         }
         this._frame.dataset.id = this.iframeID;
 
+        if (this.props.seamless) {
+            // The seamless prop is the same as the "nochrome" prop that
+            // gets passed to DeviceFramer. If it is set, then we're going
+            // to be displaying editor previews and want to leave some room
+            // for lint indicators in the right margin. We use the dataset
+            // as above to pass this information on to the perseus-frame
+            // component inside the iframe
+            this._frame.dataset.lintGutter = true;
+        }
+
         // To make sure the value of location.href inside the iframe is the
         // same as the location of the parent, we wait for the iframe to
         // load before writing contents. Without the wait, the location
