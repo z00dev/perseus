@@ -20,7 +20,7 @@ const InlineIcon = require("./components/inline-icon.jsx");
 const JsonEditor = require("./json-editor.jsx");
 const DeviceFramer = require("./components/device-framer.jsx");
 const IframeContentRenderer = require("./iframe-content-renderer.jsx");
-const HUD = require("./gorgon/hud.jsx");
+const HUD = require("./components/hud.jsx");
 
 const rendererProps = React.PropTypes.shape({
     content: React.PropTypes.string,

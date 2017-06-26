@@ -12,7 +12,7 @@ var FixPassageRefs = require("./util/fix-passage-refs.jsx");
 var ItemEditor = require("./item-editor.jsx");
 var JsonEditor = require("./json-editor.jsx");
 var ViewportResizer = require("./components/viewport-resizer.jsx");
-const HUD = require("./gorgon/hud.jsx");
+const HUD = require("./components/hud.jsx");
 
 var EditorPage = React.createClass({
     propTypes: {
