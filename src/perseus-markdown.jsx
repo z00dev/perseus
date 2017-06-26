@@ -8,7 +8,7 @@ var _ = require("underscore");
 var SimpleMarkdown = require("simple-markdown");
 var TeX = require("react-components/tex.jsx");
 var Util = require("./util.js");
-const Lint = require("./gorgon/lint.jsx");
+const Lint = require("./components/lint.jsx");
 
 /**
  * This match function matches math in `$`s, such as:
