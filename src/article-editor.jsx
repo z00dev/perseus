@@ -14,16 +14,13 @@ const _ = require("underscore");
 
 const ApiOptions = require("./perseus-api.jsx").Options;
 const Editor = require("./editor.jsx");
-const {
-    iconCircleArrowDown,
-    iconCircleArrowUp,
-    iconPlus,
-    iconTrash,
-    iconExclamationSign} =  require("./icon-paths.js");
+const {iconCircleArrowDown, iconCircleArrowUp, iconPlus, iconTrash} =
+    require("./icon-paths.js");
 const InlineIcon = require("./components/inline-icon.jsx");
 const JsonEditor = require("./json-editor.jsx");
 const DeviceFramer = require("./components/device-framer.jsx");
 const IframeContentRenderer = require("./iframe-content-renderer.jsx");
+const HUD = require("./gorgon/hud.jsx");
 
 const rendererProps = React.PropTypes.shape({
     content: React.PropTypes.string,
@@ -228,11 +225,12 @@ const ArticleEditor = React.createClass({
                     </div>,
                 ];
             })}
-            {this._renderBottomButtons()}
+            {this._renderAddSection()}
+            {this._renderLinterHUD()}
         </div>;
     },
 
-    _renderBottomButtons: function() {
+    _renderAddSection: function() {
         return <div className="perseus-editor-row">
             <div className="perseus-editor-left-cell">
                 <a
@@ -246,21 +244,20 @@ const ArticleEditor = React.createClass({
                 >
                     <InlineIcon {...iconPlus} /> Add a section
                 </a>
-               &nbsp;
-                <a
-                    href="#"
-                    className="simple-button orange"
-                    onClick={() => {
-                        this.setState({
-                            highlightLint: !this.state.highlightLint,
-                        });
-                    }}
-                >
-                    <InlineIcon {...iconExclamationSign} />
-                    { this.state.highlightLint ? " Linter off" : " Linter on" }
-                </a>
             </div>
         </div>;
+    },
+
+    _renderLinterHUD: function() {
+        return <HUD
+            message="Style warnings"
+            enabled={this.state.highlightLint}
+            onClick={() => {
+                this.setState({
+                    highlightLint: !this.state.highlightLint,
+                });
+            }}
+        />;
     },
 
     _renderIframePreview: function(i, nochrome) {

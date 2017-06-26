@@ -12,6 +12,7 @@ var FixPassageRefs = require("./util/fix-passage-refs.jsx");
 var ItemEditor = require("./item-editor.jsx");
 var JsonEditor = require("./json-editor.jsx");
 var ViewportResizer = require("./components/viewport-resizer.jsx");
+const HUD = require("./gorgon/hud.jsx");
 
 var EditorPage = React.createClass({
     propTypes: {
@@ -215,18 +216,15 @@ var EditorPage = React.createClass({
                 }
 
                 {!this.props.jsonMode &&
-                    <button
-                        style={{marginLeft: 10, padding: 6}}
+                    <HUD
+                        message="Style warnings"
+                        enabled={this.state.highlightLint}
                         onClick={() => {
                             this.setState({
                                 highlightLint: !this.state.highlightLint,
                             });
                         }}
-                    >
-                    { this.state.highlightLint
-                         ? "Turn linter off"
-                         : "Turn linter on" }
-                    </button>
+                    />
                 }
             </div>
 
@@ -266,6 +264,7 @@ var EditorPage = React.createClass({
                     deviceType={this.props.previewDevice}
                     apiOptions={deviceBasedApiOptions}
                     frameSource={this.props.frameSource}
+                    highlightLint={this.state.highlightLint}
                 />
             }
         </div>;
