@@ -2093,7 +2093,51 @@ _.extend(GraphUtils.Graphie.prototype, {
             circle.perim.remove();
         };
 
-        $(circle.perim.node).css("cursor", "move");
+        // Define a set of axes using polar coordinates to specify
+        // which resizing cursor we want to show based on where the
+        // mouse position lies in relation to the circle's center.
+        // The first two columns in cursorAxes refer to the minimum
+        // and maximum angle values bounding a circle sector, and
+        // the third column refers to the cursor name that will be
+        // applied if the mouse position falls inside the given sector.
+        const cursorAxes = [
+            [Math.PI * -1.000, Math.PI * -0.875, "ew-resize"],
+            [Math.PI * -0.875, Math.PI * -0.625, "nesw-resize"],
+            [Math.PI * -0.625, Math.PI * -0.375, "ns-resize"],
+            [Math.PI * -0.375, Math.PI * -0.125, "nwse-resize"],
+            [Math.PI * -0.125, Math.PI * 0.125, "ew-resize"],
+            [Math.PI * 0.125, Math.PI * 0.375, "nesw-resize"],
+            [Math.PI * 0.375, Math.PI * 0.625, "ns-resize"],
+            [Math.PI * 0.625, Math.PI * 0.875, "nwse-resize"],
+            [Math.PI * 0.875, Math.PI * 1.000, "ew-resize"],
+        ];
+
+        // When the mouse moves along the circle's perimeter, we
+        // dynamically set a CSS rule to show the correct
+        // bidirectional cursor so a student knows they can resize
+        // our circle. To do this, we convert the x and y coordinates
+        // of the mouse position into polar coordinates and use the
+        // defined cursorAxes above to set our rule.
+        $(circle.perim.node).on(
+            "vmousemove", event => {
+                let [x, y] = this.getMouseCoord(event);
+
+                x -= circle.center[0];
+                y -= circle.center[1];
+
+                const theta = Math.atan2(y, x);
+
+                cursorAxes.forEach(function(axes) {
+                    const [min, max, cursorName] = axes;
+                    if (theta >= min && theta < max) {
+                        $(circle.perim.node).css("cursor", cursorName);
+                    }
+                });
+            }
+        );
+
+        // Set a default resizing-friendly cursor to be safe.
+        $(circle.perim.node).css("cursor", "nesw-resize");
 
         // Prevent the page from scrolling when we grab and drag the circle on
         // a mobile device.
@@ -2679,8 +2723,8 @@ function Protractor(graph, center) {
     this.rotateHandle = graph.addMovablePoint({
         bounded: false,
         coord: [
-            Math.sin(275 * Math.PI / 180) * (r + 0.5) + this.cx,
-            Math.cos(275 * Math.PI / 180) * (r + 0.5) + this.cy,
+            Math.sin(275 * Math.PI / 180) * r + this.cx,
+            Math.cos(275 * Math.PI / 180) * r + this.cy,
         ],
         onMove: function(x, y) {
             const angle = Math.atan2(pro.centerPoint.coord[1] - y, pro.centerPoint.coord[0] - x) * 180 / Math.PI;
@@ -2689,7 +2733,7 @@ function Protractor(graph, center) {
     });
 
     // Add a constraint so the point moves in a circle
-    this.rotateHandle.constraints.fixedDistance.dist = r + 0.5;
+    this.rotateHandle.constraints.fixedDistance.dist = r;
     this.rotateHandle.constraints.fixedDistance.point = this.centerPoint;
 
     // Remove the default dot added by the movablePoint since we have our double-arrow thing
@@ -2707,10 +2751,14 @@ function Protractor(graph, center) {
     const $mouseTarget = $(self.rotateHandle.mouseTarget.getMouseTarget());
     $mouseTarget.bind("vmousedown", function(event) {
         isDragging = true;
+        $mouseTarget.css("cursor", "-webkit-grabbing");
+        $mouseTarget.css("cursor", "grabbing");
         arrow.animate({ scale: 1.5, fill: KhanColors.INTERACTING }, 50);
 
         $(document).bind("vmouseup.rotateHandle", function(event) {
             isDragging = false;
+            $mouseTarget.css("cursor", "-webkit-grab");
+            $mouseTarget.css("cursor", "grab");
 
             if (!isHighlight()) {
                 arrow.animate({ scale: 1.0, fill: KhanColors.INTERACTIVE }, 50);
@@ -2734,6 +2782,8 @@ function Protractor(graph, center) {
     const setNodes = $.map(this.set, function(el) { return el.node; });
     this.makeTranslatable = function makeTranslatable() {
         $(setNodes).css("cursor", "move");
+        $mouseTarget.css("cursor", "-webkit-grab");
+        $mouseTarget.css("cursor", "grab");
 
         $(setNodes).bind("vmousedown", function(event) {
             event.preventDefault();
@@ -2764,7 +2814,6 @@ function Protractor(graph, center) {
             });
         });
     };
-
 
     this.rotation = 0;
 
@@ -2815,8 +2864,8 @@ function Protractor(graph, center) {
             step: function(now, fx) {
                 pro.rotate(now, true);
                 pro.rotateHandle.setCoord([
-                    Math.sin((now + 275) * Math.PI / 180) * (r + 0.5) + pro.centerPoint.coord[0],
-                    Math.cos((now + 275) * Math.PI / 180) * (r + 0.5) + pro.centerPoint.coord[1],
+                    Math.sin((now + 275) * Math.PI / 180) * r + pro.centerPoint.coord[0],
+                    Math.cos((now + 275) * Math.PI / 180) * r + pro.centerPoint.coord[1],
                 ]);
             },
         });
