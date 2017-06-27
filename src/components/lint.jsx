@@ -49,8 +49,8 @@ const Lint = React.createClass({
             >
                 <span className={css(styles.indicator)} />
                 <div className={css(styles.tooltip)}>
-                    {this.props.message.split("\n\n").map(m => (
-                        <p className={css(styles.tooltipParagraph)}>
+                    {this.props.message.split("\n\n").map((m, i) => (
+                        <p key={i} className={css(styles.tooltipParagraph)}>
                             <span className={css(styles.warning)}>
                                 Warning:{" "}
                             </span>
@@ -219,7 +219,6 @@ const styles = StyleSheet.create({
         fontSize: "12px",
         lineHeight: "15px",
         width: "320px",
-        padding: "6px",
         borderRadius: "4px",
     },
 
@@ -229,21 +228,20 @@ const styles = StyleSheet.create({
     // the standard CSS trick for drawing triangles with a thick border.
     tail: {
         position: "absolute",
-        right: 12, // This should match the right property of the tooltip
+        right: 16,
         bottom: -12,
         width: 0,
         height: 0,
         // This is the CSS triangle trick
-        borderLeft: "12px solid transparent",
-        borderRight: "12px solid transparent",
+        borderLeft: "8px solid transparent",
+        borderRight: "8px solid transparent",
         borderTop: "12px solid " + constants.gray17,
     },
 
-    // We use <p> elements inside the tooltip to separate multiple warnings
-    // from each other. But to make this work we need to cut down on their
-    // default margins
+    // Each warning in the tooltip is its own <p>. They are 12 pixels from
+    // the edges of the tooltip and 12 pixels from each other.
     tooltipParagraph: {
-        margin: 6,
+        margin: 12,
     },
 
     // The text "Warning" inside the tooltip is highlighted like this
