@@ -72,6 +72,7 @@ function runLinter(tree, highlight, rules) {
                 type: "lint",
                 content: node,
                 message: nodeWarnings.map(w => w.message).join('\n\n'),
+                ruleName: nodeWarnings[0].rule,
             });
         }
     });

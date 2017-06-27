@@ -429,6 +429,7 @@ var rules = _.extend({}, SimpleMarkdown.defaultRules, {
         react: (node, output, state) => {
             return <Lint
                 message={node.message}
+                ruleName={node.ruleName}
                 inline={isInline(node.content)}
             >
                 {output(node.content, state)}

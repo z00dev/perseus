@@ -120,7 +120,7 @@ const PreviewFrame = React.createClass({
             if (this.state.type === "question") {
                 return <div
                     className={perseusClass}
-                    style={this.props.isMobile ? {} : {margin: 30}}
+                    style={this.props.isMobile ? {} : {margin: "30px 0"}}
                     ref="container"
                 >
                     <ItemRenderer
@@ -133,7 +133,7 @@ const PreviewFrame = React.createClass({
             } else if (this.state.type === "hint") {
                 return <div
                     className={perseusClass}
-                    style={this.props.isMobile ? {} : {margin: 30}}
+                    style={this.props.isMobile ? {} : {margin: "30px 0"}}
                     ref="container"
                 >
                     <HintRenderer
@@ -144,7 +144,7 @@ const PreviewFrame = React.createClass({
             } else if (this.state.type === "article") {
                 return <div
                     className={perseusClass}
-                    style={this.props.isMobile ? {margin: 0} : {margin: 30}}
+                    style={this.props.isMobile ? {} : {margin: "30px 0"}}
                 >
                     <ArticleRenderer
                         {...updatedData}
@@ -154,7 +154,7 @@ const PreviewFrame = React.createClass({
             } else if (this.state.type === "article-all") {
                 return <div
                     className={perseusClass}
-                    style={this.props.isMobile ? {margin: 0} : {margin: 30}}
+                    style={this.props.isMobile ? {} : {margin: "30px 0"}}
                 >
                     {updatedData.map((data, i) => {
                         return <ArticleRenderer

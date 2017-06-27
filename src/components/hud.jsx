@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: "18px",
         color: "#ffffff",
+        userSelect: "none",
     },
 
     icon: {
@@ -140,19 +141,19 @@ const styles = StyleSheet.create({
     },
 
     enabled: {
-        backgroundColor: "#e07d10",
+        backgroundColor: "#f86700",
         ":hover": {
-            backgroundColor: "#ffbe26",
+            backgroundColor: "#df5c00",
         },
         ":active": {
-            backgroundColor: "#a75a05",
+            backgroundColor: "#c75300",
         },
     },
 
     disabled: {
         backgroundColor: "#babec2",
         ":hover": {
-            backgroundColor: "#d6d8da",
+            backgroundColor: "#a7abae",
         },
         ":active": {
             backgroundColor: "#888d93",

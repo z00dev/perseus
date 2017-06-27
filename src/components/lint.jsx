@@ -1,74 +1,227 @@
 /**
- * A lint highlighter, used to flag results from Gorgon that we want to
- * warn an editor about before submitting to the live site.
+ * This component renders "lint" nodes in a markdown parse tree. Lint nodes
+ * are inserted into the tree by the Gorgon linter (see src/gorgon/gorgon.js).
  *
- */
+ * This component serves multiple purposes
+ *
+ * 1) It renders a small circle in the right margin to indicate that there
+ * is lint on (or near) that line.
+ *
+ * 2) The area around the circle is hoverable: when the mouse moves over it
+ * the linty content is highlighted and a tooltip is displayed that explains
+ * what the problem is.
+ *
+ * 3) The hoverable area is also an HTML <a> tag. Clicking on it opens
+ * a new tab and links to additional details about the specific lint rule.
+ *
+ * The CSS required to position the circles in the right margin is tricky
+ * and it does not always work perfectly. When lint occurs on a block element
+ * that has a right margin (like anything blockquoted) the circle will appear
+ * to the left of where it belongs.  And if there is more
+ **/
 const React = require("react");
 const {StyleSheet, css} = require("aphrodite");
 
 const Lint = React.createClass({
     propTypes: {
+        // The children are the linty content we're highlighting
         children: React.PropTypes.node,
+        // Inline lint is highlighted differently than block lint.
         inline: React.PropTypes.bool,
+        // This is the text that appears in the tooltip
         message: React.PropTypes.string.isRequired,
+        // This is used as the fragment id (hash) in the URL of the link
+        ruleName: React.PropTypes.string.isRequired,
     },
-    render: function() {
+
+    // Render the <a> element that holds the indicator icon and the tooltip
+    // We pass different styles for the inline and block cases
+    renderLink: function(style) {
         return (
-            <div ref="container" className={css(styles.container)}>
-                <div ref="circle" className={css(styles.circle)} />
-                <div className={css(styles.box)}>
-                    <span className={css(styles.warning)}>Warning:</span>
+            <a
+                href={
+                    "https://khanacademy.org/r/linter-rules#" +
+                        this.props.ruleName
+                }
+                target="lint-help-window"
+                className={css(style)}
+            >
+                <div className={css(styles.indicator)} />
+                <div className={css(styles.tooltip)}>
+                    <span className={css(styles.warning)}>Warning: </span>
                     {this.props.message}
+                    <div className={css(styles.tail)} />
                 </div>
-                {this.props.children}
-            </div>
+            </a>
         );
+    },
+
+    // The main render method surrounds linty content with a block or
+    // inline container and the link element that displays the indicator
+    // and holds the tooltip.
+    render: function() {
+        if (this.props.inline) {
+            return (
+                <span className={css(styles.lintContainer)}>
+                    {this.renderLink(styles.inlinehovertarget)}
+                    <span>
+                        {this.props.children}
+                    </span>
+                </span>
+            );
+        } else {
+            return (
+                <div className={css(styles.lintContainer)}>
+                    {this.renderLink(styles.hovertarget)}
+                    <div>
+                        {this.props.children}
+                    </div>
+                </div>
+            );
+        }
     },
 });
 
 const styles = StyleSheet.create({
-    container: {
-        marginLeft: "-16px",
-        paddingLeft: "16px",
+    // This is the class of the outermost element.
+    // We use relative positioning so that the lint indicator can be
+    // positioned absolutely relative to the position of the linty container.
+    lintContainer: {
         position: "relative",
     },
-    circle: {
-        backgroundColor: "#ffbe26",
-        borderRadius: "8px",
-        height: "16px",
-        position: "absolute",
-        right: "-32px",
-        top: "8px",
-        width: "16px",
 
-        ':hover + div': {
-            display: 'inline-block',
+    // This is the main class for block lint. It is applied to the link element
+    // that is also the hover target.
+    hovertarget: {
+        // Absolute positioning relative to the lintContainer element
+        position: "absolute",
+        // Top of the hover target is aligned with the top of the linty block
+        top: 0,
+
+        // We want the hover target in the right margin. It is 24px wide, but
+        // we have to offset it another 16px because of margins in the
+        // Perseus content. I'm not sure where the 16px margin is set
+        // so if that changes, this number will also have to be changed.
+        // This is the part of the CSS that doesn't work right when
+        // applied to things like blockquotes that have different right
+        // margins.
+        right: -40,
+
+        // The hover target is a 24x24 block element.
+        display: "block",
+        width: 24,
+        height: 24,
+
+        // The tooltip is in a div element inside the hover target.
+        // This style displays it on hover
+        ":hover div": {
+            display: "block",
+        },
+
+        // The linty content is in a <div> sibling that follows the
+        // hover target. This style highlights it on hover. We do an outline
+        // rather than a border so we don't affect the layout. We could also
+        // set the background color, but we don't because we can't reliably
+        // set the text color of this block element. We could use
+        // filter: invert(100%) if we want more visual change on hover here.
+        ":hover ~ div": {
+            outline: "solid #f86700 1px",
         },
     },
-    hidden: {
-        display: "none",
+
+    // This is how we position the hover target for inline lint.
+    inlinehovertarget: {
+        // For inline lint we position the hover target with a float:right
+        // We can't use absolute positioning as we do in the block case
+        // because the horizontal position is not predictable in the
+        // inline case.
+        float: "right",
+
+        // We still have to make the hover target relative so that the
+        // tooltip can be positioned relative to it.
+        position: "relative",
+
+        // See the comment above about the extra 16px of offset needed here.
+        marginRight: -40,
+
+        // The hover target is a 24x24 block. Same as the block case
+        display: "block",
+        width: 24,
+        height: 24,
+
+        // The tooltip is in a div element inside the hover target.
+        // This style displays it on hover. This is the same as the block case.
+        ":hover div": {
+            display: "block",
+        },
+
+        // The linty content is in a <span> sibling that follows the
+        // hover target. This style highlights it on hover. In this case
+        // we can just set the foreground and background color to really
+        // draw attention to the linty content.
+        ":hover ~ span": {
+            backgroundColor: "#f86700",
+            color: "white",
+        },
     },
-    floating: {
-        position: "absolute",
+
+    // This is the class for the lint indicator in the margin.
+    // It is an orangish circle 8px in diameter. If, in the future
+    // we add lint errors to the existing warnings, we'll use a different
+    // color to distinguish errors from warnings.
+    indicator: {
+        backgroundColor: "#c75300",
+        borderRadius: 4,
+        height: 8,
+        width: 8,
+        margin: 8,
     },
-    box: {
-        backgroundColor: "#21242c",
-        borderRadius: "4px",
-        color: "white",
-        display: "none",
-        fontSize: "80%",
-        left: "0",
-        lineHeight: "1.25",
-        maxWidth: "400px",
-        opacity: "0.9",
-        padding: "12px",
+
+    // These are the styles for the tooltip
+    tooltip: {
+        // Absolute positioning relative to the lint indicator circle.
         position: "absolute",
-        top: "0px",
+        right: -12,
+        bottom: 32,
+
+        // The tooltip is hidden by default; only displayed on hover
+        display: "none",
+
+        // When it is displayed, it goes on top!
         zIndex: "1000",
+
+        // These styles control what the tooltip looks like
+        color: "white",
+        backgroundColor: "#21242c",
+        opacity: "0.9",
+        fontFamily: "'Proxima Nova',sans-serif",
+        fontSize: "12px",
+        lineHeight: "15px",
+        width: "320px",
+        padding: "12px",
+        borderRadius: "4px",
     },
+
+    // We give the tooltip a little triangular "tail" that points down at
+    // the lint indicator circle. This is inside the tooltip and positioned
+    // relative to it. It also shares the opacity of the tooltip. We're using
+    // the standard CSS trick for drawing triangles with a thick border.
+    tail: {
+        position: "absolute",
+        right: 12, // This should match the right property of the tooltip
+        bottom: -12,
+        width: 0,
+        height: 0,
+        // This is the CSS triangle trick
+        borderLeft: "12px solid transparent",
+        borderRight: "12px solid transparent",
+        borderTop: "12px solid #21242c",
+    },
+
+    // The text "Warning" inside the tooltip is highlighted like this
     warning: {
-        color: "#ffbe26",
-        paddingRight: "4px",
+        color: "#f86700",
+        fontFamily: "'Proxima Nova Semibold',sans-serif",
     },
 });
 
