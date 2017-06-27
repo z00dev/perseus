@@ -46,7 +46,7 @@ const Lint = React.createClass({
                 target="lint-help-window"
                 className={css(style)}
             >
-                <div className={css(styles.indicator)} />
+                <span className={css(styles.indicator)} />
                 <div className={css(styles.tooltip)}>
                     <span className={css(styles.warning)}>Warning: </span>
                     {this.props.message}
@@ -112,6 +112,12 @@ const styles = StyleSheet.create({
         width: 24,
         height: 24,
 
+        // The indicator is in a span inside the hover target.
+        // This style changes its color on hover
+        ":hover > span": {
+            backgroundColor: "#df5c00",
+        },
+
         // The tooltip is in a div element inside the hover target.
         // This style displays it on hover
         ":hover div": {
@@ -149,6 +155,13 @@ const styles = StyleSheet.create({
         width: 24,
         height: 24,
 
+        // The indicator is in a span inside the hover target.
+        // This style changes its color on hover.
+        // This is the same as the block case.
+        ":hover > span": {
+            backgroundColor: "#df5c00",
+        },
+
         // The tooltip is in a div element inside the hover target.
         // This style displays it on hover. This is the same as the block case.
         ":hover div": {
@@ -170,7 +183,8 @@ const styles = StyleSheet.create({
     // we add lint errors to the existing warnings, we'll use a different
     // color to distinguish errors from warnings.
     indicator: {
-        backgroundColor: "#c75300",
+        display: "block", // Marked up with span, but displayed as a block
+        backgroundColor: "#f86700",
         borderRadius: 4,
         height: 8,
         width: 8,
