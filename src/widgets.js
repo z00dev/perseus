@@ -8,6 +8,7 @@ var DEFAULT_ALIGNMENT = "block";
 var DEFAULT_SUPPORTED_ALIGNMENTS = ["default"];
 var DEFAULT_STATIC = false;
 var DEFAULT_TRACKING = "";
+var DEFAULT_LINTABLE = false;
 
 var widgets = {};
 var editors = {};
@@ -363,9 +364,13 @@ var Widgets = {
         return (widgetInfo && widgetInfo.tracking) || DEFAULT_TRACKING;
     },
 
+    /**
+     * Returns true if this widget can include lintable markdown text
+     * and supports a highlightLint prop, or false otherwise.
+     */
     isLintable: function(type) {
         var widgetInfo = widgets[type];
-        return (widgetInfo && widgetInfo.isLintable) || false;
+        return (widgetInfo && widgetInfo.isLintable) || DEFAULT_LINTABLE;
     },
 };
 

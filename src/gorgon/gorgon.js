@@ -66,12 +66,19 @@ function runLinter(tree, highlight, rules) {
         });
 
         // If there were any warnings on this node, and if we're highlighting
-        // lint, then reparent the node so we can highlight it
+        // lint, then reparent the node so we can highlight it. Note that
+        // a single node can have multiple warnings. If this happends we
+        // concatenate the warnings and newline separate them. (The lint.jsx
+        // component that displays the warnings may want to convert the
+        // newlines into <br> tags.) We also provide a lint rule name
+        // so that lint.jsx can link to a document that provides more details
+        // on that particular lint rule. If there is more than one warning
+        // we only link to the first rule, however.
         if (highlight && nodeWarnings.length) {
             state.replace({
                 type: "lint",
                 content: node,
-                message: nodeWarnings.map(w => w.message).join('\n\n'),
+                message: nodeWarnings.map(w => w.message).join("\n\n"),
                 ruleName: nodeWarnings[0].rule,
             });
         }
@@ -79,7 +86,6 @@ function runLinter(tree, highlight, rules) {
 
     return warnings;
 }
-
 
 //
 // TODO(davidflanagan):

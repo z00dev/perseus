@@ -21,6 +21,7 @@
  **/
 const React = require("react");
 const {StyleSheet, css} = require("aphrodite");
+const constants = require("../styles/constants.js");
 
 const Lint = React.createClass({
     propTypes: {
@@ -48,8 +49,14 @@ const Lint = React.createClass({
             >
                 <span className={css(styles.indicator)} />
                 <div className={css(styles.tooltip)}>
-                    <span className={css(styles.warning)}>Warning: </span>
-                    {this.props.message}
+                    {this.props.message.split("\n\n").map(m => (
+                        <p className={css(styles.tooltipParagraph)}>
+                            <span className={css(styles.warning)}>
+                                Warning:{" "}
+                            </span>
+                            {m}
+                        </p>
+                    ))}
                     <div className={css(styles.tail)} />
                 </div>
             </a>
@@ -63,7 +70,7 @@ const Lint = React.createClass({
         if (this.props.inline) {
             return (
                 <span className={css(styles.lintContainer)}>
-                    {this.renderLink(styles.inlinehovertarget)}
+                    {this.renderLink(styles.inlineHoverTarget)}
                     <span>
                         {this.props.children}
                     </span>
@@ -72,7 +79,7 @@ const Lint = React.createClass({
         } else {
             return (
                 <div className={css(styles.lintContainer)}>
-                    {this.renderLink(styles.hovertarget)}
+                    {this.renderLink(styles.hoverTarget)}
                     <div>
                         {this.props.children}
                     </div>
@@ -92,7 +99,7 @@ const styles = StyleSheet.create({
 
     // This is the main class for block lint. It is applied to the link element
     // that is also the hover target.
-    hovertarget: {
+    hoverTarget: {
         // Absolute positioning relative to the lintContainer element
         position: "absolute",
         // Top of the hover target is aligned with the top of the linty block
@@ -115,7 +122,7 @@ const styles = StyleSheet.create({
         // The indicator is in a span inside the hover target.
         // This style changes its color on hover
         ":hover > span": {
-            backgroundColor: "#df5c00",
+            backgroundColor: constants.warningColorHover,
         },
 
         // The tooltip is in a div element inside the hover target.
@@ -131,12 +138,12 @@ const styles = StyleSheet.create({
         // set the text color of this block element. We could use
         // filter: invert(100%) if we want more visual change on hover here.
         ":hover ~ div": {
-            outline: "solid #f86700 1px",
+            outline: "1px solid " + constants.warningColor,
         },
     },
 
     // This is how we position the hover target for inline lint.
-    inlinehovertarget: {
+    inlineHoverTarget: {
         // For inline lint we position the hover target with a float:right
         // We can't use absolute positioning as we do in the block case
         // because the horizontal position is not predictable in the
@@ -159,7 +166,7 @@ const styles = StyleSheet.create({
         // This style changes its color on hover.
         // This is the same as the block case.
         ":hover > span": {
-            backgroundColor: "#df5c00",
+            backgroundColor: constants.warningColorHover,
         },
 
         // The tooltip is in a div element inside the hover target.
@@ -173,8 +180,8 @@ const styles = StyleSheet.create({
         // we can just set the foreground and background color to really
         // draw attention to the linty content.
         ":hover ~ span": {
-            backgroundColor: "#f86700",
-            color: "white",
+            backgroundColor: constants.warningColor,
+            color: constants.white,
         },
     },
 
@@ -184,7 +191,7 @@ const styles = StyleSheet.create({
     // color to distinguish errors from warnings.
     indicator: {
         display: "block", // Marked up with span, but displayed as a block
-        backgroundColor: "#f86700",
+        backgroundColor: constants.warningColor,
         borderRadius: 4,
         height: 8,
         width: 8,
@@ -205,14 +212,14 @@ const styles = StyleSheet.create({
         zIndex: "1000",
 
         // These styles control what the tooltip looks like
-        color: "white",
-        backgroundColor: "#21242c",
+        color: constants.white,
+        backgroundColor: constants.gray17,
         opacity: "0.9",
-        fontFamily: "'Proxima Nova',sans-serif",
+        fontFamily: constants.baseFontFamily,
         fontSize: "12px",
         lineHeight: "15px",
         width: "320px",
-        padding: "12px",
+        padding: "6px",
         borderRadius: "4px",
     },
 
@@ -229,13 +236,20 @@ const styles = StyleSheet.create({
         // This is the CSS triangle trick
         borderLeft: "12px solid transparent",
         borderRight: "12px solid transparent",
-        borderTop: "12px solid #21242c",
+        borderTop: "12px solid " + constants.gray17,
+    },
+
+    // We use <p> elements inside the tooltip to separate multiple warnings
+    // from each other. But to make this work we need to cut down on their
+    // default margins
+    tooltipParagraph: {
+        margin: 6,
     },
 
     // The text "Warning" inside the tooltip is highlighted like this
     warning: {
-        color: "#f86700",
-        fontFamily: "'Proxima Nova Semibold',sans-serif",
+        color: constants.warningColor,
+        fontFamily: constants.boldFontFamily,
     },
 });
 

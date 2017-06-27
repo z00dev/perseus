@@ -1,5 +1,6 @@
 const React = require("react");
 const {StyleSheet, css} = require("aphrodite");
+const constants = require("../styles/constants.js");
 
 const HUD = React.createClass({
     propTypes: {
@@ -8,6 +9,7 @@ const HUD = React.createClass({
         onClick: React.PropTypes.func.isRequired,
     },
 
+    // Displays a stylized open eye: lint warnings are visible
     renderVisibleIcon: function() {
         return (
             <svg
@@ -39,6 +41,7 @@ const HUD = React.createClass({
         );
     },
 
+    // Displays a stylized eye with a line through it: I don't want to see lint
     renderHiddenIcon: function() {
         return (
             <svg
@@ -103,7 +106,7 @@ const HUD = React.createClass({
         }
 
         return (
-            <div
+            <button
                 className={css(styles.hud, state)}
                 onClick={e => {
                     this.props.onClick();
@@ -111,7 +114,7 @@ const HUD = React.createClass({
             >
                 {icon}
                 {this.props.message}
-            </div>
+            </button>
         );
     },
 });
@@ -125,11 +128,12 @@ const styles = StyleSheet.create({
         height: 36,
         padding: "9px 16px",
         borderRadius: 18,
-        fontFamily: "'Proxima Nova Semibold', sans-serif",
-        fontSize: 15,
+        fontFamily: constants.boldFontFamily,
+        fontSize: "15px",
         lineHeight: "18px",
-        color: "#ffffff",
+        color: constants.white,
         userSelect: "none",
+        borderWidth: 0, // <button> gives us a border by default
     },
 
     icon: {
@@ -141,22 +145,22 @@ const styles = StyleSheet.create({
     },
 
     enabled: {
-        backgroundColor: "#f86700",
+        backgroundColor: constants.warningColor,
         ":hover": {
-            backgroundColor: "#df5c00",
+            backgroundColor: constants.warningColorHover,
         },
         ":active": {
-            backgroundColor: "#c75300",
+            backgroundColor: constants.warningColorActive,
         },
     },
 
     disabled: {
-        backgroundColor: "#babec2",
+        backgroundColor: constants.gray76,
         ":hover": {
-            backgroundColor: "#a7abae",
+            backgroundColor: "#a1a5a9", // in between those two grays
         },
         ":active": {
-            backgroundColor: "#888d93",
+            backgroundColor: constants.gray68,
         },
     },
 });
