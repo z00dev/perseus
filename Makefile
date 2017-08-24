@@ -74,7 +74,7 @@ $(PERSEUS_NODE_BUILD_JS): install
 
 $(PERSEUS_DEMO_BUILD_JS): install
 	mkdir -p build
-	NODE_ENV=production INCLUDE_EDITORS=true ./node_modules/.bin/webpack --config webpack.config.demo-perseus.js
+	INCLUDE_EDITORS=true ./node_modules/.bin/webpack --config webpack.config.demo-perseus.js
 	mv $@ $@.tmp
 	echo '/*! Demo perseus | https://github.com/Khan/perseus */' > $@
 	$(call add_git_meta,$@)
@@ -122,6 +122,7 @@ server-offline:
 demo:
 	if [ -z $$TRAVIS ]; then echo "make demo must be run on travis"; exit 1; fi
 	git remote set-branches --add origin gh-pages # Travis only contains Master, so gh-pages must be added
+	git remote set-branches --add origin master # Travis only contains Master, so gh-pages must be added
 	git fetch origin
 	git checkout -B gh-pages origin/gh-pages
 	git reset --hard origin/master
