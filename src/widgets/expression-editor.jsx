@@ -34,7 +34,7 @@ var _makeNewKey = (answerForms) => {
   // be one past the largest key.
   var usedKeys = [];
   answerForms.forEach((ans) => { usedKeys[ans.key] = true; });
-  
+
   // then scan through the array to find the first unused (undefined) key
   for (var i = 0; i < usedKeys.length; i++) {
     if (!usedKeys[i]) {
